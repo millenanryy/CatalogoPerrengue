@@ -27,7 +27,7 @@ Todos os caminhos são relativos, então o projeto funciona tanto na raiz quanto
 index.html                  Conteúdo e estrutura semântica de todas as seções
 css/style.css               Estilos mobile-first, cores, fontes e responsividade
 js/main.js                  Barra de progresso, carrossel, menu, filtros e WhatsApp
-assets/img/                 Logos, banner do hero, banners do carrossel e produtos
+assets/img/                 Logos, banner do hero, banners do carrossel e fotos dos conjuntos
 fonts/                      Pasta para a fonte Dream Orphans (adicionar arquivo)
 ```
 
@@ -40,19 +40,24 @@ Cada produto é um bloco em `index.html`:
 ```html
 <article class="product-card" data-category="brincos" data-product="Nome da peça">
   ...
-  <img src="assets/img/produto-brincos-argola.svg" alt="..." ...>
-  <span class="badge badge--category">Brincos</span>
+  <img src="assets/img/conjunto-perola-ambar.webp" alt="..." ...>
+  <span class="badge badge--category">Conjuntos</span>
   <h3>Nome da peça</h3>
-  <p class="product-card__price"><small>R$</small> 79,90</p>
+  <p class="product-card__desc">Par de brincos, anel e pulseira.</p>
+  <p class="product-card__price"><small>R$</small> 59,90</p>
   <a class="btn btn-gold btn--card whatsapp-link" data-product="Nome da peça" ...>
     Comprar pelo WhatsApp
   </a>
 </article>
 ```
 
+Os nove conjuntos usam fotos reais em `assets/img/conjunto-*.webp`. Para marcar uma peça como vendida, adicione a classe `product-card--unavailable` ao card, troque o badge por `badge--unavailable` e use `<button class="btn btn--unavailable btn--card" disabled>Indisponível</button>` no lugar do link do WhatsApp.
+
 Para duplicar: copie o bloco, troque `data-category` (valores usados nos filtros: `brincos`, `colares`, `pulseiras`, `aneis`, `conjuntos`), `data-product`, o `src` da imagem, o nome, a descrição e o preço. O JavaScript monta automaticamente a URL do WhatsApp com o nome da peça. Se quiser adicionar uma categoria nova, crie um botão `.tab` com `data-filter` correspondente.
 
-As imagens atuais são ilustrações SVG de demonstração. Para usar fotos reais, coloque o arquivo em `assets/img/` e troque apenas o `src` da `<img>` (o mesmo valor serve para desktop e mobile).
+No momento, apenas a categoria **Conjuntos** tem peças cadastradas, com fotos reais em `assets/img/conjunto-*.webp`. Brincos, Colares, Pulseiras e Anéis exibem o aviso “Novidades em breve” no lugar de produtos ilustrativos: cada aviso é um bloco `.coming-soon` cujo `data-category` combina com a aba correspondente. Ao cadastrar uma peça de verdade, adicione o `.product-card` e remova o `.coming-soon` daquela categoria.
+
+Para usar fotos reais, coloque o arquivo em `assets/img/` e troque apenas o `src` da `<img>` (o mesmo valor serve para desktop e mobile).
 
 ### Banner do hero
 

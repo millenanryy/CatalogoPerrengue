@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" role="img" aria-label="Ilustração placeholder de acessório">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="34%" r="82%">
+      <stop offset="0" stop-color="#FFF6ED"/>
+      <stop offset="0.62" stop-color="#FFF6ED"/>
+      <stop offset="1" stop-color="#FFEDDC"/>
+    </radialGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#C5A059"/>
+      <stop offset="0.45" stop-color="#B89246"/>
+      <stop offset="1" stop-color="#B89246"/>
+    </linearGradient>
+    <linearGradient id="wine" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#B89246"/>
+      <stop offset="1" stop-color="#B89246"/>
+    </linearGradient>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="14" stdDeviation="13" flood-color="#2C3322" flood-opacity="0.17"/>
+    </filter>
+  </defs>
+  <rect width="800" height="800" fill="url(#bg)"/>
+  <circle cx="115" cy="135" r="54" fill="#FFF6ED" opacity="0.33"/><circle cx="670" cy="120" r="36" fill="#FFF6ED" opacity="0.33"/><circle cx="705" cy="670" r="68" fill="#FFF6ED" opacity="0.33"/><circle cx="110" cy="690" r="34" fill="#FFF6ED" opacity="0.33"/>
+  <rect x="140" y="110" width="520" height="580" rx="260" fill="none" stroke="#C5A059" stroke-opacity="0.22" stroke-width="2"/>
+  <g fill="#C5A059" opacity="0.5">
+    <polygon points="674.0,203.0 676.9,214.0 688.3,213.4 678.8,219.5 682.8,230.1 674.0,223.0 665.2,230.1 669.2,219.5 659.7,213.4 671.1,214.0" />
+    <polygon points="132.0,469.0 134.4,476.8 142.5,476.6 135.8,481.2 138.5,488.9 132.0,484.0 125.5,488.9 128.2,481.2 121.5,476.6 129.6,476.8" />
+  </g>
+  <g fill="url(#gold)" stroke="#B89246" stroke-width="3" stroke-linejoin="round" filter="url(#soft)">
+
+    <g transform="rotate(-13 400 425)">
+      <ellipse cx="400" cy="425" rx="218" ry="150" fill="none" stroke="url(#gold)" stroke-width="17"/>
+      <ellipse cx="400" cy="425" rx="218" ry="150" fill="none" stroke="#FFF6ED" stroke-width="2" opacity="0.55"/>
+    </g>
+    <g transform="translate(590 380)"><polygon points="0.0,-30.0 7.1,-9.7 28.5,-9.3 11.4,3.7 17.6,24.3 0.0,12.0 -17.6,24.3 -11.4,3.7 -28.5,-9.3 -7.1,-9.7" /></g>
+  </g>
+</svg>

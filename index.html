@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#3B432E">
+  <meta name="description" content="Catálogo digital da coleção de Natal da Perrengue Chic: acessórios femininos para presentear e completar o seu visual. Peça pelo WhatsApp.">
+  <title>Perrengue Chic | Coleção de Natal</title>
+
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+
+  <!-- Fontes: Poppins (textos) e Cormorant Garamond (fallback editorial da Dream Orphans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Habilita animações somente quando o JavaScript está disponível -->
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="stylesheet" href="css/style.css?v=5">
+</head>
+<body>
+  <a class="skip-link" href="#catalogo">Pular para o catálogo</a>
+
+  <!-- Barra de progresso da página -->
+  <div class="scroll-progress" aria-hidden="true"><span id="page-progress"></span></div>
+
+  <!-- ================================================================
+       CABEÇALHO FIXO VERDE / NAVEGAÇÃO
+       ================================================================ -->
+  <header class="site-header">
+    <nav class="navbar container" aria-label="Navegação principal">
+      <a class="navbar__brand" href="#inicio" aria-label="Perrengue Chic, voltar ao início">
+        <img src="assets/img/logo-perrengue-chic-creme.webp" alt="Acessórios Perrengue Chic" width="793" height="254" fetchpriority="high">
+      </a>
+
+      <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-principal">
+        <span class="menu-toggle__bar"></span>
+        <span class="menu-toggle__bar"></span>
+        <span class="menu-toggle__bar"></span>
+      </button>
+
+      <div class="navbar__collapse" id="menu-principal">
+        <ul class="navbar__links">
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#catalogo">Catálogo</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+        <a class="btn btn-gold btn--small navbar__cta" href="https://www.instagram.com/perrenguechic_/" target="_blank" rel="noopener noreferrer">
+          Acompanhe no Instagram
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ================================================================
+         SEÇÃO 1: HERO
+         A foto de Natal é aplicada como fundo de toda a seção no CSS
+         (css/style.css, bloco 5). Troque apenas o arquivo hero-natal.jpg.
+         ================================================================ -->
+    <section class="hero" id="inicio" aria-labelledby="hero-title">
+      <img class="hero__bg" src="assets/img/hero-natal.jpg" alt="" aria-hidden="true" width="1600" height="900" fetchpriority="high">
+      <div class="hero__overlay" aria-hidden="true"></div>
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <p class="eyebrow">Coleção Natal / Fim de Ano</p>
+          <h1 id="hero-title">O detalhe que <em>muda tudo</em></h1>
+          <p class="hero__lead">Acessórios para completar o seu visual ou <strong>surpreender alguém.</strong></p>
+
+          <div class="hero__actions">
+            <a class="btn btn-gold" href="#catalogo">Ver Catálogo de Natal</a>
+            <a class="btn btn-ghost" href="https://api.whatsapp.com/send/?phone=5583996158687&text&type=phone_number&app_absent=0&utm_source=ig" target="_blank" rel="noopener noreferrer">Falar no WhatsApp</a>
+          </div>
+
+          <ul class="hero__highlights" aria-label="Destaques da loja">
+            <li>Atendimento direto</li>
+            <li>Entregamos em toda Campina Grande</li>
+          </ul>
+        </div>
+      </div>
+
+      <a class="hero__scroll" href="#catalogo">
+        Explore a coleção
+        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 4v15m0 0-6-6m6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </section>
+
+    <!-- ================================================================
+         BANNERS EM CARROSSEL
+         Adicione ou troque slides duplicando um <figure class="banner-slide">
+         e um <button class="banner-dot">. O JavaScript faz o loop sozinho.
+         ================================================================ -->
+    <section class="banners" id="banners" aria-label="Destaques da Perrengue Chic">
+      <div class="container">
+        <div class="banners__viewport" id="banner-carousel" aria-live="polite">
+          <div class="banners__track">
+          <figure class="banner-slide is-active">
+            <img src="assets/img/banner-collab.webp" alt="Colab especial com a Minha T-Shirt e acessórios Perrengue Chic" width="1600" height="711" fetchpriority="high">
+          </figure>
+          <figure class="banner-slide">
+            <img src="assets/img/banner-loja.webp" alt="Perrengue Chic, sua loja online de acessórios em Campina Grande" width="1600" height="711" loading="lazy">
+          </figure>
+          <figure class="banner-slide">
+            <img src="assets/img/banner-natal.webp" alt="Coleção de Natal Perrengue Chic com acessórios e luzes festivas" width="1600" height="711" loading="lazy">
+          </figure>
+          <figure class="banner-slide banner-slide--clone" aria-hidden="true">
+            <img src="assets/img/banner-collab.webp" alt="" width="1600" height="711" loading="lazy">
+          </figure>
+          </div>
+        </div>
+        <div class="banners__dots" role="group" aria-label="Controle dos banners">
+          <button class="banner-dot is-active" type="button" data-slide="0" aria-label="Mostrar banner 1" aria-current="true"></button>
+          <button class="banner-dot" type="button" data-slide="1" aria-label="Mostrar banner 2"></button>
+          <button class="banner-dot" type="button" data-slide="2" aria-label="Mostrar banner 3"></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         SEÇÃO 2: CATÁLOGO INTERATIVO
+         Para duplicar um produto: copie um <article class="product-card">,
+         troque data-product, data-category, imagem, texto e preço.
+         O link do WhatsApp é gerado automaticamente pelo JS a partir de
+         data-product (e já vem pronto no HTML para quem estiver sem JS).
+         ================================================================ -->
+    <section class="section catalog" id="catalogo" aria-labelledby="catalogo-title">
+      <div class="container">
+        <header class="section-heading reveal">
+          <p class="eyebrow">Vitrine de fim de ano</p>
+          <h2 id="catalogo-title">Presentes que ficam na <em>memória</em></h2>
+          <p>Peças versáteis, delicadas e cheias de significado para celebrar quem você ama ou se presentear.</p>
+        </header>
+
+        <div class="catalog__toolbar reveal">
+          <div class="tabs" role="tablist" aria-label="Filtrar produtos por categoria">
+            <button class="tab is-active" type="button" role="tab" id="tab-todos" aria-controls="grade-produtos" aria-selected="true" data-filter="todos">Todos</button>
+            <button class="tab" type="button" role="tab" id="tab-brincos" aria-controls="grade-produtos" aria-selected="false" data-filter="brincos" tabindex="-1">Brincos</button>
+            <button class="tab" type="button" role="tab" id="tab-colares" aria-controls="grade-produtos" aria-selected="false" data-filter="colares" tabindex="-1">Colares</button>
+            <button class="tab" type="button" role="tab" id="tab-pulseiras" aria-controls="grade-produtos" aria-selected="false" data-filter="pulseiras" tabindex="-1">Pulseiras</button>
+            <button class="tab" type="button" role="tab" id="tab-aneis" aria-controls="grade-produtos" aria-selected="false" data-filter="aneis" tabindex="-1">Anéis</button>
+            <button class="tab" type="button" role="tab" id="tab-conjuntos" aria-controls="grade-produtos" aria-selected="false" data-filter="conjuntos" tabindex="-1">Conjuntos</button>
+          </div>
+          <p class="catalog__count"><span id="product-count">9</span> peças disponíveis</p>
+        </div>
+
+        <div class="products-grid" id="grade-produtos" role="tabpanel" aria-labelledby="tab-todos">
+          <!-- PRODUTO 01 -->
+          <article class="product-card reveal" data-category="brincos" data-product="Brincos Aurora Dourada">
+            <div class="product-card__image">
+              <img src="assets/img/produto-brincos-argola.svg" alt="Ilustração de brincos argola dourada com pequenas estrelas" loading="lazy" width="800" height="800">
+              <span class="badge badge--category">Brincos</span>
+              <span class="badge badge--edition">Edição Natal</span>
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__kicker">Peça ilustrativa</p>
+              <h3>Brincos Aurora Dourada</h3>
+              <p class="product-card__desc">Argolas delicadas com um toque de estrela para iluminar qualquer look.</p>
+              <div class="product-card__footer">
+                <p class="product-card__price"><small>R$</small> 79,90</p>
+                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=5583996158687&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brincos%20Aurora%20Dourada%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brincos Aurora Dourada" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PRODUTO 02 -->
+          <article class="product-card reveal" data-category="brincos" data-product="Brincos Estrela da Noite">
+            <div class="product-card__image">
+              <img src="assets/img/produto-brincos-estrela.svg" alt="Ilustração de brincos estrela dourada com pingente" loading="lazy" width="800" height="800">
+              <span class="badge badge--category">Brincos</span>
+              <span class="badge badge--edition">Edição Natal</span>
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__kicker">Peça ilustrativa</p>
+              <h3>Brincos Estrela da Noite</h3>
+              <p class="product-card__desc">O brilho da estrela guia em um desenho leve e cheio de personalidade.</p>
+              <div class="product-card__footer">
+                <p class="product-card__price"><small>R$</small> 89,90</p>
+                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=5583996158687&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brincos%20Estrela%20da%20Noite%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brincos Estrela da Noite" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PRODUTO 03 -->
+          <article class="product-card reveal" data-category="brincos" data-product="Brincos Pérola de Neve">
+            <div class="product-card__image">
+              <img src="assets/img/produto-brincos-perola.svg" alt="Ilustração de brincos dourados com pérolas brancas" loading="lazy" width="800" height="800">
+              <span class="badge badge--category">Brincos</span>
+              <span class="badge badge--edition">Edição Natal</span>
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__kicker">Peça ilustrativa</p>
+              <h3>Brincos Pérola de Neve</h3>
+              <p class="product-card__desc">Clássicos, românticos e perfeitos para uma produção de fim de ano.</p>
+              <div class="product-card__footer">
+                <p class="product-card__price"><small>R$</small> 94,90</p>
+                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=5583996158687&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brincos%20P%C3%A9rola%20de%20Neve%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brincos Pérola de Neve" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PRODUTO 04 -->
+          <article class="product-card reveal" data-category="colares" data-product="Colar Lua de Inverno">
+            <div class="product-card__image">
+              <img src="assets/img/produto-colar-lua.svg" alt="Ilustração de colar dourado com pingente de lua" loading="lazy" width="800" height="800">
+              <span class="badge badge--category">Colares</span>
+              <span class="badge badge--edition">Edição Natal</span>
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__kicker">Peça ilustrativa</p>
+              <h3>Colar Lua de Inverno</h3>
+              <p class="product-card__desc">Corrente fina e lua delicada, o equilíbrio entre suavidade e brilho.</p>
+              <div class="product-card__footer">
+                <p class="product-card__price"><small>R$</small> 129,90</p>
+                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=5583996158687&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Colar%20Lua%20de%20Inverno%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Colar Lua de Inverno" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PRODUTO 05 -->
+          <article class="product-card reveal" data-category="colares" data-product="Colar Estrela Cadente">
+            <div class="product-card__image">
+              <img src="assets/img/produto-colar-estrela.svg" alt="Ilustração de colar dourado com pingente de estrela" loading="lazy" width="800" height="800">
+              <span class="badge badge--category">Colares</span>
+              <span class="badge badge--edition">Edição Natal</span>
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__kicker">Peça ilustrativa</p>
+              <h3>Colar Estrela Cadente</h3>
+              <p class="product-card__desc">Um desejo em forma de acessório, feito para acompanhar celebrações.</p>
+              <div class="product-card__footer">
+                <p class="product-card__price"><small>R$</small> 119,90</p>
+                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=5583996158687&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Colar%20Estrela%20Cadente%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Colar Estrela Cadente" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PRODUTO 06 -->
+          <article class="product-card reveal" data-category="pulseiras" data-product="Pulseira Brilho Sereno">
+            <div class="product-card__image">
+              <img src="assets/img/produto-pulseira-argola.svg" alt="Ilustração de pulseira argola dourada com estrela" loading="lazy" width="800" height="800">
+              <span class="badge badge--category">Pulseiras</span>
+              <span class="badge badge--edition">Edição Natal</span>
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__kicker">Peça ilustrativa</p>
+              <h3>Pulseira Brilho Sereno</h3>
+              <p class="product-card__desc">Linhas limpas e um detalhe luminoso para usar sozinha ou empilhar.</p>
+              <div class="product-card__footer">
+                <p class="product-card__price"><small>R$</small> 89,90</p>
+                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=5583996158687&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Pulseira%20Brilho%20Sereno%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Pulseira Brilho Sereno" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PRODUTO 07 -->
+          <article class="product-card reveal" data-category="pulseiras" data-product="Pulseira Trama de Ouro">
+            <div class="product-card__image">
+              <img src="assets/img/produto-pulseira-corrente.svg" alt="Ilustração de pulseira corrente dourada com detalhes" loading="lazy" width="800" height="800">
+              <span class="badge badge--category">Pulseiras</span>
+              <span class="badge badge--edition">Edição Natal</span>
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__kicker">Peça ilustrativa</p>
+              <h3>Pulseira Trama de Ouro</h3>
+              <p class="product-card__desc">Textura delicada e pontos de cor para um toque festivo sem excessos.</p>
+              <div class="product-card__footer">
+                <p class="product-card__price"><small>R$</small> 99,90</p>
+                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=5583996158687&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Pulseira%20Trama%20de%20Ouro%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Pulseira Trama de Ouro" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PRODUTO 08 -->
+          <article class="product-card reveal" data-category="aneis" data-product="Anel Noite Estrelada">
+            <div class="product-card__image">
+              <img src="assets/img/produto-anel-noite.svg" alt="Ilustração de anel dourado com pedra" loading="lazy" width="800" height="800">
+              <span class="badge badge--category">Anéis</span>
+              <span class="badge badge--edition">Edição Natal</span>
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__kicker">Peça ilustrativa</p>
+              <h3>Anel Noite Estrelada</h3>
+              <p class="product-card__desc">Pedra em tom dourado e brilho para destacar as mãos.</p>
+              <div class="product-card__footer">
+                <p class="product-card__price"><small>R$</small> 79,90</p>
+                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=5583996158687&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Anel%20Noite%20Estrelada%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Anel Noite Estrelada" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PRODUTO 09 -->
+          <article class="product-card reveal" data-category="conjuntos" data-product="Conjunto Ceia Dourada">
+            <div class="product-card__image">
+              <img src="assets/img/produto-conjunto-ceia.svg" alt="Ilustração de conjunto com colar e brincos dourados" loading="lazy" width="800" height="800">
+              <span class="badge badge--category">Conjuntos</span>
+              <span class="badge badge--edition">Edição Natal</span>
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__kicker">Peça ilustrativa</p>
+              <h3>Conjunto Ceia Dourada</h3>
+              <p class="product-card__desc">Colar e brincos em harmonia, a escolha certa para presentear com elegância.</p>
+              <div class="product-card__footer">
+                <p class="product-card__price"><small>R$</small> 189,90</p>
+                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=5583996158687&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Conjunto%20Ceia%20Dourada%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Conjunto Ceia Dourada" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================================================================
+         SEÇÃO 3: SOBRE A MARCA E INFORMAÇÕES OPERACIONAIS
+         ================================================================ -->
+    <section class="section about" id="sobre" aria-labelledby="sobre-title">
+      <div class="container about__grid">
+        <div class="about__content reveal">
+          <p class="eyebrow">Sobre a marca</p>
+          <h2 id="sobre-title">Acessórios que celebram <em>cada encontro</em></h2>
+          <p>Na Perrengue Chic, acreditamos que o acessório certo tira você do perrengue na hora de montar o look. Somos uma loja online de acessórios femininos que ajuda você a transformar o básico em uma produção chic, com personalidade e confiança.</p>
+          <p>Para as festas de fim de ano, escolha peças que combinam com você ou para presentear quem você gosta. O atendimento é direto: tire dúvidas, selecione sua peça e finalize a compra pelo WhatsApp. Acompanhe as novidades no Instagram.</p>
+
+          <div class="about__channels">
+            <a href="https://www.instagram.com/perrenguechic_/" target="_blank" rel="noopener noreferrer">@perrenguechic_</a>
+            <a href="https://api.whatsapp.com/send/?phone=5583996158687&text&type=phone_number&app_absent=0&utm_source=ig" target="_blank" rel="noopener noreferrer">Falar no WhatsApp</a>
+          </div>
+        </div>
+
+        <div class="about__info reveal">
+          <article class="info-card">
+            <span class="info-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="M2 10h20M6 15h4" stroke-linecap="round"/></svg>
+            </span>
+            <div>
+              <h3>Formas de pagamento</h3>
+              <p>PIX, dinheiro e cartão. Escolha a opção que for melhor para você no momento da compra.</p>
+            </div>
+          </article>
+
+          <article class="info-card">
+            <span class="info-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <div>
+              <h3>Horário de funcionamento</h3>
+              <dl class="info-list">
+                <div><dt>Segunda a sexta</dt><dd>8h às 18h</dd></div>
+                <div><dt>Sábado e feriados</dt><dd>8h às 12h</dd></div>
+                <div><dt>Domingo</dt><dd>Fechado</dd></div>
+              </dl>
+            </div>
+          </article>
+
+          <article class="info-card info-card--wide">
+            <span class="info-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 7h11v10H3zM14 10h4l3 3v4h-7z" stroke-linejoin="round"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>
+            </span>
+            <div>
+              <h3>Entregamos em toda Campina Grande</h3>
+              <p>Atendemos em toda a cidade, com <strong>valor de frete a combinar</strong>. Compras de segunda a sexta, das 8h às 17h, são entregues <strong>no mesmo dia</strong>. Aos sábados, feriados ou fora desse horário, a entrega segue para o <strong>próximo dia útil</strong>.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         SEÇÃO 4: CHAMADA FINAL E CONTATOS
+         ================================================================ -->
+    <section class="cta" id="contato" aria-labelledby="contato-title">
+      <div class="cta__star cta__star--one" aria-hidden="true">✦</div>
+      <div class="cta__star cta__star--two" aria-hidden="true">✧</div>
+      <div class="container cta__inner reveal">
+        <p class="eyebrow">Vamos celebrar juntas?</p>
+        <h2 id="contato-title">Acompanhe cada novidade da <em>Perrengue Chic</em></h2>
+        <p>Novas peças, ideias de presente e novidades da coleção de Natal primeiro no nosso Instagram. Escolha sua peça e combine a entrega pelo WhatsApp.</p>
+        <div class="cta__actions">
+          <a class="btn btn-gold" href="https://www.instagram.com/perrenguechic_/" target="_blank" rel="noopener noreferrer">Seguir @perrenguechic_</a>
+          <a class="btn btn-ghost" href="https://api.whatsapp.com/send/?phone=5583996158687&text&type=phone_number&app_absent=0&utm_source=ig" target="_blank" rel="noopener noreferrer">Fazer meu pedido</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================================================================
+       RODAPÉ
+       ================================================================ -->
+  <footer class="site-footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <a href="#inicio" aria-label="Perrengue Chic, voltar ao início">
+          <img src="assets/img/logo-perrengue-chic-creme.webp" alt="Acessórios Perrengue Chic" width="793" height="254" loading="lazy">
+        </a>
+        <p class="footer__payment-label">Formas de pagamento</p>
+        <ul class="footer__payments" aria-label="Formas de pagamento">
+          <li>PIX</li>
+          <li>Dinheiro</li>
+          <li>Cartão</li>
+        </ul>
+      </div>
+
+      <nav class="footer__nav" aria-label="Links rápidos">
+        <h2>Navegação</h2>
+        <ul>
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#catalogo">Catálogo</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer__channels">
+        <h2>Onde nos encontrar</h2>
+        <div class="footer__social">
+          <a class="social-icon" href="https://www.instagram.com/perrenguechic_/" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg>
+            <span>@perrenguechic_</span>
+          </a>
+          <a class="social-icon" href="https://api.whatsapp.com/send/?phone=5583996158687&text&type=phone_number&app_absent=0&utm_source=ig" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12.04 2C6.5 2 2.13 6.37 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.26-1.38a9.9 9.9 0 0 0 4.78 1.22h.01c5.54 0 10.04-4.5 10.04-10.04 0-2.68-1.04-5.2-2.93-7.09A9.94 9.94 0 0 0 12.04 2Zm0 18.31h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.12.82.84-3.04-.2-.31a8.17 8.17 0 0 1-1.25-4.37c0-4.52 3.68-8.2 8.21-8.2 2.19 0 4.25.86 5.8 2.4a8.15 8.15 0 0 1 2.4 5.81c0 4.53-3.68 8.22-8.19 8.22Zm4.5-6.15c-.25-.13-1.46-.72-1.68-.8-.23-.09-.39-.13-.56.13-.16.25-.64.8-.79.96-.14.17-.29.19-.54.06-.25-.12-1.06-.39-2.01-1.24-.74-.66-1.24-1.48-1.39-1.73-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.16.04-.3-.02-.42-.06-.13-.56-1.34-.77-1.84-.2-.48-.41-.42-.56-.42h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1s.9 2.44 1.03 2.61c.13.16 1.77 2.7 4.29 3.79.6.26 1.07.41 1.43.52.6.19 1.15.17 1.58.1.48-.07 1.46-.6 1.67-1.17.2-.58.2-1.07.14-1.18-.06-.1-.22-.16-.46-.28Z"/></svg>
+            <span>(83) 99615-8687</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer__hours">
+        <h2>Atendimento</h2>
+        <p>Seg a sex: 8h às 18h<br>Sáb e feriados: 8h às 12h<br>Domingo: fechado</p>
+        <p>Entregamos em toda Campina Grande.</p>
+      </div>
+    </div>
+
+    <div class="container footer__bottom">
+      <p>© <span id="year">2026</span> Perrengue Chic. Todos os direitos reservados.</p>
+      <p>Desenvolvido por: <a href="https://www.instagram.com/millenadesign3r/" target="_blank" rel="noopener noreferrer">@millenadesign3r</a></p>
+    </div>
+  </footer>
+
+  <!-- Botão flutuante do WhatsApp (somente ícone) -->
+  <a class="whatsapp-float" href="https://api.whatsapp.com/send/?phone=5583996158687&text&type=phone_number&app_absent=0&utm_source=ig" target="_blank" rel="noopener noreferrer" aria-label="Falar com a Perrengue Chic no WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12.04 2C6.5 2 2.13 6.37 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.26-1.38a9.9 9.9 0 0 0 4.78 1.22h.01c5.54 0 10.04-4.5 10.04-10.04 0-2.68-1.04-5.2-2.93-7.09A9.94 9.94 0 0 0 12.04 2Zm0 18.31h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.12.82.84-3.04-.2-.31a8.17 8.17 0 0 1-1.25-4.37c0-4.52 3.68-8.2 8.21-8.2 2.19 0 4.25.86 5.8 2.4a8.15 8.15 0 0 1 2.4 5.81c0 4.53-3.68 8.22-8.19 8.22Zm4.5-6.15c-.25-.13-1.46-.72-1.68-.8-.23-.09-.39-.13-.56.13-.16.25-.64.8-.79.96-.14.17-.29.19-.54.06-.25-.12-1.06-.39-2.01-1.24-.74-.66-1.24-1.48-1.39-1.73-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.16.04-.3-.02-.42-.06-.13-.56-1.34-.77-1.84-.2-.48-.41-.42-.56-.42h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1s.9 2.44 1.03 2.61c.13.16 1.77 2.7 4.29 3.79.6.26 1.07.41 1.43.52.6.19 1.15.17 1.58.1.48-.07 1.46-.6 1.67-1.17.2-.58.2-1.07.14-1.18-.06-.1-.22-.16-.46-.28Z"/></svg>
+  </a>
+
+  <script src="js/main.js?v=5"></script>
+</body>
+</html>

@@ -17,7 +17,7 @@
 
   <!-- Habilita animações somente quando o JavaScript está disponível -->
   <script>document.documentElement.classList.add('js');</script>
-  <link rel="stylesheet" href="css/style.css?v=7">
+  <link rel="stylesheet" href="css/style.css?v=8">
 </head>
 <body>
   <a class="skip-link" href="#catalogo">Pular para o catálogo</a>
@@ -122,6 +122,7 @@
          SEÇÃO 2: CATÁLOGO INTERATIVO
          Para duplicar um produto: copie um <article class="product-card">,
          troque data-product, data-category, imagem, texto e preço.
+         As categorias sem peças usam .coming-soon com "Novidades em breve".
          O link do WhatsApp é gerado automaticamente pelo JS a partir de
          data-product (e já vem pronto no HTML para quem estiver sem JS).
          ================================================================ -->
@@ -142,153 +143,36 @@
             <button class="tab" type="button" role="tab" id="tab-aneis" aria-controls="grade-produtos" aria-selected="false" data-filter="aneis" tabindex="-1">Anéis</button>
             <button class="tab" type="button" role="tab" id="tab-conjuntos" aria-controls="grade-produtos" aria-selected="false" data-filter="conjuntos" tabindex="-1">Conjuntos</button>
           </div>
-          <p class="catalog__count"><span id="product-count">17</span> peças no catálogo</p>
+          <p class="catalog__count" aria-live="polite"><span class="catalog__count-numeric"><span id="product-count">9</span> peças no catálogo</span><span class="catalog__count-soon" hidden>Novidades em breve</span></p>
         </div>
 
         <div class="products-grid" id="grade-produtos" role="tabpanel" aria-labelledby="tab-todos">
-          <!-- PRODUTO 01 -->
-          <article class="product-card reveal" data-category="brincos" data-product="Brincos Aurora Dourada">
-            <div class="product-card__image">
-              <img src="assets/img/produto-brincos-argola.svg" alt="Ilustração de brincos argola dourada com pequenas estrelas" width="800" height="800">
-              <span class="badge badge--category">Brincos</span>
-              <span class="badge badge--edition">Edição Natal</span>
-            </div>
-            <div class="product-card__body">
-              <p class="product-card__kicker">Peça ilustrativa</p>
-              <h3>Brincos Aurora Dourada</h3>
-              <p class="product-card__desc">Argolas delicadas com um toque de estrela para iluminar qualquer look.</p>
-              <div class="product-card__footer">
-                <p class="product-card__price"><small>R$</small> 79,90</p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=5583996158687&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brincos%20Aurora%20Dourada%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brincos Aurora Dourada" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- PRODUTO 02 -->
-          <article class="product-card reveal" data-category="brincos" data-product="Brincos Estrela da Noite">
-            <div class="product-card__image">
-              <img src="assets/img/produto-brincos-estrela.svg" alt="Ilustração de brincos estrela dourada com pingente" width="800" height="800">
-              <span class="badge badge--category">Brincos</span>
-              <span class="badge badge--edition">Edição Natal</span>
-            </div>
-            <div class="product-card__body">
-              <p class="product-card__kicker">Peça ilustrativa</p>
-              <h3>Brincos Estrela da Noite</h3>
-              <p class="product-card__desc">O brilho da estrela guia em um desenho leve e cheio de personalidade.</p>
-              <div class="product-card__footer">
-                <p class="product-card__price"><small>R$</small> 89,90</p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=5583996158687&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brincos%20Estrela%20da%20Noite%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brincos Estrela da Noite" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- PRODUTO 03 -->
-          <article class="product-card reveal" data-category="brincos" data-product="Brincos Pérola de Neve">
-            <div class="product-card__image">
-              <img src="assets/img/produto-brincos-perola.svg" alt="Ilustração de brincos dourados com pérolas brancas" width="800" height="800">
-              <span class="badge badge--category">Brincos</span>
-              <span class="badge badge--edition">Edição Natal</span>
-            </div>
-            <div class="product-card__body">
-              <p class="product-card__kicker">Peça ilustrativa</p>
-              <h3>Brincos Pérola de Neve</h3>
-              <p class="product-card__desc">Clássicos, românticos e perfeitos para uma produção de fim de ano.</p>
-              <div class="product-card__footer">
-                <p class="product-card__price"><small>R$</small> 94,90</p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=5583996158687&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brincos%20P%C3%A9rola%20de%20Neve%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brincos Pérola de Neve" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- PRODUTO 04 -->
-          <article class="product-card reveal" data-category="colares" data-product="Colar Lua de Inverno">
-            <div class="product-card__image">
-              <img src="assets/img/produto-colar-lua.svg" alt="Ilustração de colar dourado com pingente de lua" width="800" height="800">
-              <span class="badge badge--category">Colares</span>
-              <span class="badge badge--edition">Edição Natal</span>
-            </div>
-            <div class="product-card__body">
-              <p class="product-card__kicker">Peça ilustrativa</p>
-              <h3>Colar Lua de Inverno</h3>
-              <p class="product-card__desc">Corrente fina e lua delicada, o equilíbrio entre suavidade e brilho.</p>
-              <div class="product-card__footer">
-                <p class="product-card__price"><small>R$</small> 129,90</p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=5583996158687&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Colar%20Lua%20de%20Inverno%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Colar Lua de Inverno" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- PRODUTO 05 -->
-          <article class="product-card reveal" data-category="colares" data-product="Colar Estrela Cadente">
-            <div class="product-card__image">
-              <img src="assets/img/produto-colar-estrela.svg" alt="Ilustração de colar dourado com pingente de estrela" width="800" height="800">
-              <span class="badge badge--category">Colares</span>
-              <span class="badge badge--edition">Edição Natal</span>
-            </div>
-            <div class="product-card__body">
-              <p class="product-card__kicker">Peça ilustrativa</p>
-              <h3>Colar Estrela Cadente</h3>
-              <p class="product-card__desc">Um desejo em forma de acessório, feito para acompanhar celebrações.</p>
-              <div class="product-card__footer">
-                <p class="product-card__price"><small>R$</small> 119,90</p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=5583996158687&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Colar%20Estrela%20Cadente%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Colar Estrela Cadente" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- PRODUTO 06 -->
-          <article class="product-card reveal" data-category="pulseiras" data-product="Pulseira Brilho Sereno">
-            <div class="product-card__image">
-              <img src="assets/img/produto-pulseira-argola.svg" alt="Ilustração de pulseira argola dourada com estrela" width="800" height="800">
-              <span class="badge badge--category">Pulseiras</span>
-              <span class="badge badge--edition">Edição Natal</span>
-            </div>
-            <div class="product-card__body">
-              <p class="product-card__kicker">Peça ilustrativa</p>
-              <h3>Pulseira Brilho Sereno</h3>
-              <p class="product-card__desc">Linhas limpas e um detalhe luminoso para usar sozinha ou empilhar.</p>
-              <div class="product-card__footer">
-                <p class="product-card__price"><small>R$</small> 89,90</p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=5583996158687&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Pulseira%20Brilho%20Sereno%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Pulseira Brilho Sereno" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- PRODUTO 07 -->
-          <article class="product-card reveal" data-category="pulseiras" data-product="Pulseira Trama de Ouro">
-            <div class="product-card__image">
-              <img src="assets/img/produto-pulseira-corrente.svg" alt="Ilustração de pulseira corrente dourada com detalhes" width="800" height="800">
-              <span class="badge badge--category">Pulseiras</span>
-              <span class="badge badge--edition">Edição Natal</span>
-            </div>
-            <div class="product-card__body">
-              <p class="product-card__kicker">Peça ilustrativa</p>
-              <h3>Pulseira Trama de Ouro</h3>
-              <p class="product-card__desc">Textura delicada e pontos de cor para um toque festivo sem excessos.</p>
-              <div class="product-card__footer">
-                <p class="product-card__price"><small>R$</small> 99,90</p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=5583996158687&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Pulseira%20Trama%20de%20Ouro%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Pulseira Trama de Ouro" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- PRODUTO 08 -->
-          <article class="product-card reveal" data-category="aneis" data-product="Anel Noite Estrelada">
-            <div class="product-card__image">
-              <img src="assets/img/produto-anel-noite.svg" alt="Ilustração de anel dourado com pedra" width="800" height="800">
-              <span class="badge badge--category">Anéis</span>
-              <span class="badge badge--edition">Edição Natal</span>
-            </div>
-            <div class="product-card__body">
-              <p class="product-card__kicker">Peça ilustrativa</p>
-              <h3>Anel Noite Estrelada</h3>
-              <p class="product-card__desc">Pedra em tom dourado e brilho para destacar as mãos.</p>
-              <div class="product-card__footer">
-                <p class="product-card__price"><small>R$</small> 79,90</p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=5583996158687&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Anel%20Noite%20Estrelada%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Anel Noite Estrelada" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
-              </div>
-            </div>
-          </article>
+          <!-- CATEGORIAS AINDA SEM PEÇAS CADASTRADAS -->
+          <!-- Cada aviso aparece somente quando a aba da categoria é selecionada. -->
+          <div class="coming-soon reveal" data-category="brincos" hidden>
+            <span class="coming-soon__icon" aria-hidden="true">&#10022;</span>
+            <p class="coming-soon__eyebrow">Brincos</p>
+            <h3>Novidades em breve</h3>
+            <p>Estamos preparando novas peças para esta categoria.</p>
+          </div>
+          <div class="coming-soon reveal" data-category="colares" hidden>
+            <span class="coming-soon__icon" aria-hidden="true">&#10022;</span>
+            <p class="coming-soon__eyebrow">Colares</p>
+            <h3>Novidades em breve</h3>
+            <p>Estamos preparando novas peças para esta categoria.</p>
+          </div>
+          <div class="coming-soon reveal" data-category="pulseiras" hidden>
+            <span class="coming-soon__icon" aria-hidden="true">&#10022;</span>
+            <p class="coming-soon__eyebrow">Pulseiras</p>
+            <h3>Novidades em breve</h3>
+            <p>Estamos preparando novas peças para esta categoria.</p>
+          </div>
+          <div class="coming-soon reveal" data-category="aneis" hidden>
+            <span class="coming-soon__icon" aria-hidden="true">&#10022;</span>
+            <p class="coming-soon__eyebrow">Anéis</p>
+            <h3>Novidades em breve</h3>
+            <p>Estamos preparando novas peças para esta categoria.</p>
+          </div>
 
           <!-- PRODUTO 09 -->
           <article class="product-card reveal" data-category="conjuntos" data-product="Conjunto Pérola Barroca Âmbar">
@@ -579,6 +463,6 @@
     <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12.04 2C6.5 2 2.13 6.37 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.26-1.38a9.9 9.9 0 0 0 4.78 1.22h.01c5.54 0 10.04-4.5 10.04-10.04 0-2.68-1.04-5.2-2.93-7.09A9.94 9.94 0 0 0 12.04 2Zm0 18.31h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.12.82.84-3.04-.2-.31a8.17 8.17 0 0 1-1.25-4.37c0-4.52 3.68-8.2 8.21-8.2 2.19 0 4.25.86 5.8 2.4a8.15 8.15 0 0 1 2.4 5.81c0 4.53-3.68 8.22-8.19 8.22Zm4.5-6.15c-.25-.13-1.46-.72-1.68-.8-.23-.09-.39-.13-.56.13-.16.25-.64.8-.79.96-.14.17-.29.19-.54.06-.25-.12-1.06-.39-2.01-1.24-.74-.66-1.24-1.48-1.39-1.73-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.16.04-.3-.02-.42-.06-.13-.56-1.34-.77-1.84-.2-.48-.41-.42-.56-.42h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1s.9 2.44 1.03 2.61c.13.16 1.77 2.7 4.29 3.79.6.26 1.07.41 1.43.52.6.19 1.15.17 1.58.1.48-.07 1.46-.6 1.67-1.17.2-.58.2-1.07.14-1.18-.06-.1-.22-.16-.46-.28Z"/></svg>
   </a>
 
-  <script src="js/main.js?v=7"></script>
+  <script src="js/main.js?v=8"></script>
 </body>
 </html>

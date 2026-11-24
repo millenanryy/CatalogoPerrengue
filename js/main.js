@@ -148,8 +148,11 @@ document.addEventListener('DOMContentLoaded', function () {
      ------------------------------------------------------------------------ */
   const tabs = Array.prototype.slice.call(document.querySelectorAll('.tab[data-filter]'));
   const cards = Array.prototype.slice.call(document.querySelectorAll('.product-card'));
+  const emptyStates = Array.prototype.slice.call(document.querySelectorAll('.coming-soon[data-category]'));
   const grid = document.getElementById('grade-produtos');
   const productCount = document.getElementById('product-count');
+  const countNumeric = document.querySelector('.catalog__count-numeric');
+  const countSoon = document.querySelector('.catalog__count-soon');
 
   function activateTab(selectedTab) {
     tabs.forEach(function (tab) {
@@ -168,8 +171,18 @@ document.addEventListener('DOMContentLoaded', function () {
       if (matches) visible += 1;
     });
 
+    // As categorias sem peças mostram apenas o aviso "Novidades em breve".
+    emptyStates.forEach(function (state) {
+      state.hidden = filter === 'todos' || state.dataset.category !== filter;
+    });
+
     if (grid) grid.setAttribute('aria-labelledby', selectedTab.id);
     if (productCount) productCount.textContent = String(visible);
+    if (countNumeric && countSoon) {
+      const showSoon = visible === 0 && filter !== 'todos';
+      countNumeric.hidden = showSoon;
+      countSoon.hidden = !showSoon;
+    }
   }
 
   tabs.forEach(function (tab, index) {

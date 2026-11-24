@@ -41,17 +41,19 @@ Cada produto é um bloco em `index.html`:
 <article class="product-card" data-category="brincos" data-product="Nome da peça">
   ...
   <img src="assets/img/conjunto-perola-ambar.webp" alt="..." ...>
-  <span class="badge badge--category">Conjuntos</span>
   <h3>Nome da peça</h3>
   <p class="product-card__desc">Par de brincos, anel e pulseira.</p>
-  <p class="product-card__price"><small>R$</small> 59,90</p>
+  <p class="product-card__price">
+    <span class="product-card__price-label">Valor</span>
+    <span class="product-card__price-value"><small>R$</small> 59,90</span>
+  </p>
   <a class="btn btn-gold btn--card whatsapp-link" data-product="Nome da peça" ...>
     Comprar pelo WhatsApp
   </a>
 </article>
 ```
 
-Os nove conjuntos usam fotos reais em `assets/img/conjunto-*.webp`. Para marcar uma peça como vendida, adicione a classe `product-card--unavailable` ao card, troque o badge por `badge--unavailable` e use `<button class="btn btn--unavailable btn--card" disabled>Indisponível</button>` no lugar do link do WhatsApp.
+Os nove conjuntos usam fotos reais em `assets/img/conjunto-*.webp`, já recortadas em 1200 × 900 (4:3) para preencher o card sem faixas laterais. Os cards não exibem badge de categoria, já que o visitante escolhe a categoria pelo filtro. Para marcar uma peça como vendida, adicione a classe `product-card--unavailable` ao card, inclua `<span class="badge badge--unavailable">Indisponível</span>` no canto da foto e use `<button class="btn btn--unavailable btn--card" disabled>Indisponível</button>` no lugar do link do WhatsApp. O CSS coloca o card inteiro em tons de cinza.
 
 Para duplicar: copie o bloco, troque `data-category` (valores usados nos filtros: `brincos`, `colares`, `pulseiras`, `aneis`, `conjuntos`), `data-product`, o `src` da imagem, o nome, a descrição e o preço. O JavaScript monta automaticamente a URL do WhatsApp com o nome da peça. Se quiser adicionar uma categoria nova, crie um botão `.tab` com `data-filter` correspondente.
 
@@ -95,4 +97,4 @@ Instagram, WhatsApp geral e textos operacionais (pagamentos, horários e entrega
 - Tablet (≥ 768px): `grid-template-columns: repeat(2, 1fr)`
 - Desktop (≥ 1024px): `grid-template-columns: repeat(3, 1fr)`
 
-As imagens dos cards usam `aspect-ratio: 4 / 3` e `object-fit: cover`.
+Tanto o card quanto a foto usam `aspect-ratio: 4 / 3`: os arquivos em `assets/img/conjunto-*.webp` são 1200 × 900 e entram com `object-fit: cover`, sem distorção ou faixas.

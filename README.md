@@ -50,6 +50,8 @@ Cada produto é um bloco em `index.html`:
 </article>
 ```
 
+Os nove conjuntos usam fotos reais em `assets/img/conjunto-*.webp`. Para marcar uma peça como vendida, adicione a classe `product-card--unavailable` ao card, troque o badge por `badge--unavailable` e use `<button class="btn btn--unavailable btn--card" disabled>Indisponível</button>` no lugar do link do WhatsApp.
+
 Para duplicar: copie o bloco, troque `data-category` (valores usados nos filtros: `brincos`, `colares`, `pulseiras`, `aneis`, `conjuntos`), `data-product`, o `src` da imagem, o nome, a descrição e o preço. O JavaScript monta automaticamente a URL do WhatsApp com o nome da peça. Se quiser adicionar uma categoria nova, crie um botão `.tab` com `data-filter` correspondente.
 
 As imagens atuais são ilustrações SVG de demonstração. Para usar fotos reais, coloque o arquivo em `assets/img/` e troque apenas o `src` da `<img>` (o mesmo valor serve para desktop e mobile).

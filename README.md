@@ -28,7 +28,7 @@ index.html                  Conteúdo e estrutura semântica de todas as seçõe
 css/style.css               Estilos mobile-first, cores, fontes e responsividade
 js/main.js                  Barra de progresso, carrossel, menu, filtros e WhatsApp
 assets/img/                 Logos, banner do hero, banners do carrossel e fotos dos conjuntos
-fonts/                      Pasta para a fonte Dream Orphans (adicionar arquivo)
+fonts/                      Arquivos locais da fonte Dream Orphans (regular e itálico)
 ```
 
 ## Personalizando
@@ -85,7 +85,7 @@ O CSS e os SVGs usam somente: `#FFF6ED`, `#FFEDDC`, `#727272`, `#3B432E`, `#2C33
 ### Tipografia
 
 - **Poppins** é carregada pelo Google Fonts para textos, filtros e preços.
-- **Dream Orphans**: coloque o arquivo em `fonts/Dream-Orphans.woff2`. A `@font-face` em `css/style.css` já aponta para esse caminho; sem o arquivo, os títulos usam o fallback editorial `Cormorant Garamond`.
+- **Dream Orphans**: arquivos `fonts/Dream-Orphans.woff2` e `fonts/Dream-Orphans-Italic.woff2` já incluídos. A `@font-face` em `css/style.css` carrega a fonte localmente; apenas o peso regular é usado nos títulos.
 
 ### Links e dados da loja
 

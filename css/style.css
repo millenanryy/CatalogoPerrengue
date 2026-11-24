@@ -445,7 +445,6 @@ h1 em, h2 em, h3 em { color: var(--gold-dark); font-style: italic; }
   letter-spacing: .12em;
   text-transform: uppercase;
 }
-.badge--category { left: 1rem; background: var(--olive); color: var(--cream); }
 .badge--unavailable { right: 1rem; background: var(--olive-deep); color: var(--cream); }
 
 .product-card__body { display: flex; flex: 1; flex-direction: column; padding: 1.25rem; }

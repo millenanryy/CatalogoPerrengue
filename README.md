@@ -41,7 +41,6 @@ Cada produto é um bloco em `index.html`:
 <article class="product-card" data-category="brincos" data-product="Nome da peça">
   ...
   <img src="assets/img/conjunto-perola-ambar.webp" alt="..." ...>
-  <span class="badge badge--category">Conjuntos</span>
   <h3>Nome da peça</h3>
   <p class="product-card__desc">Par de brincos, anel e pulseira.</p>
   <p class="product-card__price">
@@ -54,7 +53,7 @@ Cada produto é um bloco em `index.html`:
 </article>
 ```
 
-Os nove conjuntos usam fotos reais em `assets/img/conjunto-*.webp`, já recortadas em 1200 × 900 (4:3) para preencher o card sem faixas laterais. Para marcar uma peça como vendida, adicione a classe `product-card--unavailable` ao card, troque o badge por `badge--unavailable` e use `<button class="btn btn--unavailable btn--card" disabled>Indisponível</button>` no lugar do link do WhatsApp. O CSS coloca o card inteiro em tons de cinza e mantém apenas o badge “Indisponível” no canto da foto.
+Os nove conjuntos usam fotos reais em `assets/img/conjunto-*.webp`, já recortadas em 1200 × 900 (4:3) para preencher o card sem faixas laterais. Os cards não exibem badge de categoria, já que o visitante escolhe a categoria pelo filtro. Para marcar uma peça como vendida, adicione a classe `product-card--unavailable` ao card, inclua `<span class="badge badge--unavailable">Indisponível</span>` no canto da foto e use `<button class="btn btn--unavailable btn--card" disabled>Indisponível</button>` no lugar do link do WhatsApp. O CSS coloca o card inteiro em tons de cinza.
 
 Para duplicar: copie o bloco, troque `data-category` (valores usados nos filtros: `brincos`, `colares`, `pulseiras`, `aneis`, `conjuntos`), `data-product`, o `src` da imagem, o nome, a descrição e o preço. O JavaScript monta automaticamente a URL do WhatsApp com o nome da peça. Se quiser adicionar uma categoria nova, crie um botão `.tab` com `data-filter` correspondente.
 

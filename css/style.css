@@ -13,14 +13,20 @@
    1. FONTES E VARIÁVEIS
    -------------------------------------------------------------------------- */
 
-/* Fonte dos títulos. Adicione fonts/Dream-Orphans.woff2 para substituir
-   o fallback editorial Cormorant Garamond carregado do Google Fonts. */
+/* Dream Orphans: arquivos locais incluídos em fonts/. Somente peso regular;
+   a variante itálica é usada nos destaques com <em>. */
 @font-face {
   font-family: 'Dream Orphans';
-  src: local('Dream Orphans'), local('DreamOrphans'),
-       url('../fonts/Dream-Orphans.woff2') format('woff2');
+  src: url('../fonts/Dream-Orphans.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Dream Orphans';
+  src: url('../fonts/Dream-Orphans-Italic.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
   font-display: swap;
 }
 
@@ -33,7 +39,7 @@
   --gold: #C5A059;
   --gold-dark: #B89246;
 
-  --font-display: 'Dream Orphans', 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --font-display: 'Dream Orphans', Georgia, 'Times New Roman', serif;
   --font-body: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
   --container: 1180px;

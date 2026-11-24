@@ -1,11 +1,11 @@
 # Pasta das fontes
 
-Coloque aqui o arquivo da fonte **Dream Orphans** com o nome:
+Os títulos usam **Dream Orphans**, com os arquivos incluídos nesta pasta:
 
 ```
-fonts/Dream-Orphans.woff2
+fonts/Dream-Orphans.woff2         peso regular
+fonts/Dream-Orphans-Italic.woff2  itálico, usado nos destaques com <em>
 ```
 
-A declaração `@font-face` em `css/style.css` já aponta para esse caminho.
-Enquanto o arquivo não existir, os títulos usam automaticamente o fallback
-editorial `Cormorant Garamond` (carregado do Google Fonts).
+As declarações `@font-face` em `css/style.css` apontam para esses arquivos.
+A fonte é de Ray Larabie / Typodermic Fonts. Apenas o peso regular é usado no site.

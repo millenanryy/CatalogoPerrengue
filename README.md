@@ -60,7 +60,7 @@ A foto cobre toda a seção pelo elemento `<img class="hero__bg">` no início do
 
 ### Banners do carrossel
 
-Os três banners ficam em `assets/img/banner-collab.webp`, `banner-loja.webp` e `banner-natal.webp`. O bloco de marcação está logo abaixo do hero em `index.html`, com `.banners__viewport` (recorte) e `.banners__track` (trilha que desliza). Para adicionar outro, duplique um `<figure class="banner-slide">` e o `<button class="banner-dot">` correspondente. O loop automático (4 segundos, com um slide clone para transição contínua) fica em `js/main.js`.
+Os três banners ficam em `assets/img/banner-collab.webp`, `banner-loja.webp` e `banner-natal.webp`. O bloco de marcação está logo abaixo do hero em `index.html`, com `.banners__viewport` (recorte) e `.banners__track` (trilha que desliza). Para adicionar outro, duplique um `<figure class="banner-slide">` e o `<button class="banner-dot">` correspondente. O loop automático (10 segundos, com um slide clone para transição contínua) fica em `js/main.js`.
 
 ### Seção final
 

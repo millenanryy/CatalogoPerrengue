@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     }
 
-    function startCarousel() { carouselTimer = window.setInterval(nextBanner, 10000); }
+    function startCarousel() { carouselTimer = window.setInterval(nextBanner, 8000); }
     function stopCarousel() { window.clearInterval(carouselTimer); }
 
     dots.forEach(function (dot, i) {

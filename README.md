@@ -77,6 +77,7 @@ A foto mesclada ao verde-oliva da seção “Vamos celebrar juntas?” está em 
 
 - `assets/img/logo-perrengue-chic-creme.webp`: versão creme, usada no cabeçalho verde e no rodapé.
 - `assets/img/logo-perrengue-chic.webp`: versão laranja original, disponível para fundos claros.
+- `assets/img/favicon.png` e `assets/img/favicon-apple-touch.png`: gerados a partir da arte `FAVICON-2.webp`, com fundo transparente.
 
 ### Cores
 

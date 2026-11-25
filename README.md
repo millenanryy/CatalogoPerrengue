@@ -57,7 +57,7 @@ Os nove conjuntos usam as fotos reais enviadas, em `assets/img/conjunto-*.webp`,
 
 Para duplicar: copie o bloco, troque `data-category` (valores usados nos filtros: `brincos`, `colares`, `pulseiras`, `aneis`, `conjuntos`), `data-product`, o `src` da imagem, o nome, a descrição e o preço. O JavaScript monta automaticamente a URL do WhatsApp com o nome da peça. Se quiser adicionar uma categoria nova, crie um botão `.tab` com `data-filter` correspondente.
 
-No momento, apenas a categoria **Conjuntos** tem peças cadastradas, com fotos reais em `assets/img/conjunto-*.webp`. Brincos, Colares, Pulseiras e Anéis exibem o aviso “Novidades em breve” no lugar de produtos ilustrativos: cada aviso é um bloco `.coming-soon` cujo `data-category` combina com a aba correspondente. Ao cadastrar uma peça de verdade, adicione o `.product-card` e remova o `.coming-soon` daquela categoria.
+No momento, **Conjuntos** (9 peças) e **Pulseiras** (8 peças) têm produtos cadastrados, com fotos reais em `assets/img/conjunto-*.webp` e `assets/img/pulseira-*.webp`. Brincos, Colares e Anéis exibem o aviso “Novidades em breve” no lugar de produtos ilustrativos: cada aviso é um bloco `.coming-soon` cujo `data-category` combina com a aba correspondente. Ao cadastrar uma peça de verdade, adicione o `.product-card` e remova o `.coming-soon` daquela categoria.
 
 Para usar fotos reais, coloque o arquivo em `assets/img/` e troque apenas o `src` da `<img>` (o mesmo valor serve para desktop e mobile).
 
@@ -97,4 +97,4 @@ Instagram, WhatsApp geral e textos operacionais (pagamentos, horários e entrega
 - Tablet (≥ 768px): `grid-template-columns: repeat(2, 1fr)`
 - Desktop (≥ 1024px): `grid-template-columns: repeat(3, 1fr)`
 
-A moldura usa `aspect-ratio: 16 / 15`, a mesma proporção das fotos enviadas (2880 × 2700). Assim elas aparecem inteiras, sem recorte, sem distorção e sem faixas laterais.
+A moldura acompanha a proporção das fotos enviadas: `16 / 15` para os conjuntos (2880 × 2700) e `1440 / 1444` para as pulseiras. Assim elas aparecem inteiras, sem recorte, sem distorção e sem faixas laterais.

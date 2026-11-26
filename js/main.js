@@ -635,6 +635,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const cartEmptyMessage = document.getElementById('cart-empty');
   const cartTotalElement = document.getElementById('cart-total');
   const cartCheckoutButton = document.getElementById('cart-checkout');
+  const cartClearButton = document.getElementById('cart-clear');
   const cartCloseButton = document.querySelector('[data-cart-close]');
   const cartAddButtons = Array.prototype.slice.call(document.querySelectorAll('.cart-add-button[data-product]'));
   const pageMain = document.querySelector('main');
@@ -717,6 +718,7 @@ document.addEventListener('DOMContentLoaded', function () {
     cartItemsList.hidden = products.length === 0;
     if (cartTotalElement) cartTotalElement.textContent = formatCurrency(total);
     if (cartCheckoutButton) cartCheckoutButton.disabled = products.length === 0;
+    if (cartClearButton) cartClearButton.disabled = products.length === 0;
     if (cartCount) cartCount.textContent = String(products.length);
     if (cartTrigger) cartTrigger.setAttribute('aria-label', 'Abrir carrinho, ' + products.length + (products.length === 1 ? ' produto' : ' produtos'));
     updateCartButtons();
@@ -750,6 +752,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (cartTrigger) cartTrigger.addEventListener('click', openCart);
   if (cartCloseButton) cartCloseButton.addEventListener('click', closeCart);
+  if (cartClearButton) {
+    cartClearButton.addEventListener('click', function () {
+      if (!cart.length) return;
+      cart = [];
+      saveCart();
+      renderCart();
+    });
+  }
   if (cartOverlay) {
     cartOverlay.addEventListener('click', function (event) {
       if (event.target === cartOverlay) closeCart();

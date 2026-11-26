@@ -890,6 +890,10 @@ body.cart-open { overflow: hidden; }
 .cart-total { display: flex; justify-content: space-between; gap: 1rem; margin: 1rem 0; padding: 1rem 0; border-top: 1px solid rgba(197, 160, 89, .35); border-bottom: 1px solid rgba(197, 160, 89, .35); color: var(--olive-deep); font-size: .9rem; }
 .cart-total strong { font-size: 1.12rem; white-space: nowrap; }
 .cart-dialog__note { margin: 0 0 1.1rem; color: #66645b; font-size: .72rem; line-height: 1.5; }
+.cart-dialog__actions { display: grid; gap: .65rem; }
+.cart-clear { width: 100%; border-color: rgba(114, 114, 114, .3); background: transparent; color: var(--olive-deep); }
+.cart-clear:hover:not(:disabled) { border-color: var(--gold-dark); background: var(--cream-deep); }
+.cart-clear:disabled { cursor: not-allowed; opacity: .5; }
 .cart-checkout { width: 100%; }
 .cart-checkout:disabled { cursor: not-allowed; filter: grayscale(.35); opacity: .55; }
 .cart-add-button { white-space: normal; line-height: 1.15; }

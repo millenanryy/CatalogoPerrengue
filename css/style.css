@@ -532,6 +532,9 @@ body.linktree-open { overflow: hidden; }
 .tab:hover { border-color: var(--gold); color: var(--olive-deep); }
 .tab.is-active { border-color: var(--olive); background: var(--olive); color: var(--cream); }
 
+/* Subfiltro de cores exibido só na aba Brincos (visibilidade via hidden no JS). */
+.tabs--cores { margin-top: .35rem; padding-bottom: 0; }
+
 
 .products-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
 

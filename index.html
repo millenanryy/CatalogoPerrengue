@@ -17,7 +17,7 @@
 
   <!-- Habilita animações somente quando o JavaScript está disponível -->
   <script>document.documentElement.classList.add('js');</script>
-  <link rel="stylesheet" href="css/style.css?v=25">
+  <link rel="stylesheet" href="css/style.css?v=26">
 </head>
 <body>
   <a class="skip-link" href="#catalogo">Pular para o catálogo</a>
@@ -189,6 +189,15 @@
             <button class="tab" type="button" role="tab" id="tab-colares" aria-controls="grade-produtos" aria-selected="false" data-filter="colares" tabindex="-1">Colares</button>
             <button class="tab" type="button" role="tab" id="tab-conjuntos" aria-controls="grade-produtos" aria-selected="false" data-filter="conjuntos" tabindex="-1">Conjuntos</button>
             <button class="tab" type="button" role="tab" id="tab-pulseiras" aria-controls="grade-produtos" aria-selected="false" data-filter="pulseiras" tabindex="-1">Pulseiras</button>
+          </div>
+          <div class="tabs tabs--cores" id="filtro-cores" role="tablist" aria-label="Filtrar brincos por cor" hidden>
+            <button class="tab is-active" type="button" role="tab" id="cor-todas" aria-selected="true" data-color-filter="todas" tabindex="0">Todas</button>
+            <button class="tab" type="button" role="tab" id="cor-dourado" aria-selected="false" data-color-filter="dourado" tabindex="-1">Dourado</button>
+            <button class="tab" type="button" role="tab" id="cor-perola" aria-selected="false" data-color-filter="perola" tabindex="-1">Pérola</button>
+            <button class="tab" type="button" role="tab" id="cor-vermelho" aria-selected="false" data-color-filter="vermelho" tabindex="-1">Vermelho</button>
+            <button class="tab" type="button" role="tab" id="cor-marrom" aria-selected="false" data-color-filter="marrom" tabindex="-1">Marrom</button>
+            <button class="tab" type="button" role="tab" id="cor-branco" aria-selected="false" data-color-filter="branco" tabindex="-1">Branco</button>
+            <button class="tab" type="button" role="tab" id="cor-preto" aria-selected="false" data-color-filter="preto" tabindex="-1">Preto</button>
           </div>
         </div>
 
@@ -697,9 +706,57 @@
             </div>
           </article>
 
-          <!-- PRODUTO 32 -->
+                    <!-- PRODUTO 32 -->
 
-          <article class="product-card reveal" data-category="brincos" data-color="dourado" data-product="Brinco Abacaxi Pérola">
+          <article class="product-card reveal" data-category="brincos" data-color="dourado" data-product="Brinco Botão Dourado">
+            <div class="product-card__image">
+              <img loading="lazy" decoding="async" src="assets/img/brinco-botao-dourado.webp?v=28" alt="Par de brincos botão pequenos em vermelho com topo dourado brilhante sobre cartão verde" width="1440" height="1444">
+            </div>
+            <div class="product-card__body">
+              <h3>Brinco Botão Dourado</h3>
+              <p class="product-card__desc">Botão pequeno vermelho com topo dourado, um charme discreto.</p>
+              <div class="product-card__footer">
+                <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 10,90</span></p>
+                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Bot%C3%A3o%20Dourado%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Botão Dourado" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PRODUTO 33 -->
+
+          <article class="product-card reveal" data-category="brincos" data-color="dourado" data-product="Brinco Mini Flor Dourada">
+            <div class="product-card__image">
+              <img loading="lazy" decoding="async" src="assets/img/brinco-mini-flor-dourada.webp?v=28" alt="Par de brincos botão redondos dourados com relevo de flor sobre cartão verde" width="1440" height="1444">
+            </div>
+            <div class="product-card__body">
+              <h3>Brinco Mini Flor Dourada</h3>
+              <p class="product-card__desc">Mini flor dourada em relevo para um brilho delicado.</p>
+              <div class="product-card__footer">
+                <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 10,90</span></p>
+                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Mini%20Flor%20Dourada%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Mini Flor Dourada" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PRODUTO 34 -->
+
+          <article class="product-card reveal" data-category="brincos" data-color="dourado" data-product="Brinco Redondo Dourado">
+            <div class="product-card__image">
+              <img loading="lazy" decoding="async" src="assets/img/brinco-redondo-dourado.webp?v=28" alt="Par de brincos redondos dourados com aro vermelho e centro perolado claro sobre cartão verde" width="1440" height="1444">
+            </div>
+            <div class="product-card__body">
+              <h3>Brinco Redondo Dourado</h3>
+              <p class="product-card__desc">Redondo dourado com aro vermelho e centro perolado claro.</p>
+              <div class="product-card__footer">
+                <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 10,90</span></p>
+                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Redondo%20Dourado%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Redondo Dourado" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PRODUTO 35 -->
+
+<article class="product-card reveal" data-category="brincos" data-color="dourado" data-product="Brinco Abacaxi Pérola">
             <div class="product-card__image">
               <img loading="lazy" decoding="async" src="assets/img/brinco-abacaxi-perola.webp?v=27" alt="Par de brincos em formato de abacaxi com corpo de pequenas pérolas e coroa sobre cartão verde" width="1440" height="1444">
             </div>
@@ -713,9 +770,9 @@
             </div>
           </article>
 
-          <!-- PRODUTO 33 -->
+          <!-- PRODUTO 36 -->
 
-          <article class="product-card reveal" data-category="brincos" data-color="dourado" data-product="Brinco Losango Pérola Dourado">
+<article class="product-card reveal" data-category="brincos" data-color="dourado" data-product="Brinco Losango Pérola Dourado">
             <div class="product-card__image">
               <img loading="lazy" decoding="async" src="assets/img/brinco-losango-perola-dourado.webp?v=27" alt="Par de brincos dourados em formato de losango com centro liso claro e borda cravejada sobre cartão verde" width="1440" height="1444">
             </div>
@@ -729,9 +786,9 @@
             </div>
           </article>
 
-          <!-- PRODUTO 34 -->
+          <!-- PRODUTO 37 -->
 
-          <article class="product-card reveal" data-category="brincos" data-color="dourado" data-product="Brinco Letras Pérola Dourada">
+<article class="product-card reveal" data-category="brincos" data-color="dourado" data-product="Brinco Letras Pérola Dourada">
             <div class="product-card__image">
               <img loading="lazy" decoding="async" src="assets/img/brinco-letras-perola-dourada.webp?v=27" alt="Par de brincos dourados em formato de letras com pequenas pérolas e pérola grande pendurada sobre cartão verde" width="1440" height="1444">
             </div>
@@ -745,9 +802,9 @@
             </div>
           </article>
 
-          <!-- PRODUTO 35 -->
+          <!-- PRODUTO 38 -->
 
-          <article class="product-card reveal" data-category="brincos" data-color="dourado" data-product="Brinco Flor Pérola Dourada">
+<article class="product-card reveal" data-category="brincos" data-color="dourado" data-product="Brinco Flor Pérola Dourada">
             <div class="product-card__image">
               <img loading="lazy" decoding="async" src="assets/img/brinco-flor-perola-dourada.webp?v=27" alt="Par de brincos dourados em formato de flor com pérola central e bordas cravejadas sobre cartão verde" width="1440" height="1444">
             </div>
@@ -761,9 +818,9 @@
             </div>
           </article>
 
-          <!-- PRODUTO 36 -->
+          <!-- PRODUTO 39 -->
 
-          <article class="product-card reveal" data-category="brincos" data-color="dourado" data-product="Brinco Gota Pérola Dourada">
+<article class="product-card reveal" data-category="brincos" data-color="dourado" data-product="Brinco Gota Pérola Dourada">
             <div class="product-card__image">
               <img loading="lazy" decoding="async" src="assets/img/brinco-gota-perola-dourada.webp?v=27" alt="Par de brincos dourados com topo cravejado e pérola grande pendurada sobre cartão verde" width="1440" height="1444">
             </div>
@@ -777,9 +834,9 @@
             </div>
           </article>
 
-          <!-- PRODUTO 37 -->
+          <!-- PRODUTO 40 -->
 
-          <article class="product-card reveal" data-category="brincos" data-color="dourado" data-product="Brinco Disco Pérola Dourada">
+<article class="product-card reveal" data-category="brincos" data-color="dourado" data-product="Brinco Disco Pérola Dourada">
             <div class="product-card__image">
               <img loading="lazy" decoding="async" src="assets/img/brinco-disco-perola-dourada.webp?v=27" alt="Par de brincos dourados com disco cravejado, pérola pequena e pérola grande pendurada sobre cartão verde" width="1440" height="1444">
             </div>
@@ -793,9 +850,9 @@
             </div>
           </article>
 
-          <!-- PRODUTO 38 -->
+          <!-- PRODUTO 41 -->
 
-          <article class="product-card reveal" data-category="brincos" data-color="dourado" data-product="Brinco Chama Pérola Dourada">
+<article class="product-card reveal" data-category="brincos" data-color="dourado" data-product="Brinco Chama Pérola Dourada">
             <div class="product-card__image">
               <img loading="lazy" decoding="async" src="assets/img/brinco-chama-perola-dourada.webp?v=27" alt="Par de brincos dourados em formato de chama cravejada com pérola sobre cartão verde" width="1440" height="1444">
             </div>
@@ -809,9 +866,9 @@
             </div>
           </article>
 
-          <!-- PRODUTO 39 -->
+          <!-- PRODUTO 42 -->
 
-          <article class="product-card reveal" data-category="brincos" data-color="dourado" data-product="Brinco Losango Craquelado Dourado">
+<article class="product-card reveal" data-category="brincos" data-color="dourado" data-product="Brinco Losango Craquelado Dourado">
             <div class="product-card__image">
               <img loading="lazy" decoding="async" src="assets/img/brinco-losango-craquelado-dourado.webp?v=27" alt="Par de brincos dourados em formato de losango com centro craquelado e borda cravejada sobre cartão verde" width="1440" height="1444">
             </div>
@@ -825,9 +882,41 @@
             </div>
           </article>
 
-          <!-- PRODUTO 40 -->
+          <!-- PRODUTO 43 -->
 
-          <article class="product-card reveal" data-category="brincos" data-color="perola" data-product="Brinco Cúpula Pérola Preta">
+          <article class="product-card reveal" data-category="brincos" data-color="perola" data-product="Brinco Pérola Grande">
+            <div class="product-card__image">
+              <img loading="lazy" decoding="async" src="assets/img/brinco-perola-grande.webp?v=28" alt="Par de brincos redondos com cúpula perolada clara e aro metálico sobre cartão verde" width="1440" height="1444">
+            </div>
+            <div class="product-card__body">
+              <h3>Brinco Pérola Grande</h3>
+              <p class="product-card__desc">Cúpula perolada grande em aro metálico para um brilho suave.</p>
+              <div class="product-card__footer">
+                <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 15,90</span></p>
+                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20P%C3%A9rola%20Grande%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Pérola Grande" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PRODUTO 44 -->
+
+          <article class="product-card reveal" data-category="brincos" data-color="perola" data-product="Brinco Pérola Bordada">
+            <div class="product-card__image">
+              <img loading="lazy" decoding="async" src="assets/img/brinco-perola-bordada.webp?v=28" alt="Par de brincos com pérola grande central rodeada de mini pérolas em aro metálico sobre cartão verde" width="1440" height="1444">
+            </div>
+            <div class="product-card__body">
+              <h3>Brinco Pérola Bordada</h3>
+              <p class="product-card__desc">Pérola central bordada por mini pérolas em aro metálico.</p>
+              <div class="product-card__footer">
+                <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 15,90</span></p>
+                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20P%C3%A9rola%20Bordada%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Pérola Bordada" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PRODUTO 45 -->
+
+<article class="product-card reveal" data-category="brincos" data-color="perola" data-product="Brinco Cúpula Pérola Preta">
             <div class="product-card__image">
               <img loading="lazy" decoding="async" src="assets/img/brinco-cupula-perola-preta.webp?v=27" alt="Par de brincos cúpula em tom pérola preta sobre cartão verde" width="1440" height="1444">
             </div>
@@ -841,9 +930,9 @@
             </div>
           </article>
 
-          <!-- PRODUTO 41 -->
+          <!-- PRODUTO 46 -->
 
-          <article class="product-card reveal" data-category="brincos" data-color="perola" data-product="Brinco Cúpula Pérola Âmbar">
+<article class="product-card reveal" data-category="brincos" data-color="perola" data-product="Brinco Cúpula Pérola Âmbar">
             <div class="product-card__image">
               <img loading="lazy" decoding="async" src="assets/img/brinco-cupula-perola-ambar.webp?v=27" alt="Par de brincos cúpula em tom pérola âmbar sobre cartão verde" width="1440" height="1444">
             </div>
@@ -857,9 +946,9 @@
             </div>
           </article>
 
-          <!-- PRODUTO 42 -->
+          <!-- PRODUTO 47 -->
 
-          <article class="product-card reveal" data-category="brincos" data-color="perola" data-product="Brinco Cúpula Pérola Creme">
+<article class="product-card reveal" data-category="brincos" data-color="perola" data-product="Brinco Cúpula Pérola Creme">
             <div class="product-card__image">
               <img loading="lazy" decoding="async" src="assets/img/brinco-cupula-perola-creme.webp?v=27" alt="Par de brincos cúpula em tom pérola creme sobre cartão verde" width="1440" height="1444">
             </div>
@@ -873,9 +962,25 @@
             </div>
           </article>
 
-          <!-- PRODUTO 43 -->
+          <!-- PRODUTO 48 -->
 
-          <article class="product-card reveal" data-category="brincos" data-color="vermelho" data-product="Brinco Presente Vermelho">
+          <article class="product-card reveal" data-category="brincos" data-color="vermelho" data-product="Brinco Espiral Vermelho">
+            <div class="product-card__image">
+              <img loading="lazy" decoding="async" src="assets/img/brinco-espiral-vermelho.webp?v=28" alt="Par de brincos botão em espiral vermelha com veios metálicos claros sobre cartão verde" width="1440" height="1444">
+            </div>
+            <div class="product-card__body">
+              <h3>Brinco Espiral Vermelho</h3>
+              <p class="product-card__desc">Espiral vermelha com veios metálicos no clima natalino.</p>
+              <div class="product-card__footer">
+                <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 13,90</span></p>
+                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Espiral%20Vermelho%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Espiral Vermelho" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PRODUTO 49 -->
+
+<article class="product-card reveal" data-category="brincos" data-color="vermelho" data-product="Brinco Presente Vermelho">
             <div class="product-card__image">
               <img loading="lazy" decoding="async" src="assets/img/brinco-presente-vermelho.webp?v=27" alt="Par de brincos em formato de presente vermelho com laço sobre cartão verde" width="1440" height="1444">
             </div>
@@ -889,9 +994,105 @@
             </div>
           </article>
 
-          <!-- PRODUTO 44 -->
+          <!-- PRODUTO 50 -->
 
-          <article class="product-card reveal" data-category="brincos" data-color="marrom" data-product="Brinco Argola Marrom e Mostarda">
+          <article class="product-card reveal" data-category="brincos" data-color="marrom" data-product="Brinco Gota Bicolor">
+            <div class="product-card__image">
+              <img loading="lazy" decoding="async" src="assets/img/brinco-gota-bicolor.webp?v=28" alt="Par de brincos em formato de gota bicolor, metade clara e metade âmbar, com contorno metálico sobre cartão verde" width="1440" height="1444">
+            </div>
+            <div class="product-card__body">
+              <h3>Brinco Gota Bicolor</h3>
+              <p class="product-card__desc">Gota bicolor clara e âmbar com contorno metálico.</p>
+              <div class="product-card__footer">
+                <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 10,90</span></p>
+                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Gota%20Bicolor%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Gota Bicolor" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PRODUTO 51 -->
+
+          <article class="product-card reveal" data-category="brincos" data-color="marrom" data-product="Brinco Oval Marrom">
+            <div class="product-card__image">
+              <img loading="lazy" decoding="async" src="assets/img/brinco-oval-marrom.webp?v=28" alt="Par de brincos ovais em tom âmbar-marrom com contorno metálico claro sobre cartão verde" width="1440" height="1444">
+            </div>
+            <div class="product-card__body">
+              <h3>Brinco Oval Marrom</h3>
+              <p class="product-card__desc">Oval âmbar-marrom com contorno claro para um toque quente.</p>
+              <div class="product-card__footer">
+                <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 10,90</span></p>
+                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Oval%20Marrom%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Oval Marrom" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PRODUTO 52 -->
+
+          <article class="product-card reveal" data-category="brincos" data-color="marrom" data-product="Brinco Pendente Gota Marrom">
+            <div class="product-card__image">
+              <img loading="lazy" decoding="async" src="assets/img/brinco-pendente-gota-marrom.webp?v=28" alt="Par de brincos pendentes com asa vermelha de veios claros e gota âmbar emoldurada em metal sobre cartão verde" width="1440" height="1444">
+            </div>
+            <div class="product-card__body">
+              <h3>Brinco Pendente Gota Marrom</h3>
+              <p class="product-card__desc">Asa vazada com veios e pingente gota âmbar para um look marcante.</p>
+              <div class="product-card__footer">
+                <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 12,90</span></p>
+                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Pendente%20Gota%20Marrom%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Pendente Gota Marrom" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PRODUTO 53 -->
+
+          <article class="product-card reveal" data-category="brincos" data-color="marrom" data-product="Brinco Duplo Marrom">
+            <div class="product-card__image">
+              <img loading="lazy" decoding="async" src="assets/img/brinco-duplo-marrom.webp?v=28" alt="Par de brincos com bola bicolor vermelha e metálica no pino e disco marrom pendurado sobre cartão verde" width="1440" height="1444">
+            </div>
+            <div class="product-card__body">
+              <h3>Brinco Duplo Marrom</h3>
+              <p class="product-card__desc">Bola bicolor no pino e disco marrom pendurado em um par versátil.</p>
+              <div class="product-card__footer">
+                <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 12,90</span></p>
+                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Duplo%20Marrom%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Duplo Marrom" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PRODUTO 54 -->
+
+          <article class="product-card reveal" data-category="brincos" data-color="marrom" data-product="Brinco Botão Marrom">
+            <div class="product-card__image">
+              <img loading="lazy" decoding="async" src="assets/img/brinco-botao-marrom.webp?v=28" alt="Par de brincos botão ovais em tom marrom brilhante com contorno metálico sobre cartão verde" width="1440" height="1444">
+            </div>
+            <div class="product-card__body">
+              <h3>Brinco Botão Marrom</h3>
+              <p class="product-card__desc">Botão oval marrom brilhante para o dia a dia com estilo.</p>
+              <div class="product-card__footer">
+                <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 12,90</span></p>
+                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Bot%C3%A3o%20Marrom%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Botão Marrom" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PRODUTO 55 -->
+
+          <article class="product-card reveal" data-category="brincos" data-color="marrom" data-product="Brinco Botão Âmbar">
+            <div class="product-card__image">
+              <img loading="lazy" decoding="async" src="assets/img/brinco-botao-ambar.webp?v=28" alt="Par de brincos botão ovais em resina âmbar transparente com contorno metálico sobre cartão verde" width="1440" height="1444">
+            </div>
+            <div class="product-card__body">
+              <h3>Brinco Botão Âmbar</h3>
+              <p class="product-card__desc">Resina âmbar transparente com contorno metálico, quente e luminosa.</p>
+              <div class="product-card__footer">
+                <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 12,90</span></p>
+                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Bot%C3%A3o%20%C3%82mbar%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Botão Âmbar" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PRODUTO 56 -->
+
+<article class="product-card reveal" data-category="brincos" data-color="marrom" data-product="Brinco Argola Marrom e Mostarda">
             <div class="product-card__image">
               <img loading="lazy" decoding="async" src="assets/img/brinco-argola-marrom-mostarda.webp?v=27" alt="Par de brincos argola em tons de marrom e mostarda sobre cartão verde" width="1440" height="1444">
             </div>
@@ -905,9 +1106,9 @@
             </div>
           </article>
 
-          <!-- PRODUTO 45 -->
+          <!-- PRODUTO 57 -->
 
-          <article class="product-card reveal" data-category="brincos" data-color="marrom" data-product="Brinco Argola Torcida Marrom">
+<article class="product-card reveal" data-category="brincos" data-color="marrom" data-product="Brinco Argola Torcida Marrom">
             <div class="product-card__image">
               <img loading="lazy" decoding="async" src="assets/img/brinco-argola-torcida-marrom.webp?v=27" alt="Par de brincos argola torcida em tom marrom sobre cartão verde" width="1440" height="1444">
             </div>
@@ -921,9 +1122,9 @@
             </div>
           </article>
 
-          <!-- PRODUTO 46 -->
+          <!-- PRODUTO 58 -->
 
-          <article class="product-card reveal" data-category="brincos" data-color="marrom" data-product="Brinco Nó Marrom">
+<article class="product-card reveal" data-category="brincos" data-color="marrom" data-product="Brinco Nó Marrom">
             <div class="product-card__image">
               <img loading="lazy" decoding="async" src="assets/img/brinco-no-marrom.webp?v=27" alt="Par de brincos em formato de nó em tom marrom sobre cartão verde" width="1440" height="1444">
             </div>
@@ -937,9 +1138,9 @@
             </div>
           </article>
 
-          <!-- PRODUTO 47 -->
+          <!-- PRODUTO 59 -->
 
-          <article class="product-card reveal" data-category="brincos" data-color="marrom" data-product="Brinco Argola Pequena Marrom">
+<article class="product-card reveal" data-category="brincos" data-color="marrom" data-product="Brinco Argola Pequena Marrom">
             <div class="product-card__image">
               <img loading="lazy" decoding="async" src="assets/img/brinco-argola-pequena-marrom.webp?v=27" alt="Par de brincos argola pequena em tom marrom sobre cartão verde" width="1440" height="1444">
             </div>
@@ -953,9 +1154,9 @@
             </div>
           </article>
 
-          <!-- PRODUTO 48 -->
+          <!-- PRODUTO 60 -->
 
-          <article class="product-card reveal" data-category="brincos" data-color="marrom" data-product="Brinco Argola Marrom e Bege">
+<article class="product-card reveal" data-category="brincos" data-color="marrom" data-product="Brinco Argola Marrom e Bege">
             <div class="product-card__image">
               <img loading="lazy" decoding="async" src="assets/img/brinco-argola-marrom-bege.webp?v=27" alt="Par de brincos argola em tons de marrom e bege sobre cartão verde" width="1440" height="1444">
             </div>
@@ -969,9 +1170,9 @@
             </div>
           </article>
 
-          <!-- PRODUTO 49 -->
+          <!-- PRODUTO 61 -->
 
-          <article class="product-card reveal" data-category="brincos" data-color="marrom" data-product="Brinco Argola Marrom e Caramelo">
+<article class="product-card reveal" data-category="brincos" data-color="marrom" data-product="Brinco Argola Marrom e Caramelo">
             <div class="product-card__image">
               <img loading="lazy" decoding="async" src="assets/img/brinco-argola-marrom-caramelo.webp?v=27" alt="Par de brincos argola em tons de marrom e caramelo sobre cartão verde" width="1440" height="1444">
             </div>
@@ -985,9 +1186,9 @@
             </div>
           </article>
 
-          <!-- PRODUTO 50 -->
+          <!-- PRODUTO 62 -->
 
-          <article class="product-card reveal" data-category="brincos" data-color="marrom" data-product="Brinco Argola Trançada Marrom">
+<article class="product-card reveal" data-category="brincos" data-color="marrom" data-product="Brinco Argola Trançada Marrom">
             <div class="product-card__image">
               <img loading="lazy" decoding="async" src="assets/img/brinco-argola-trancada-marrom.webp?v=27" alt="Par de brincos argola trançada em tom marrom sobre cartão verde" width="1440" height="1444">
             </div>
@@ -1001,9 +1202,9 @@
             </div>
           </article>
 
-          <!-- PRODUTO 51 -->
+          <!-- PRODUTO 63 -->
 
-          <article class="product-card reveal" data-category="brincos" data-color="marrom" data-product="Brinco Argola Marrom e Areia">
+<article class="product-card reveal" data-category="brincos" data-color="marrom" data-product="Brinco Argola Marrom e Areia">
             <div class="product-card__image">
               <img loading="lazy" decoding="async" src="assets/img/brinco-argola-marrom-areia.webp?v=27" alt="Par de brincos argola em tons de marrom e areia sobre cartão verde" width="1440" height="1444">
             </div>
@@ -1017,7 +1218,135 @@
             </div>
           </article>
 
-          <!-- PRODUTO 52 -->
+          <!-- PRODUTO 64 -->
+
+          <article class="product-card reveal" data-category="brincos" data-color="marrom" data-product="Brinco Flor Marrom">
+            <div class="product-card__image">
+              <img loading="lazy" decoding="async" src="assets/img/brinco-flor-marrom.webp?v=28" alt="Par de brincos em formato de flor de cinco pétalas marrom com contorno metálico e centro cravejado sobre cartão verde" width="1440" height="1444">
+            </div>
+            <div class="product-card__body">
+              <h3>Brinco Flor Marrom</h3>
+              <p class="product-card__desc">Flor de cinco pétalas marrom com centro cravejado e toque delicado.</p>
+              <div class="product-card__footer">
+                <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 14,90</span></p>
+                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Flor%20Marrom%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Flor Marrom" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PRODUTO 65 -->
+
+          <article class="product-card reveal" data-category="brincos" data-color="marrom" data-product="Brinco Onda Marrom">
+            <div class="product-card__image">
+              <img loading="lazy" decoding="async" src="assets/img/brinco-onda-marrom.webp?v=28" alt="Par de brincos em formato ondulado marrom com contorno metálico claro sobre cartão verde" width="1440" height="1444">
+            </div>
+            <div class="product-card__body">
+              <h3>Brinco Onda Marrom</h3>
+              <p class="product-card__desc">Formato ondulado marrom com contorno brilhante para um estilo fluido.</p>
+              <div class="product-card__footer">
+                <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 14,90</span></p>
+                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Onda%20Marrom%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Onda Marrom" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PRODUTO 66 -->
+
+          <article class="product-card reveal" data-category="brincos" data-color="marrom" data-product="Brinco Argola Coração Marrom">
+            <div class="product-card__image">
+              <img loading="lazy" decoding="async" src="assets/img/brinco-argola-coracao-marrom.webp?v=28" alt="Par de argolas em formato de coração em tom vermelho-escuro com pino metálico sobre cartão verde" width="1440" height="1444">
+            </div>
+            <div class="product-card__body">
+              <h3>Brinco Argola Coração Marrom</h3>
+              <p class="product-card__desc">Argola em formato de coração para um toque romântico de Natal.</p>
+              <div class="product-card__footer">
+                <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 14,90</span></p>
+                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Argola%20Cora%C3%A7%C3%A3o%20Marrom%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Argola Coração Marrom" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PRODUTO 67 -->
+
+          <article class="product-card reveal" data-category="brincos" data-color="branco" data-product="Brinco Flor Branca">
+            <div class="product-card__image">
+              <img loading="lazy" decoding="async" src="assets/img/brinco-flor-branca.webp?v=28" alt="Par de brincos em formato de flor com pétalas claras e contorno avermelhado sobre cartão marrom" width="1440" height="1444">
+            </div>
+            <div class="product-card__body">
+              <h3>Brinco Flor Branca</h3>
+              <p class="product-card__desc">Flor de pétalas claras com contorno avermelhado, leve e delicada.</p>
+              <div class="product-card__footer">
+                <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 12,90</span></p>
+                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Flor%20Branca%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Flor Branca" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PRODUTO 68 -->
+
+          <article class="product-card reveal" data-category="brincos" data-color="branco" data-product="Brinco Botão Branco">
+            <div class="product-card__image">
+              <img loading="lazy" decoding="async" src="assets/img/brinco-botao-branco.webp?v=28" alt="Par de brincos botão em formato de flor fechada branca com contorno metálico sobre cartão verde" width="1440" height="1444">
+            </div>
+            <div class="product-card__body">
+              <h3>Brinco Botão Branco</h3>
+              <p class="product-card__desc">Botão branco em formato de flor fechada, delicado e versátil.</p>
+              <div class="product-card__footer">
+                <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 12,90</span></p>
+                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Bot%C3%A3o%20Branco%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Botão Branco" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PRODUTO 69 -->
+
+          <article class="product-card reveal" data-category="brincos" data-color="branco" data-product="Brinco Espiral Branco">
+            <div class="product-card__image">
+              <img loading="lazy" decoding="async" src="assets/img/brinco-espiral-branco.webp?v=28" alt="Par de brincos botão em espiral branca com veios metálicos sobre cartão verde" width="1440" height="1444">
+            </div>
+            <div class="product-card__body">
+              <h3>Brinco Espiral Branco</h3>
+              <p class="product-card__desc">Espiral branca com veios metálicos para um visual clean.</p>
+              <div class="product-card__footer">
+                <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 13,90</span></p>
+                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Espiral%20Branco%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Espiral Branco" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PRODUTO 70 -->
+
+          <article class="product-card reveal" data-category="brincos" data-color="preto" data-product="Brinco Flor Preta">
+            <div class="product-card__image">
+              <img loading="lazy" decoding="async" src="assets/img/brinco-flor-preta.webp?v=28" alt="Par de brincos em formato de flor preta com pétalas dobradas e contorno claro sobre cartão verde" width="1440" height="1444">
+            </div>
+            <div class="product-card__body">
+              <h3>Brinco Flor Preta</h3>
+              <p class="product-card__desc">Flor preta de pétalas dobradas para um look sofisticado.</p>
+              <div class="product-card__footer">
+                <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 12,90</span></p>
+                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Flor%20Preta%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Flor Preta" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PRODUTO 71 -->
+
+          <article class="product-card reveal" data-category="brincos" data-color="preto" data-product="Brinco Espiral Preto">
+            <div class="product-card__image">
+              <img loading="lazy" decoding="async" src="assets/img/brinco-espiral-preto.webp?v=28" alt="Par de brincos botão em espiral preta com veios metálicos sobre cartão verde" width="1440" height="1444">
+            </div>
+            <div class="product-card__body">
+              <h3>Brinco Espiral Preto</h3>
+              <p class="product-card__desc">Espiral preta com veios metálicos para um contraste elegante.</p>
+              <div class="product-card__footer">
+                <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 13,90</span></p>
+                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Espiral%20Preto%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Espiral Preto" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+              </div>
+            </div>
+          </article>
+
+<!-- PRODUTO 72 -->
 
           <article class="product-card reveal" data-category="conjuntos" data-product="Conjunto Curvas Douradas">
             <div class="product-card__image">
@@ -1033,7 +1362,7 @@
             </div>
           </article>
 
-          <!-- PRODUTO 53 -->
+          <!-- PRODUTO 73 -->
 
           <article class="product-card reveal product-card--unavailable" data-category="conjuntos" data-product="Conjunto Estrela Verde">
             <div class="product-card__image">
@@ -1050,7 +1379,7 @@
             </div>
           </article>
 
-          <!-- PRODUTO 54 -->
+          <!-- PRODUTO 74 -->
 
           <article class="product-card reveal" data-category="conjuntos" data-product="Conjunto Estrela Vermelha">
             <div class="product-card__image">
@@ -1066,7 +1395,7 @@
             </div>
           </article>
 
-          <!-- PRODUTO 55 -->
+          <!-- PRODUTO 75 -->
 
           <article class="product-card reveal product-card--unavailable" data-category="conjuntos" data-product="Conjunto Estrela Dourada">
             <div class="product-card__image">
@@ -1083,7 +1412,7 @@
             </div>
           </article>
 
-          <!-- PRODUTO 56 -->
+          <!-- PRODUTO 76 -->
 
           <article class="product-card reveal" data-category="conjuntos" data-product="Conjunto Estrela Branca">
             <div class="product-card__image">
@@ -1099,7 +1428,7 @@
             </div>
           </article>
 
-          <!-- PRODUTO 57 -->
+          <!-- PRODUTO 77 -->
 
           <article class="product-card reveal" data-category="conjuntos" data-product="Conjunto Pérola Barroca Âmbar">
             <div class="product-card__image">
@@ -1115,7 +1444,7 @@
             </div>
           </article>
 
-          <!-- PRODUTO 58 -->
+          <!-- PRODUTO 78 -->
 
           <article class="product-card reveal" data-category="conjuntos" data-product="Conjunto Pérola Barroca Verde">
             <div class="product-card__image">
@@ -1131,7 +1460,7 @@
             </div>
           </article>
 
-          <!-- PRODUTO 59 -->
+          <!-- PRODUTO 79 -->
 
           <article class="product-card reveal" data-category="conjuntos" data-product="Conjunto Pérola Barroca Vermelha">
             <div class="product-card__image">
@@ -1147,7 +1476,7 @@
             </div>
           </article>
 
-          <!-- PRODUTO 60 -->
+          <!-- PRODUTO 80 -->
 
           <article class="product-card reveal" data-category="conjuntos" data-product="Conjunto Gota Dourada">
             <div class="product-card__image">
@@ -1163,7 +1492,7 @@
             </div>
           </article>
 
-          <!-- PRODUTO 61 -->
+          <!-- PRODUTO 81 -->
 
           <article class="product-card reveal" data-category="pulseiras" data-product="Pulseira Aura Dourada">
             <div class="product-card__image">
@@ -1179,7 +1508,7 @@
             </div>
           </article>
 
-          <!-- PRODUTO 62 -->
+          <!-- PRODUTO 82 -->
 
           <article class="product-card reveal" data-category="pulseiras" data-product="Pulseira Folha Dourada">
             <div class="product-card__image">
@@ -1195,7 +1524,7 @@
             </div>
           </article>
 
-          <!-- PRODUTO 63 -->
+          <!-- PRODUTO 83 -->
 
           <article class="product-card reveal" data-category="pulseiras" data-product="Pulseira Trama Dourada">
             <div class="product-card__image">
@@ -1211,7 +1540,7 @@
             </div>
           </article>
 
-          <!-- PRODUTO 64 -->
+          <!-- PRODUTO 84 -->
 
           <article class="product-card reveal" data-category="pulseiras" data-product="Pulseira Cintilante">
             <div class="product-card__image">
@@ -1227,7 +1556,7 @@
             </div>
           </article>
 
-          <!-- PRODUTO 65 -->
+          <!-- PRODUTO 85 -->
 
           <article class="product-card reveal" data-category="pulseiras" data-product="Pulseira Corrente Dourada">
             <div class="product-card__image">
@@ -1243,7 +1572,7 @@
             </div>
           </article>
 
-          <!-- PRODUTO 66 -->
+          <!-- PRODUTO 86 -->
 
           <article class="product-card reveal" data-category="pulseiras" data-product="Pulseira Brilho Texturizado">
             <div class="product-card__image">
@@ -1259,7 +1588,7 @@
             </div>
           </article>
 
-          <!-- PRODUTO 67 -->
+          <!-- PRODUTO 87 -->
 
           <article class="product-card reveal" data-category="pulseiras" data-product="Pulseira Duplo Encanto">
             <div class="product-card__image">
@@ -1275,7 +1604,7 @@
             </div>
           </article>
 
-          <!-- PRODUTO 68 -->
+          <!-- PRODUTO 88 -->
 
           <article class="product-card reveal" data-category="pulseiras" data-product="Pulseira Onda Dourada">
             <div class="product-card__image">
@@ -1448,6 +1777,6 @@
     <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12.04 2C6.5 2 2.13 6.37 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.26-1.38a9.9 9.9 0 0 0 4.78 1.22h.01c5.54 0 10.04-4.5 10.04-10.04 0-2.68-1.04-5.2-2.93-7.09A9.94 9.94 0 0 0 12.04 2Zm0 18.31h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.12.82.84-3.04-.2-.31a8.17 8.17 0 0 1-1.25-4.37c0-4.52 3.68-8.2 8.21-8.2 2.19 0 4.25.86 5.8 2.4a8.15 8.15 0 0 1 2.4 5.81c0 4.53-3.68 8.22-8.19 8.22Zm4.5-6.15c-.25-.13-1.46-.72-1.68-.8-.23-.09-.39-.13-.56.13-.16.25-.64.8-.79.96-.14.17-.29.19-.54.06-.25-.12-1.06-.39-2.01-1.24-.74-.66-1.24-1.48-1.39-1.73-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.16.04-.3-.02-.42-.06-.13-.56-1.34-.77-1.84-.2-.48-.41-.42-.56-.42h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1s.9 2.44 1.03 2.61c.13.16 1.77 2.7 4.29 3.79.6.26 1.07.41 1.43.52.6.19 1.15.17 1.58.1.48-.07 1.46-.6 1.67-1.17.2-.58.2-1.07.14-1.18-.06-.1-.22-.16-.46-.28Z"/></svg>
   </a>
 
-  <script src="js/main.js?v=26"></script>
+  <script src="js/main.js?v=27"></script>
 </body>
 </html>

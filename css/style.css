@@ -889,6 +889,11 @@ body.cart-open { overflow: hidden; }
 .cart-item__remove:hover { background: rgba(197, 160, 89, .24); }
 .cart-total { display: flex; justify-content: space-between; gap: 1rem; margin: 1rem 0; padding: 1rem 0; border-top: 1px solid rgba(197, 160, 89, .35); border-bottom: 1px solid rgba(197, 160, 89, .35); color: var(--olive-deep); font-size: .9rem; }
 .cart-total strong { font-size: 1.12rem; white-space: nowrap; }
+.cart-order-info { display: grid; gap: .55rem; margin: 0 0 1rem; padding: .9rem 1rem; border: 1px solid rgba(197, 160, 89, .3); border-radius: 12px; background: rgba(255, 246, 237, .72); }
+.cart-order-info__row { display: flex; justify-content: space-between; gap: .8rem; font-size: .77rem; line-height: 1.45; }
+.cart-order-info__row strong { color: var(--olive-deep); }
+.cart-order-info__row span { text-align: right; }
+.cart-order-info > p { margin: .1rem 0 0; color: #66645b; font-size: .72rem; line-height: 1.45; }
 .cart-dialog__note { margin: 0 0 1.1rem; color: #66645b; font-size: .72rem; line-height: 1.5; }
 .cart-dialog__actions { display: grid; gap: .65rem; }
 .cart-clear { width: 100%; border-color: rgba(114, 114, 114, .3); background: transparent; color: var(--olive-deep); }

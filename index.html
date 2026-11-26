@@ -17,7 +17,7 @@
 
   <!-- Habilita animações somente quando o JavaScript está disponível -->
   <script>document.documentElement.classList.add('js');</script>
-  <link rel="stylesheet" href="css/style.css?v=30">
+  <link rel="stylesheet" href="css/style.css?v=31">
 </head>
 <body>
   <a class="skip-link" href="#catalogo">Pular para o catálogo</a>
@@ -2225,6 +2225,11 @@
       <p class="cart-empty" id="cart-empty">Seu carrinho está vazio. Adicione suas peças favoritas pelo catálogo.</p>
       <ul class="cart-items" id="cart-items" aria-live="polite"></ul>
       <div class="cart-total"><span>Total do pedido</span><strong id="cart-total">R$ 0,00</strong></div>
+      <div class="cart-order-info" aria-label="Informações de pagamento e entrega">
+        <div class="cart-order-info__row"><strong>Pagamento</strong><span>PIX, dinheiro ou cartão</span></div>
+        <div class="cart-order-info__row"><strong>Entrega</strong><span>Em toda Campina Grande</span></div>
+        <p>Consulte condições de parcelamento e taxas de entrega.</p>
+      </div>
       <p class="cart-dialog__note">Enviar o pedido não reserva nem altera a disponibilidade das peças. A confirmação é feita pelo WhatsApp.</p>
       <div class="cart-dialog__actions">
         <button class="btn cart-clear" id="cart-clear" type="button" disabled>Limpar carrinho</button>

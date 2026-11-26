@@ -386,14 +386,19 @@ document.addEventListener('DOMContentLoaded', function () {
   const tabGroups = Array.prototype.slice.call(document.querySelectorAll('.tabs:not(.tabs--cores)'));
   const colorTabs = Array.prototype.slice.call(document.querySelectorAll('.tab[data-color-filter]'));
   const colorFilterBar = document.getElementById('filtro-cores');
+  // "coloridos" agrupa os data-color vermelho, marrom, branco e preto.
+  const colorGroups = { coloridos: ['vermelho', 'marrom', 'branco', 'preto'] };
   let currentFilter = 'todos';
-  let currentColor = 'todas';
+  let currentColor = 'todos';
   let currentPage = 1;
 
   function getMatchingCards(filter, color) {
     return cards.filter(function (card) {
       const matchesCategory = filter === 'todos' || card.dataset.category === filter;
-      const matchesColor = filter !== 'brincos' || !color || color === 'todas' || card.dataset.color === color;
+      const group = colorGroups[color];
+      const matchesColor = filter !== 'brincos' || !color || color === 'todos' ||
+        card.dataset.color === color ||
+        (group ? group.indexOf(card.dataset.color) !== -1 : false);
       return matchesCategory && matchesColor;
     });
   }
@@ -481,7 +486,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function renderCatalog(filter, page) {
-    const matchingCards = getMatchingCards(filter);
+    const matchingCards = getMatchingCards(filter, currentColor);
     const pageSize = getPageSize();
     const totalPages = Math.max(1, Math.ceil(matchingCards.length / pageSize));
     const safePage = Math.min(Math.max(page || 1, 1), totalPages);
@@ -520,6 +525,8 @@ document.addEventListener('DOMContentLoaded', function () {
     currentPage = safePage;
     currentPageSize = pageSize;
     updateTabs(filter);
+    updateColorBar(filter);
+    updateColorTabs(currentColor);
     renderPagination(totalPages, safePage);
   }
 
@@ -530,7 +537,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function activateTab(selectedTab) {
     const filter = selectedTab.dataset.filter;
-    if (filter !== currentFilter) currentColor = 'todas';
+    if (filter !== currentFilter) currentColor = 'todos';
     const nextPage = filter === currentFilter ? currentPage : 1;
     renderCatalog(filter, nextPage);
   }
@@ -543,7 +550,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (nextPageButton) {
     nextPageButton.addEventListener('click', function () {
-      var matchingCards = getMatchingCards(currentFilter);
+      var matchingCards = getMatchingCards(currentFilter, currentColor);
       var totalPages = Math.ceil(matchingCards.length / getPageSize());
       if (currentPage < totalPages) goToPage(currentPage + 1);
     });
@@ -571,6 +578,37 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     });
   });
+
+  // Subfiltro de cores da aba Brincos. Como os cards de brincos já estão
+  // ordenados por preço no HTML e o filtro preserva a ordem do DOM, tanto
+  // "todos" quanto cada cor exibem as peças do menor para o maior preço.
+  if (colorFilterBar) {
+    const groupColorTabs = Array.prototype.slice.call(colorFilterBar.querySelectorAll('.tab[data-color-filter]'));
+
+    function activateColorTab(selectedTab) {
+      currentColor = selectedTab.dataset.colorFilter;
+      renderCatalog(currentFilter, 1);
+    }
+
+    groupColorTabs.forEach(function (tab, index) {
+      tab.addEventListener('click', function () { activateColorTab(tab); });
+
+      // Navegação por teclado dentro do grupo de cores (setas, Home e End)
+      tab.addEventListener('keydown', function (event) {
+        let nextIndex = null;
+        if (event.key === 'ArrowRight') nextIndex = (index + 1) % groupColorTabs.length;
+        if (event.key === 'ArrowLeft') nextIndex = (index - 1 + groupColorTabs.length) % groupColorTabs.length;
+        if (event.key === 'Home') nextIndex = 0;
+        if (event.key === 'End') nextIndex = groupColorTabs.length - 1;
+
+        if (nextIndex !== null) {
+          event.preventDefault();
+          groupColorTabs[nextIndex].focus();
+          activateColorTab(groupColorTabs[nextIndex]);
+        }
+      });
+    });
+  }
 
   var initialTab = tabs.filter(function (tab) { return tab.classList.contains('is-active'); })[0] || tabs[0];
   if (initialTab) renderCatalog(initialTab.dataset.filter, 1);

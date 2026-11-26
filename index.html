@@ -17,7 +17,7 @@
 
   <!-- Habilita animações somente quando o JavaScript está disponível -->
   <script>document.documentElement.classList.add('js');</script>
-  <link rel="stylesheet" href="css/style.css?v=28">
+  <link rel="stylesheet" href="css/style.css?v=29">
 </head>
 <body>
   <a class="skip-link" href="#catalogo">Pular para o catálogo</a>
@@ -170,8 +170,8 @@
          Para duplicar um produto: copie um <article class="product-card">,
          troque data-product, data-category, imagem, texto e preço.
          As categorias sem peças usam .coming-soon com "Novidades em breve".
-         O link do WhatsApp é gerado automaticamente pelo JS a partir de
-         data-product (e já vem pronto no HTML para quem estiver sem JS).
+         O carrinho usa data-product e os preços do card para montar o pedido
+         que o cliente poderá enviar pelo WhatsApp.
          ================================================================ -->
     <section class="section catalog" id="catalogo" aria-labelledby="catalogo-title">
       <div class="container">
@@ -219,7 +219,7 @@
               <p class="product-card__desc">Banda larga e lisa, com linhas simples que se destacam na mão.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 9,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Anel%20Banda%20Dourada%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Anel Banda Dourada" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Anel Banda Dourada">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -234,7 +234,7 @@
               <p class="product-card__desc">Uma espiral compacta traz movimento ao desenho.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 9,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Anel%20Espiral%20Dourada%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Anel Espiral Dourada" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Anel Espiral Dourada">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -249,7 +249,7 @@
               <p class="product-card__desc">Duas faixas sobrepostas formam um visual em camadas.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 9,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Anel%20Duas%20Voltas%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Anel Duas Voltas" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Anel Duas Voltas">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -264,7 +264,7 @@
               <p class="product-card__desc">Pérola central cercada por pequenos detalhes metálicos.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 9,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Anel%20P%C3%A9rola%20Encantada%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Anel Pérola Encantada" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Anel Pérola Encantada">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -279,7 +279,7 @@
               <p class="product-card__desc">Folhas delicadas percorrem o aro em um desenho natural.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 9,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Anel%20Folhas%20Douradas%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Anel Folhas Douradas" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Anel Folhas Douradas">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -294,7 +294,7 @@
               <p class="product-card__desc">O acabamento martelado cria textura e reflexos sutis.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 9,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Anel%20Martelado%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Anel Martelado" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Anel Martelado">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -309,7 +309,7 @@
               <p class="product-card__desc">Aro ovalado de perfil discreto, fácil de combinar.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 9,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Anel%20%C3%93rbita%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Anel Órbita" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Anel Órbita">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -324,7 +324,7 @@
               <p class="product-card__desc">Banda larga com relevo marcado por toda a superfície.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 9,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Anel%20Texturizado%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Anel Texturizado" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Anel Texturizado">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -339,7 +339,7 @@
               <p class="product-card__desc">Desenho orgânico que envolve o dedo em uma curva contínua.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 9,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Anel%20Abra%C3%A7o%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Anel Abraço" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Anel Abraço">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -354,7 +354,7 @@
               <p class="product-card__desc">Três aros sobrepostos compõem uma peça com movimento.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 9,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Anel%20Tr%C3%AAs%20Aros%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Anel Três Aros" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Anel Três Aros">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -369,7 +369,7 @@
               <p class="product-card__desc">Linhas cruzadas desenham um laço leve e atual.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 9,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Anel%20La%C3%A7o%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Anel Laço" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Anel Laço">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -384,7 +384,7 @@
               <p class="product-card__desc">Pérola barroca em uma moldura metálica delicada.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 9,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Anel%20P%C3%A9rola%20Barroca%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Anel Pérola Barroca" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Anel Pérola Barroca">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -399,7 +399,7 @@
               <p class="product-card__desc">Três espirais se encontram em um único desenho.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 9,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Anel%20Espiral%20Tripla%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Anel Espiral Tripla" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Anel Espiral Tripla">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -414,7 +414,7 @@
               <p class="product-card__desc">Curva ondulada de perfil leve, para usar só ou em composição.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 9,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Anel%20Onda%20Suave%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Anel Onda Suave" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Anel Onda Suave">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -429,7 +429,7 @@
               <p class="product-card__desc">Estrela-do-mar com inspiração à beira-mar.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 9,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Anel%20Estrela%20do%20Mar%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Anel Estrela do Mar" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Anel Estrela do Mar">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -444,7 +444,7 @@
               <p class="product-card__desc">Faixa larga com frisos que ressaltam o formato.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 9,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Anel%20Faixa%20Larga%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Anel Faixa Larga" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Anel Faixa Larga">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -459,7 +459,7 @@
               <p class="product-card__desc">Fios sobrepostos formam uma espiral com movimento.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 9,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Anel%20Fio%20Enrolado%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Anel Fio Enrolado" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Anel Fio Enrolado">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -474,7 +474,7 @@
               <p class="product-card__desc">Topo retangular de cantos suaves e acabamento prateado.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 9,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Anel%20Ret%C3%A2ngulo%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Anel Retângulo" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Anel Retângulo">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -489,7 +489,7 @@
               <p class="product-card__desc">Gota vazada com pontos que acompanham o contorno.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 9,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Anel%20Gota%20Pontilhada%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Anel Gota Pontilhada" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Anel Gota Pontilhada">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -504,7 +504,7 @@
               <p class="product-card__desc">A borda ondulada acompanha o formato do aro.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 9,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Anel%20Borda%20Ondulada%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Anel Borda Ondulada" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Anel Borda Ondulada">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -519,7 +519,7 @@
               <p class="product-card__desc">Desenho aberto em forma de gota, com linhas amplas.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 9,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Anel%20Gota%20Aberta%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Anel Gota Aberta" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Anel Gota Aberta">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -534,7 +534,7 @@
               <p class="product-card__desc">Espiral alta que envolve o dedo em voltas marcantes.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 9,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Anel%20Espiral%20Alto%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Anel Espiral Alto" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Anel Espiral Alto">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -549,7 +549,7 @@
               <p class="product-card__desc">Linha em S que cruza o aro com leveza.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 9,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Anel%20em%20S%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Anel em S" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Anel em S">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -564,7 +564,7 @@
               <p class="product-card__desc">Topo oval com textura quadriculada e acabamento polido.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 9,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Anel%20Oval%20Texturizado%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Anel Oval Texturizado" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Anel Oval Texturizado">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -579,7 +579,7 @@
               <p class="product-card__desc">Cúpula facetada que reflete a luz em diferentes ângulos.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 9,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Anel%20C%C3%BApula%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Anel Cúpula" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Anel Cúpula">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -594,7 +594,7 @@
               <p class="product-card__desc">Chapa ampla com centro oval e superfície lisa.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 9,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Anel%20Chapa%20Oval%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Anel Chapa Oval" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Anel Chapa Oval">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -609,7 +609,7 @@
               <p class="product-card__desc">Placa reta e polida, de linhas minimalistas.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 9,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Anel%20Placa%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Anel Placa" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Anel Placa">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -624,7 +624,7 @@
               <p class="product-card__desc">Duas peças abertas com curvas onduladas para compor juntas.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 14,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Anel%20Onda%20Aberta%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Anel Onda Aberta" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Anel Onda Aberta">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -639,7 +639,7 @@
               <p class="product-card__desc">Par de anéis em formato de coroa com detalhes dourados.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 14,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Anel%20Coroa%20Dourada%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Anel Coroa Dourada" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Anel Coroa Dourada">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -654,7 +654,7 @@
               <p class="product-card__desc">Duas curvas abertas se cruzam em um desenho leve.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 14,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Anel%20Fluxo%20Dourado%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Anel Fluxo Dourado" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Anel Fluxo Dourado">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -669,7 +669,7 @@
               <p class="product-card__desc">Fios entrelaçados formam uma trança de linhas contínuas.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 14,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Anel%20Tran%C3%A7a%20Dourada%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Anel Trança Dourada" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Anel Trança Dourada">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -684,7 +684,7 @@
               <p class="product-card__desc">Botão pequeno com centro dourado e contorno vermelho.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 10,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Bot%C3%A3o%20Dourado%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Botão Dourado" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Botão Dourado">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -699,7 +699,7 @@
               <p class="product-card__desc">Mini flor em relevo, com pétalas bem definidas.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 10,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Mini%20Flor%20Dourada%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Mini Flor Dourada" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Mini Flor Dourada">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -714,7 +714,7 @@
               <p class="product-card__desc">Formato redondo com aro vermelho e centro perolado.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 10,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Redondo%20Dourado%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Redondo Dourado" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Redondo Dourado">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -729,7 +729,7 @@
               <p class="product-card__desc">Gota bicolor com contorno metálico.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 10,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Gota%20Bicolor%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Gota Bicolor" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Gota Bicolor">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -744,7 +744,7 @@
               <p class="product-card__desc">Formato oval em tons de âmbar e marrom, com contorno claro.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 10,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Oval%20Marrom%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Oval Marrom" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Oval Marrom">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -759,7 +759,7 @@
               <p class="product-card__desc">Abacaxi formado por pérolas, em um desenho divertido.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 12,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Abacaxi%20de%20P%C3%A9rolas%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Abacaxi de Pérolas" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Abacaxi de Pérolas">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -774,7 +774,7 @@
               <p class="product-card__desc">Pendente vazado com linhas curvas e uma gota âmbar.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 12,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Pendente%20Gota%20Marrom%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Pendente Gota Marrom" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Pendente Gota Marrom">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -789,7 +789,7 @@
               <p class="product-card__desc">Pino esférico bicolor com disco marrom pendente.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 12,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Duplo%20Marrom%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Duplo Marrom" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Duplo Marrom">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -804,7 +804,7 @@
               <p class="product-card__desc">Botão oval de superfície lisa e acabamento brilhante.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 12,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Bot%C3%A3o%20Marrom%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Botão Marrom" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Botão Marrom">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -819,7 +819,7 @@
               <p class="product-card__desc">Resina âmbar translúcida com contorno metálico.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 12,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Bot%C3%A3o%20%C3%82mbar%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Botão Âmbar" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Botão Âmbar">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -834,7 +834,7 @@
               <p class="product-card__desc">Flor de pétalas claras com contorno avermelhado.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 12,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Flor%20Branca%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Flor Branca" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Flor Branca">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -849,7 +849,7 @@
               <p class="product-card__desc">Botão branco em formato de flor fechada.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 12,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Bot%C3%A3o%20Branco%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Botão Branco" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Botão Branco">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -864,7 +864,7 @@
               <p class="product-card__desc">Pétalas dobradas formam uma flor de linhas marcantes.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 12,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Flor%20Preta%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Flor Preta" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Flor Preta">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -879,7 +879,7 @@
               <p class="product-card__desc">Flor de cinco pétalas com efeito marmorizado e centro em relevo.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 12,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Flor%20Marmorizada%20Dourada%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Flor Marmorizada Dourada" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Flor Marmorizada Dourada">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -894,7 +894,7 @@
               <p class="product-card__desc">Pétalas marmorizadas ao redor de um centro texturizado.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 12,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Flor%20Estrelada%20Dourada%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Flor Estrelada Dourada" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Flor Estrelada Dourada">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -909,7 +909,7 @@
               <p class="product-card__desc">Losango de centro liso com borda cravejada.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 13,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Losango%20P%C3%A9rola%20Dourado%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Losango Pérola Dourado" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Losango Pérola Dourado">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -924,7 +924,7 @@
               <p class="product-card__desc">Espiral vermelha com veios metálicos no acabamento.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 13,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Espiral%20Vermelho%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Espiral Vermelho" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Espiral Vermelho">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -939,7 +939,7 @@
               <p class="product-card__desc">Argola em tons quentes, fácil de combinar com peças neutras.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 13,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Argola%20Marrom%20e%20Mostarda%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Argola Marrom e Mostarda" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Argola Marrom e Mostarda">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -954,7 +954,7 @@
               <p class="product-card__desc">Argola torcida com desenho clássico e acabamento marrom.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 13,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Argola%20Torcida%20Marrom%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Argola Torcida Marrom" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Argola Torcida Marrom">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -969,7 +969,7 @@
               <p class="product-card__desc">Linhas arredondadas formam um nó de perfil discreto.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 13,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20N%C3%B3%20Marrom%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Nó Marrom" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Nó Marrom">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -984,7 +984,7 @@
               <p class="product-card__desc">Argola pequena e leve para acompanhar o dia a dia.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 13,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Argola%20Pequena%20Marrom%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Argola Pequena Marrom" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Argola Pequena Marrom">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -999,7 +999,7 @@
               <p class="product-card__desc">Marrom e bege se encontram em uma argola de linhas suaves.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 13,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Argola%20Marrom%20e%20Bege%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Argola Marrom e Bege" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Argola Marrom e Bege">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -1014,7 +1014,7 @@
               <p class="product-card__desc">Tons de marrom e caramelo em uma argola de desenho delicado.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 13,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Argola%20Marrom%20e%20Caramelo%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Argola Marrom e Caramelo" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Argola Marrom e Caramelo">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -1029,7 +1029,7 @@
               <p class="product-card__desc">Trama trançada acrescenta textura à argola marrom.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 13,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Argola%20Tran%C3%A7ada%20Marrom%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Argola Trançada Marrom" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Argola Trançada Marrom">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -1044,7 +1044,7 @@
               <p class="product-card__desc">Marrom e areia compõem uma argola de visual leve.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 13,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Argola%20Marrom%20e%20Areia%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Argola Marrom e Areia" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Argola Marrom e Areia">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -1059,7 +1059,7 @@
               <p class="product-card__desc">Espiral branca com veios metálicos que destacam o desenho.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 13,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Espiral%20Branco%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Espiral Branco" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Espiral Branco">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -1074,7 +1074,7 @@
               <p class="product-card__desc">Espiral preta com veios metálicos em contraste definido.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 13,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Espiral%20Preto%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Espiral Preto" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Espiral Preto">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -1089,7 +1089,7 @@
               <p class="product-card__desc">Meia-lua de resina translúcida contornada por um filete dourado.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 13,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Mini%20Argola%20Dourada%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Mini Argola Dourada" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Mini Argola Dourada">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -1104,7 +1104,7 @@
               <p class="product-card__desc">Argola de perfil fino com detalhes dourados.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 13,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Argola%20Fina%20Dourada%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Argola Fina Dourada" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Argola Fina Dourada">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -1119,7 +1119,7 @@
               <p class="product-card__desc">Gota ondulada de linhas orgânicas e acabamento polido.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 13,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Gota%20Ondulada%20Dourada%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Gota Ondulada Dourada" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Gota Ondulada Dourada">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -1134,7 +1134,7 @@
               <p class="product-card__desc">Esferas polidas em um formato compacto.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 13,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Bola%20Dourada%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Bola Dourada" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Bola Dourada">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -1149,7 +1149,7 @@
               <p class="product-card__desc">Letras formadas por pérolas, com pingente em destaque.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 14,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Letras%20com%20P%C3%A9rolas%20Douradas%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Letras com Pérolas Douradas" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Letras com Pérolas Douradas">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -1164,7 +1164,7 @@
               <p class="product-card__desc">Caixinha de presente com laço, em clima de festa.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 14,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Presente%20Vermelho%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Presente Vermelho" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Presente Vermelho">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -1179,7 +1179,7 @@
               <p class="product-card__desc">Flor de cinco pétalas com centro cravejado.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 14,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Flor%20Marrom%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Flor Marrom" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Flor Marrom">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -1194,7 +1194,7 @@
               <p class="product-card__desc">Formato ondulado com contorno brilhante e linhas fluidas.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 14,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Onda%20Marrom%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Onda Marrom" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Onda Marrom">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -1209,7 +1209,7 @@
               <p class="product-card__desc">Argola em forma de coração com acabamento marrom.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 14,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Argola%20Cora%C3%A7%C3%A3o%20Marrom%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Argola Coração Marrom" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Argola Coração Marrom">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -1224,7 +1224,7 @@
               <p class="product-card__desc">Flor ampla de cinco pétalas com centro cravejado.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 14,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Flor%20Grande%20Dourada%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Flor Grande Dourada" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Flor Grande Dourada">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -1239,7 +1239,7 @@
               <p class="product-card__desc">Argola oval achatada de resina translúcida, com filete dourado.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 14,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Argola%20Oval%20Dourada%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Argola Oval Dourada" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Argola Oval Dourada">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -1254,7 +1254,7 @@
               <p class="product-card__desc">Pétalas em relevo dão volume ao desenho floral.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 14,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Flor%20Cinco%20P%C3%A9talas%20Dourada%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Flor Cinco Pétalas Dourada" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Flor Cinco Pétalas Dourada">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -1269,7 +1269,7 @@
               <p class="product-card__desc">Flor delicada com pérola central.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 15,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Flor%20P%C3%A9rola%20Dourada%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Flor Pérola Dourada" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Flor Pérola Dourada">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -1284,7 +1284,7 @@
               <p class="product-card__desc">Gota cravejada que termina em uma pérola de destaque.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 15,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Gota%20P%C3%A9rola%20Dourada%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Gota Pérola Dourada" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Gota Pérola Dourada">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -1299,7 +1299,7 @@
               <p class="product-card__desc">Disco cravejado combinado a duas pérolas.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 15,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Disco%20P%C3%A9rola%20Dourada%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Disco Pérola Dourada" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Disco Pérola Dourada">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -1314,7 +1314,7 @@
               <p class="product-card__desc">Formato de chama com detalhe de pérola central.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 15,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Chama%20P%C3%A9rola%20Dourada%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Chama Pérola Dourada" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Chama Pérola Dourada">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -1329,7 +1329,7 @@
               <p class="product-card__desc">Losango de superfície craquelada e borda cravejada.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 15,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Losango%20Craquelado%20Dourado%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Losango Craquelado Dourado" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Losango Craquelado Dourado">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -1344,7 +1344,7 @@
               <p class="product-card__desc">Cúpula perolada contornada por um aro metálico.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 15,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20C%C3%BApula%20Perolada%20Grande%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Cúpula Perolada Grande" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Cúpula Perolada Grande">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -1359,7 +1359,7 @@
               <p class="product-card__desc">Pérola central cercada por pequenas pérolas bordadas.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 15,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20P%C3%A9rola%20Bordada%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Pérola Bordada" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Pérola Bordada">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -1374,7 +1374,7 @@
               <p class="product-card__desc">Linhas em espiral contornam uma pérola central.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 15,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Espiral%20Cravejado%20com%20P%C3%A9rola%20Central%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Espiral Cravejado com Pérola Central" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Espiral Cravejado com Pérola Central">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -1389,7 +1389,7 @@
               <p class="product-card__desc">Argola larga de perfil arredondado e acabamento polido.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 15,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Argola%20Meia-Lua%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Argola Meia-Lua" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Argola Meia-Lua">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -1404,7 +1404,7 @@
               <p class="product-card__desc">Base cravejada com uma pérola redonda pendente.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 15,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Bot%C3%A3o%20Cravejado%20com%20P%C3%A9rola%20Pendente%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Botão Cravejado com Pérola Pendente" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Botão Cravejado com Pérola Pendente">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -1419,7 +1419,7 @@
               <p class="product-card__desc">Meia-lua vazada e cravejada, finalizada com esfera pendente.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 15,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Pendente%20Meia-Lua%20Prata%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Pendente Meia-Lua Prata" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Pendente Meia-Lua Prata">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -1434,7 +1434,7 @@
               <p class="product-card__desc">Folha cravejada com esfera pendente de tamanho marcante.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 15,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Pendente%20Folha%20Prata%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Pendente Folha Prata" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Pendente Folha Prata">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -1449,7 +1449,7 @@
               <p class="product-card__desc">Formato quadrado com centro texturizado e borda cravejada.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 15,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Bot%C3%A3o%20Quadrado%20Cravejado%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Botão Quadrado Cravejado" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Botão Quadrado Cravejado">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -1464,7 +1464,7 @@
               <p class="product-card__desc">Argola curta com frisos verticais em relevo.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 15,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Argola%20Canelada%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Argola Canelada" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Argola Canelada">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -1479,7 +1479,7 @@
               <p class="product-card__desc">Mini argola lisa em formato de meia-lua.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 15,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Mini%20Argola%20Prata%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Mini Argola Prata" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Mini Argola Prata">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -1494,7 +1494,7 @@
               <p class="product-card__desc">Argola pequena de desenho meia-lua em resina translúcida.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 15,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Argola%20Meia-Lua%20Prata%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Argola Meia-Lua Prata" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Argola Meia-Lua Prata">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -1509,7 +1509,7 @@
               <p class="product-card__desc">Cúpula perolada preta de acabamento polido.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 16,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20C%C3%BApula%20Perolada%20Preta%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Cúpula Perolada Preta" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Cúpula Perolada Preta">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -1524,7 +1524,7 @@
               <p class="product-card__desc">Cúpula perolada em tom âmbar, com reflexo suave.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 16,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20C%C3%BApula%20Perolada%20%C3%82mbar%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Cúpula Perolada Âmbar" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Cúpula Perolada Âmbar">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -1539,7 +1539,7 @@
               <p class="product-card__desc">Cúpula perolada em tom creme, de acabamento discreto.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 16,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20C%C3%BApula%20Perolada%20Creme%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Cúpula Perolada Creme" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Cúpula Perolada Creme">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -1554,7 +1554,7 @@
               <p class="product-card__desc">Flor de cinco pétalas contornada por um filete metálico.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 16,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Flor%20Cinco%20P%C3%A9talas%20Prata%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Flor Cinco Pétalas Prata" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Flor Cinco Pétalas Prata">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -1569,7 +1569,7 @@
               <p class="product-card__desc">Flor inspirada nas festas de fim de ano, com filete metálico.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 16,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Flor%20de%20Natal%20Prata%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Flor de Natal Prata" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Flor de Natal Prata">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -1584,7 +1584,7 @@
               <p class="product-card__desc">Argola redonda com espiral torcida.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 16,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Argola%20Espiral%20Prata%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Argola Espiral Prata" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Argola Espiral Prata">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -1599,7 +1599,7 @@
               <p class="product-card__desc">Dois aros entrelaçados em um único desenho.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 16,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Argola%20Dupla%20Prata%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Argola Dupla Prata" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Argola Dupla Prata">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -1614,7 +1614,7 @@
               <p class="product-card__desc">Trama cruzada em X com textura geométrica.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 16,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Trama%20X%20Dourado%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Trama X Dourado" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Trama X Dourado">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -1629,7 +1629,7 @@
               <p class="product-card__desc">Superfície martelada em um formato de contorno irregular.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 16,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Assim%C3%A9trico%20Martelado%20Dourado%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Assimétrico Martelado Dourado" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Assimétrico Martelado Dourado">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -1644,7 +1644,7 @@
               <p class="product-card__desc">Três argolas trançadas em uma composição volumosa.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 16,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Argola%20Tripla%20Tran%C3%A7ada%20Dourada%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Argola Tripla Trançada Dourada" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Argola Tripla Trançada Dourada">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -1659,7 +1659,7 @@
               <p class="product-card__desc">Gota vazada com esfera central.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 16,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Gota%20com%20Esfera%20Dourada%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Gota com Esfera Dourada" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Gota com Esfera Dourada">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -1674,7 +1674,7 @@
               <p class="product-card__desc">Disco texturizado com relevo de bolhas.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 16,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Bolha%20Texturizada%20Dourada%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Bolha Texturizada Dourada" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Bolha Texturizada Dourada">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -1689,7 +1689,7 @@
               <p class="product-card__desc">Leque com filetes pontilhados que se abrem em raios.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 16,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Leque%20Raiado%20Dourado%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Leque Raiado Dourado" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Leque Raiado Dourado">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -1704,7 +1704,7 @@
               <p class="product-card__desc">Fitas curvas formam um laço de linhas marcantes.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 16,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20La%C3%A7o%20Dourado%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Laço Dourado" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Laço Dourado">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -1719,7 +1719,7 @@
               <p class="product-card__desc">Curvas em S com superfície fosca.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 16,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Onda%20Dourada%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Onda Dourada" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Onda Dourada">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -1734,7 +1734,7 @@
               <p class="product-card__desc">Leque amplo com nervuras em relevo.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 16,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Leque%20Amplo%20Dourado%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Leque Amplo Dourado" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Leque Amplo Dourado">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -1749,7 +1749,7 @@
               <p class="product-card__desc">Argolas duplas sobrepostas com acabamento trançado.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 16,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Argola%20Dupla%20Tran%C3%A7ada%20Dourada%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Argola Dupla Trançada Dourada" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Argola Dupla Trançada Dourada">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -1764,7 +1764,7 @@
               <p class="product-card__desc">Pendente de corda trançada com um pequeno aro superior.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 16,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Pendente%20com%20Corda%20Dourada%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Pendente com Corda Dourada" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Pendente com Corda Dourada">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -1779,7 +1779,7 @@
               <p class="product-card__desc">Quadrados texturizados com desenho de treliça.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 16,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Quadrado%20Texturizado%20Dourado%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Quadrado Texturizado Dourado" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Quadrado Texturizado Dourado">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -1794,7 +1794,7 @@
               <p class="product-card__desc">Linhas curvas formam um redemoinho em relevo.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 16,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Redemoinho%20Dourado%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Redemoinho Dourado" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Redemoinho Dourado">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -1809,7 +1809,7 @@
               <p class="product-card__desc">Flor de cinco pétalas com borda metálica e pintura decorativa.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 16,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Flor%20Pintada%20Dourada%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Flor Pintada Dourada" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Flor Pintada Dourada">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -1824,7 +1824,7 @@
               <p class="product-card__desc">Gota vazada com desenho de chama e superfície fosca.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 16,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Gota%20Vazada%20Dourada%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Gota Vazada Dourada" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Gota Vazada Dourada">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -1839,7 +1839,7 @@
               <p class="product-card__desc">Dois pares de brincos com barras de cristal facetado.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 16,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Kit%20com%202%20Pares%20de%20Brincos%20de%20Barra%20com%20Cristal%20Dourado%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Kit com 2 Pares de Brincos de Barra com Cristal Dourado" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Kit com 2 Pares de Brincos de Barra com Cristal Dourado">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -1854,7 +1854,7 @@
               <p class="product-card__desc">Pedra marmorizada verde acinzentada em moldura metálica.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 16,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Brinco%20Pendente%20com%20Pedra%20Verde%20Acinzentada%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Brinco Pendente com Pedra Verde Acinzentada" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Brinco Pendente com Pedra Verde Acinzentada">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -1869,7 +1869,7 @@
               <p class="product-card__desc">Brincos, anel e pulseira com linhas curvas coordenadas.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 39,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Conjunto%20Curvas%20Douradas%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Conjunto Curvas Douradas" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Conjunto Curvas Douradas">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -1900,7 +1900,7 @@
               <p class="product-card__desc">Trio coordenado com folhas e acabamento texturizado.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 54,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Conjunto%20Folhas%20Vermelhas%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Conjunto Folhas Vermelhas" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Conjunto Folhas Vermelhas">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -1931,7 +1931,7 @@
               <p class="product-card__desc">Brincos, anel e pulseira com folhas em destaque.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 54,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Conjunto%20Folhas%20Brancas%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Conjunto Folhas Brancas" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Conjunto Folhas Brancas">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -1946,7 +1946,7 @@
               <p class="product-card__desc">Pérola barroca como detalhe central dos brincos e do anel.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 59,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Conjunto%20P%C3%A9rola%20Barroca%20%C3%82mbar%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Conjunto Pérola Barroca Âmbar" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Conjunto Pérola Barroca Âmbar">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -1961,7 +1961,7 @@
               <p class="product-card__desc">Brincos, anel e pulseira coordenados pelo detalhe de pérola barroca.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 59,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Conjunto%20P%C3%A9rola%20Barroca%20Verde%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Conjunto Pérola Barroca Verde" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Conjunto Pérola Barroca Verde">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -1976,7 +1976,7 @@
               <p class="product-card__desc">Três peças combinadas com pérola barroca em destaque.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 59,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Conjunto%20P%C3%A9rola%20Barroca%20Vermelha%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Conjunto Pérola Barroca Vermelha" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Conjunto Pérola Barroca Vermelha">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -1991,7 +1991,7 @@
               <p class="product-card__desc">Quatro peças com formato de gota: brincos, anel, pulseira e colar.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 64,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Conjunto%20Gota%20Dourada%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Conjunto Gota Dourada" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Conjunto Gota Dourada">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -2006,7 +2006,7 @@
               <p class="product-card__desc">Aro fino de desenho simples, fácil de combinar com outros acessórios.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 9,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Pulseira%20Aura%20Dourada%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Pulseira Aura Dourada" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Pulseira Aura Dourada">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -2021,7 +2021,7 @@
               <p class="product-card__desc">Aro fino de linhas simples e acabamento polido.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 9,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Pulseira%20Aro%20Liso%20Dourado%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Pulseira Aro Liso Dourado" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Pulseira Aro Liso Dourado">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -2036,7 +2036,7 @@
               <p class="product-card__desc">Textura geométrica discreta ao longo do aro.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 9,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Pulseira%20Trama%20Dourada%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Pulseira Trama Dourada" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Pulseira Trama Dourada">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -2051,7 +2051,7 @@
               <p class="product-card__desc">Detalhes luminosos distribuídos pela peça.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 9,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Pulseira%20Cintilante%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Pulseira Cintilante" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Pulseira Cintilante">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -2066,7 +2066,7 @@
               <p class="product-card__desc">Elos marcantes compõem uma pulseira de linhas clássicas.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 9,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Pulseira%20Corrente%20Dourada%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Pulseira Corrente Dourada" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Pulseira Corrente Dourada">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -2081,7 +2081,7 @@
               <p class="product-card__desc">O acabamento martelado cria uma textura irregular.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 9,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Pulseira%20Brilho%20Texturizado%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Pulseira Brilho Texturizado" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Pulseira Brilho Texturizado">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -2096,7 +2096,7 @@
               <p class="product-card__desc">Duas camadas dão mais volume à pulseira.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 9,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Pulseira%20Duplo%20Encanto%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Pulseira Duplo Encanto" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Pulseira Duplo Encanto">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -2111,7 +2111,7 @@
               <p class="product-card__desc">Curvas suaves compõem o desenho desta pulseira.</p>
               <div class="product-card__footer">
                 <p class="product-card__price"><span class="product-card__price-label">Valor</span><span class="product-card__price-value"><small>R$</small> 9,90</span></p>
-                <a class="btn btn-gold btn--card whatsapp-link" href="https://api.whatsapp.com/send/?phone=558399240346&text=Ol%C3%A1!%20Tenho%20interesse%20na%20pe%C3%A7a%20Pulseira%20Onda%20Dourada%20da%20cole%C3%A7%C3%A3o%20de%20Natal!&type=phone_number&app_absent=0&utm_source=ig" data-product="Pulseira Onda Dourada" target="_blank" rel="noopener noreferrer">Comprar pelo WhatsApp</a>
+                <button class="btn btn-gold btn--card cart-add-button" type="button" data-product="Pulseira Onda Dourada">Adicionar ao carrinho</button>
               </div>
             </div>
           </article>
@@ -2215,6 +2215,21 @@
     </section>
   </main>
 
+  <!-- Carrinho em janela modal: o pedido só é enviado pelo WhatsApp, sem reservar as peças. -->
+  <div class="cart-overlay" id="cart-overlay" hidden>
+    <section class="cart-dialog" id="cart-dialog" role="dialog" aria-modal="true" aria-labelledby="cart-title" aria-describedby="cart-description" tabindex="-1">
+      <button class="cart-dialog__close" type="button" data-cart-close aria-label="Fechar carrinho">&times;</button>
+      <p class="eyebrow">Seu pedido</p>
+      <h2 id="cart-title">Meu carrinho</h2>
+      <p class="cart-dialog__description" id="cart-description">Confira as peças que você separou e o valor total.</p>
+      <p class="cart-empty" id="cart-empty">Seu carrinho está vazio. Adicione suas peças favoritas pelo catálogo.</p>
+      <ul class="cart-items" id="cart-items" aria-live="polite"></ul>
+      <div class="cart-total"><span>Total do pedido</span><strong id="cart-total">R$ 0,00</strong></div>
+      <p class="cart-dialog__note">Enviar o pedido não reserva nem altera a disponibilidade das peças. A confirmação é feita pelo WhatsApp.</p>
+      <button class="btn btn-gold cart-checkout" id="cart-checkout" type="button" disabled>Finalizar compra pelo WhatsApp</button>
+    </section>
+  </div>
+
   <!-- ================================================================
        RODAPÉ
        ================================================================ -->
@@ -2269,11 +2284,16 @@
     </div>
   </footer>
 
+  <button class="cart-trigger" id="cart-trigger" type="button" aria-label="Abrir carrinho, 0 produtos" aria-haspopup="dialog" aria-controls="cart-dialog">
+    <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2.2 10.1a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 1.9-1.4L21 8H6"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>
+    <span class="cart-trigger__count" id="cart-count" aria-hidden="true">0</span>
+  </button>
+
   <!-- Botão flutuante do WhatsApp (somente ícone) -->
   <a class="whatsapp-float" href="https://api.whatsapp.com/send/?phone=558399240346&text&type=phone_number&app_absent=0&utm_source=ig" target="_blank" rel="noopener noreferrer" aria-label="Falar com a Perrengue Chic no WhatsApp">
     <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12.04 2C6.5 2 2.13 6.37 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.26-1.38a9.9 9.9 0 0 0 4.78 1.22h.01c5.54 0 10.04-4.5 10.04-10.04 0-2.68-1.04-5.2-2.93-7.09A9.94 9.94 0 0 0 12.04 2Zm0 18.31h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.12.82.84-3.04-.2-.31a8.17 8.17 0 0 1-1.25-4.37c0-4.52 3.68-8.2 8.21-8.2 2.19 0 4.25.86 5.8 2.4a8.15 8.15 0 0 1 2.4 5.81c0 4.53-3.68 8.22-8.19 8.22Zm4.5-6.15c-.25-.13-1.46-.72-1.68-.8-.23-.09-.39-.13-.56.13-.16.25-.64.8-.79.96-.14.17-.29.19-.54.06-.25-.12-1.06-.39-2.01-1.24-.74-.66-1.24-1.48-1.39-1.73-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.16.04-.3-.02-.42-.06-.13-.56-1.34-.77-1.84-.2-.48-.41-.42-.56-.42h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1s.9 2.44 1.03 2.61c.13.16 1.77 2.7 4.29 3.79.6.26 1.07.41 1.43.52.6.19 1.15.17 1.58.1.48-.07 1.46-.6 1.67-1.17.2-.58.2-1.07.14-1.18-.06-.1-.22-.16-.46-.28Z"/></svg>
   </a>
 
-  <script src="js/main.js?v=29"></script>
+  <script src="js/main.js?v=30"></script>
 </body>
 </html>

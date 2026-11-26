@@ -382,14 +382,34 @@ document.addEventListener('DOMContentLoaded', function () {
   // As abas aparecem duas vezes: no topo do catálogo e no fim da lista.
   // Cada grupo tem a sua própria navegação por setas, e o estado fica igual
   // nos dois, então clicar embaixo reflete em cima e vice-versa.
-  const tabGroups = Array.prototype.slice.call(document.querySelectorAll('.tabs'));
+  // O grupo .tabs--cores é o subfiltro de cores da aba Brincos e tem navegação própria.
+  const tabGroups = Array.prototype.slice.call(document.querySelectorAll('.tabs:not(.tabs--cores)'));
+  const colorTabs = Array.prototype.slice.call(document.querySelectorAll('.tab[data-color-filter]'));
+  const colorFilterBar = document.getElementById('filtro-cores');
   let currentFilter = 'todos';
+  let currentColor = 'todas';
   let currentPage = 1;
 
-  function getMatchingCards(filter) {
+  function getMatchingCards(filter, color) {
     return cards.filter(function (card) {
-      return filter === 'todos' || card.dataset.category === filter;
+      const matchesCategory = filter === 'todos' || card.dataset.category === filter;
+      const matchesColor = filter !== 'brincos' || !color || color === 'todas' || card.dataset.color === color;
+      return matchesCategory && matchesColor;
     });
+  }
+
+  function updateColorTabs(color) {
+    colorTabs.forEach(function (tab) {
+      const isActive = tab.dataset.colorFilter === color;
+      tab.classList.toggle('is-active', isActive);
+      tab.setAttribute('aria-selected', String(isActive));
+      tab.tabIndex = isActive ? 0 : -1;
+    });
+  }
+
+  // O subfiltro de cores só faz sentido dentro da aba Brincos.
+  function updateColorBar(filter) {
+    if (colorFilterBar) colorFilterBar.hidden = filter !== 'brincos';
   }
 
   function updateTabs(filter) {
@@ -510,6 +530,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function activateTab(selectedTab) {
     const filter = selectedTab.dataset.filter;
+    if (filter !== currentFilter) currentColor = 'todas';
     const nextPage = filter === currentFilter ? currentPage : 1;
     renderCatalog(filter, nextPage);
   }

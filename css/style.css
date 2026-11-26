@@ -274,6 +274,7 @@ h1 em, h2 em, h3 em { color: var(--gold-dark); font-style: italic; }
   padding: calc(var(--header-height) + 5rem) 0 7rem;
   background: var(--olive);
   color: var(--cream);
+  overflow: hidden;
 }
 
 .hero__bg {

@@ -387,7 +387,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const colorTabs = Array.prototype.slice.call(document.querySelectorAll('.tab[data-color-filter]'));
   const colorFilterBar = document.getElementById('filtro-cores');
   // "coloridos" agrupa os data-color vermelho, marrom, branco e preto.
-  const colorGroups = { coloridos: ['vermelho', 'marrom', 'branco', 'preto'] };
+  const colorGroups = { coloridos: ['vermelho', 'marrom', 'branco', 'preto', 'verde'] };
   let currentFilter = 'todos';
   let currentColor = 'todos';
   let currentPage = 1;

@@ -1,8 +1,8 @@
 /* ==========================================================================
    PERRENGUE CHIC: INTERAÇÕES (JavaScript Vanilla)
    0. Tela inicial          1. Barra de progresso   2. Carrossel de banners
-   3. Menu mobile           4. Filtro e paginação   5. Links do WhatsApp
-   6. Animação de entrada   7. Navegação ativa      8. Ano no rodapé
+   3. Menu mobile           4. Filtro e paginação   5. Carrinho e pedido     6. Animação de entrada   7. Navegação ativa
+   8. Ano no rodapé
    9. Hero dinâmico
    ========================================================================== */
 
@@ -359,14 +359,13 @@ document.addEventListener('DOMContentLoaded', function () {
   /* ------------------------------------------------------------------------
      4. FILTRO E PAGINAÇÃO DO CATÁLOGO EM TEMPO REAL
      Cada card define sua categoria em data-category. Cada categoria mostra
-     três peças por vez no celular, quatro no tablet e seis no desktop;
+     quatro peças por vez em telas menores que 1024px e seis no desktop;
      quando há mais, a navegação de páginas aparece no fim da seção,
      acima dos botões de categoria.
      ------------------------------------------------------------------------ */
   function getPageSize() {
     if (window.matchMedia && window.matchMedia('(min-width: 1024px)').matches) return 6;
-    if (window.matchMedia && window.matchMedia('(min-width: 768px)').matches) return 4;
-    return 3;
+    return 4;
   }
 
   var currentPageSize = getPageSize();
@@ -622,22 +621,194 @@ document.addEventListener('DOMContentLoaded', function () {
   }, { passive: true });
 
   /* ------------------------------------------------------------------------
-     5. LINKS DO WHATSAPP
-     O texto é montado a partir de data-product. Basta duplicar um card e
-     alterar esse atributo que o link já sai com a mensagem correta.
+     5. CARRINHO E FINALIZAÇÃO DO PEDIDO PELO WHATSAPP
+     O carrinho guarda apenas os nomes das peças no navegador: cada item é
+     exclusivo, não tem quantidade e não fica reservado ao enviar o pedido.
      ------------------------------------------------------------------------ */
   const WHATSAPP_NUMBER = '558399240346';
+  const CART_STORAGE_KEY = 'perrengue-chic-cart-v1';
+  const cartTrigger = document.getElementById('cart-trigger');
+  const cartCount = document.getElementById('cart-count');
+  const cartOverlay = document.getElementById('cart-overlay');
+  const cartDialog = document.getElementById('cart-dialog');
+  const cartItemsList = document.getElementById('cart-items');
+  const cartEmptyMessage = document.getElementById('cart-empty');
+  const cartTotalElement = document.getElementById('cart-total');
+  const cartCheckoutButton = document.getElementById('cart-checkout');
+  const cartCloseButton = document.querySelector('[data-cart-close]');
+  const cartAddButtons = Array.prototype.slice.call(document.querySelectorAll('.cart-add-button[data-product]'));
+  const pageMain = document.querySelector('main');
+  const cartProducts = new Map();
 
-  function buildWhatsappLink(productName) {
-    const message = 'Olá! Tenho interesse na peça ' + productName + ' da coleção de Natal!';
-    return 'https://api.whatsapp.com/send/?phone=' + WHATSAPP_NUMBER +
-      '&text=' + encodeURIComponent(message) +
-      '&type=phone_number&app_absent=0&utm_source=ig';
+  cards.forEach(function (card) {
+    if (card.classList.contains('product-card--unavailable')) return;
+    const priceElement = card.querySelector('.product-card__price-value');
+    if (!priceElement || !card.dataset.product) return;
+    const priceText = priceElement.textContent.replace(/[^\d,.-]/g, '').replace(/\./g, '').replace(',', '.');
+    const price = Number(priceText);
+    if (Number.isFinite(price)) cartProducts.set(card.dataset.product, { name: card.dataset.product, price: Math.round(price * 100) });
+  });
+
+  function readCart() {
+    try {
+      const saved = JSON.parse(window.localStorage.getItem(CART_STORAGE_KEY) || '[]');
+      if (!Array.isArray(saved)) return [];
+      return saved.filter(function (name, index) {
+        return typeof name === 'string' && cartProducts.has(name) && saved.indexOf(name) === index;
+      });
+    } catch (error) {
+      return [];
+    }
   }
 
-  document.querySelectorAll('a.whatsapp-link[data-product]').forEach(function (link) {
-    link.href = buildWhatsappLink(link.dataset.product);
+  let cart = readCart();
+  let previouslyFocusedElement = null;
+
+  function saveCart() {
+    try { window.localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cart)); } catch (error) { /* armazenamento local opcional */ }
+  }
+
+  function formatCurrency(cents) {
+    return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(cents / 100);
+  }
+
+  function updateCartButtons() {
+    cartAddButtons.forEach(function (button) {
+      const isAdded = cart.indexOf(button.dataset.product) !== -1;
+      button.textContent = isAdded ? 'No carrinho ✓' : 'Adicionar ao carrinho';
+      button.classList.toggle('is-added', isAdded);
+      button.disabled = isAdded;
+      button.setAttribute('aria-pressed', String(isAdded));
+    });
+  }
+
+  function renderCart() {
+    if (!cartItemsList) return;
+    cartItemsList.innerHTML = '';
+    const products = cart.map(function (name) { return cartProducts.get(name); }).filter(Boolean);
+    const total = products.reduce(function (sum, product) { return sum + product.price; }, 0);
+
+    products.forEach(function (product) {
+      const item = document.createElement('li');
+      item.className = 'cart-item';
+      const details = document.createElement('div');
+      details.className = 'cart-item__details';
+      const name = document.createElement('span');
+      name.className = 'cart-item__name';
+      name.textContent = product.name;
+      const price = document.createElement('strong');
+      price.className = 'cart-item__price';
+      price.textContent = formatCurrency(product.price);
+      details.appendChild(name);
+      details.appendChild(price);
+
+      const removeButton = document.createElement('button');
+      removeButton.className = 'cart-item__remove';
+      removeButton.type = 'button';
+      removeButton.dataset.cartRemove = product.name;
+      removeButton.setAttribute('aria-label', 'Remover ' + product.name + ' do carrinho');
+      removeButton.textContent = 'Remover';
+      item.appendChild(details);
+      item.appendChild(removeButton);
+      cartItemsList.appendChild(item);
+    });
+
+    if (cartEmptyMessage) cartEmptyMessage.hidden = products.length > 0;
+    cartItemsList.hidden = products.length === 0;
+    if (cartTotalElement) cartTotalElement.textContent = formatCurrency(total);
+    if (cartCheckoutButton) cartCheckoutButton.disabled = products.length === 0;
+    if (cartCount) cartCount.textContent = String(products.length);
+    if (cartTrigger) cartTrigger.setAttribute('aria-label', 'Abrir carrinho, ' + products.length + (products.length === 1 ? ' produto' : ' produtos'));
+    updateCartButtons();
+  }
+
+  function openCart() {
+    if (!cartOverlay || !cartDialog) return;
+    previouslyFocusedElement = document.activeElement;
+    cartOverlay.hidden = false;
+    document.body.classList.add('cart-open');
+    if (pageMain) pageMain.setAttribute('inert', '');
+    if (cartCloseButton) cartCloseButton.focus();
+  }
+
+  function closeCart() {
+    if (!cartOverlay || cartOverlay.hidden) return;
+    cartOverlay.hidden = true;
+    document.body.classList.remove('cart-open');
+    if (pageMain) pageMain.removeAttribute('inert');
+    if (previouslyFocusedElement && typeof previouslyFocusedElement.focus === 'function') previouslyFocusedElement.focus();
+  }
+
+  function buildCheckoutMessage(products) {
+    const lines = products.map(function (product, index) {
+      return (index + 1) + '. ' + product.name + ' — ' + formatCurrency(product.price);
+    });
+    const total = products.reduce(function (sum, product) { return sum + product.price; }, 0);
+    return 'Olá, gostaria de finalizar a compra desses pedidos:\n\n' + lines.join('\n') +
+      '\n\nTotal: ' + formatCurrency(total) + '\n\nAguardo confirmação de disponibilidade e informações de entrega.';
+  }
+
+  if (cartTrigger) cartTrigger.addEventListener('click', openCart);
+  if (cartCloseButton) cartCloseButton.addEventListener('click', closeCart);
+  if (cartOverlay) {
+    cartOverlay.addEventListener('click', function (event) {
+      if (event.target === cartOverlay) closeCart();
+    });
+  }
+  if (cartItemsList) {
+    cartItemsList.addEventListener('click', function (event) {
+      const removeButton = event.target.closest('[data-cart-remove]');
+      if (!removeButton) return;
+      cart = cart.filter(function (name) { return name !== removeButton.dataset.cartRemove; });
+      saveCart();
+      renderCart();
+    });
+  }
+  cartAddButtons.forEach(function (button) {
+    button.addEventListener('click', function () {
+      const name = button.dataset.product;
+      if (!cartProducts.has(name) || cart.indexOf(name) !== -1) return;
+      cart.push(name);
+      saveCart();
+      renderCart();
+    });
   });
+  if (cartCheckoutButton) {
+    cartCheckoutButton.addEventListener('click', function () {
+      const products = cart.map(function (name) { return cartProducts.get(name); }).filter(Boolean);
+      if (!products.length) return;
+      const message = buildCheckoutMessage(products);
+      const url = 'https://api.whatsapp.com/send/?phone=' + WHATSAPP_NUMBER + '&text=' + encodeURIComponent(message) + '&type=phone_number&app_absent=0';
+      window.open(url, '_blank', 'noopener,noreferrer');
+    });
+  }
+  if (cartDialog) {
+    cartDialog.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        closeCart();
+        return;
+      }
+      if (event.key !== 'Tab') return;
+      const focusable = Array.prototype.slice.call(cartDialog.querySelectorAll('button:not(:disabled), [href], [tabindex]:not([tabindex="-1"])'));
+      if (!focusable.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    });
+  }
+  window.addEventListener('storage', function (event) {
+    if (event.key !== CART_STORAGE_KEY) return;
+    cart = readCart();
+    renderCart();
+  });
+  renderCart();
 
   /* ------------------------------------------------------------------------
      6. ANIMAÇÃO DE ENTRADA AO ROLAR

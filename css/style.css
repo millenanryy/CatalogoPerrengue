@@ -834,7 +834,92 @@ body.linktree-open { overflow: hidden; }
 .footer__bottom a:hover { text-decoration: underline; }
 
 /* --------------------------------------------------------------------------
-   12. BOTÃO FLUTUANTE DO WHATSAPP (somente ícone)
+   12. CARRINHO MODAL E BOTÕES FLUTUANTES
+   -------------------------------------------------------------------------- */
+
+body.cart-open { overflow: hidden; }
+.cart-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  background: rgba(28, 33, 23, .68);
+  backdrop-filter: blur(4px);
+}
+.cart-overlay[hidden] { display: none; }
+.cart-dialog {
+  position: relative;
+  width: min(100%, 540px);
+  max-height: min(90vh, 760px);
+  overflow: auto;
+  padding: clamp(1.35rem, 5vw, 2.25rem);
+  border: 1px solid rgba(197, 160, 89, .55);
+  border-radius: 22px;
+  background: var(--cream);
+  box-shadow: 0 28px 90px rgba(0, 0, 0, .3);
+}
+.cart-dialog .eyebrow { margin-bottom: .35rem; }
+.cart-dialog h2 { margin: 0 3rem .45rem 0; font-size: clamp(2rem, 7vw, 2.7rem); }
+.cart-dialog__description { margin: 0 0 1.2rem; color: var(--text); font-size: .86rem; line-height: 1.55; }
+.cart-dialog__close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(114, 114, 114, .25);
+  border-radius: 50%;
+  background: var(--cream-deep);
+  color: var(--olive-deep);
+  font-size: 1.65rem;
+  cursor: pointer;
+}
+.cart-empty { margin: .5rem 0 1.2rem; padding: 1rem; border-radius: 12px; background: var(--cream-deep); font-size: .84rem; line-height: 1.55; }
+.cart-empty[hidden], .cart-items[hidden] { display: none; }
+.cart-items { display: grid; gap: .7rem; max-height: 42vh; overflow: auto; margin: 0; padding: 0 .2rem 0 0; list-style: none; }
+.cart-item { display: flex; align-items: center; justify-content: space-between; gap: .8rem; padding: .8rem 0; border-bottom: 1px solid rgba(197, 160, 89, .3); }
+.cart-item__details { display: grid; gap: .2rem; min-width: 0; }
+.cart-item__name { color: var(--olive-deep); font-size: .87rem; font-weight: 600; line-height: 1.35; }
+.cart-item__price { color: var(--gold-dark); font-size: .84rem; }
+.cart-item__remove { flex: none; padding: .45rem .65rem; border: 0; border-radius: 999px; background: rgba(114, 114, 114, .1); color: var(--olive-deep); font: inherit; font-size: .69rem; cursor: pointer; }
+.cart-item__remove:hover { background: rgba(197, 160, 89, .24); }
+.cart-total { display: flex; justify-content: space-between; gap: 1rem; margin: 1rem 0; padding: 1rem 0; border-top: 1px solid rgba(197, 160, 89, .35); border-bottom: 1px solid rgba(197, 160, 89, .35); color: var(--olive-deep); font-size: .9rem; }
+.cart-total strong { font-size: 1.12rem; white-space: nowrap; }
+.cart-dialog__note { margin: 0 0 1.1rem; color: #66645b; font-size: .72rem; line-height: 1.5; }
+.cart-checkout { width: 100%; }
+.cart-checkout:disabled { cursor: not-allowed; filter: grayscale(.35); opacity: .55; }
+.cart-add-button { white-space: normal; line-height: 1.15; }
+.cart-add-button.is-added { background: var(--olive); color: var(--cream); box-shadow: none; cursor: default; }
+.cart-add-button:disabled { opacity: 1; }
+.cart-add-button.is-added:hover { transform: none; filter: none; box-shadow: none; }
+
+.cart-trigger {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 5.85rem;
+  z-index: 90;
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border: 1px solid rgba(255, 246, 237, .6);
+  border-radius: 50%;
+  background: var(--olive-deep);
+  box-shadow: 0 12px 28px rgba(44, 51, 34, .3);
+  color: var(--cream);
+  cursor: pointer;
+  transition: transform .22s ease, background-color .22s ease;
+}
+.cart-trigger:hover { transform: translateY(-3px); background: var(--olive); }
+.cart-trigger svg { width: 25px; height: 25px; }
+.cart-trigger__count { position: absolute; top: -4px; right: -4px; display: grid; place-items: center; min-width: 22px; height: 22px; padding: 0 .3rem; border: 2px solid var(--cream); border-radius: 999px; background: var(--gold); color: var(--olive-deep); font-size: .65rem; font-weight: 700; }
+
+/* --------------------------------------------------------------------------
+   12B. BOTÃO FLUTUANTE DO WHATSAPP (somente ícone)
    -------------------------------------------------------------------------- */
 
 .whatsapp-float {
@@ -1006,6 +1091,7 @@ body.linktree-open { overflow: hidden; }
   }
   .hero__scroll { bottom: 2.5rem; }
   .products-grid { grid-template-columns: repeat(3, 1fr); }
+  .cart-trigger { right: 2rem; bottom: 6.8rem; width: 60px; height: 60px; }
   .footer__grid { grid-template-columns: 1.5fr .75fr 1fr 1fr; gap: 2rem; }
   .whatsapp-float { right: 2rem; bottom: 2rem; width: 60px; height: 60px; }
 }

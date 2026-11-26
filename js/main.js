@@ -150,57 +150,58 @@ document.addEventListener('DOMContentLoaded', function () {
   const cards = Array.prototype.slice.call(document.querySelectorAll('.product-card'));
   const emptyStates = Array.prototype.slice.call(document.querySelectorAll('.coming-soon[data-category]'));
   const grid = document.getElementById('grade-produtos');
-  const productCount = document.getElementById('product-count');
-  const countNumeric = document.querySelector('.catalog__count-numeric');
-  const countSoon = document.querySelector('.catalog__count-soon');
+
+  // As abas aparecem duas vezes: no topo do catálogo e no fim da lista.
+  // Cada grupo tem a sua própria navegação por setas, e o estado fica igual
+  // nos dois, então clicar embaixo reflete em cima e vice-versa.
+  const tabGroups = Array.prototype.slice.call(document.querySelectorAll('.tabs'));
 
   function activateTab(selectedTab) {
+    const filter = selectedTab.dataset.filter;
+
     tabs.forEach(function (tab) {
-      const isActive = tab === selectedTab;
+      const isActive = tab.dataset.filter === filter;
       tab.classList.toggle('is-active', isActive);
       tab.setAttribute('aria-selected', String(isActive));
       tab.tabIndex = isActive ? 0 : -1;
     });
 
-    const filter = selectedTab.dataset.filter;
-    let visible = 0;
-
     cards.forEach(function (card) {
       const matches = filter === 'todos' || card.dataset.category === filter;
       card.hidden = !matches;
-      if (matches) visible += 1;
     });
 
-    // As categorias sem peças mostram apenas o aviso "Novidades em breve".
+    // Categorias ainda sem peças continuam com o aviso dentro da grade.
     emptyStates.forEach(function (state) {
       state.hidden = filter === 'todos' || state.dataset.category !== filter;
     });
 
-    if (grid) grid.setAttribute('aria-labelledby', selectedTab.id);
-    if (productCount) productCount.textContent = String(visible);
-    if (countNumeric && countSoon) {
-      const showSoon = visible === 0 && filter !== 'todos';
-      countNumeric.hidden = showSoon;
-      countSoon.hidden = !showSoon;
+    if (grid) {
+      const tabTop = document.getElementById('tab-' + filter);
+      if (tabTop) grid.setAttribute('aria-labelledby', tabTop.id);
     }
   }
 
-  tabs.forEach(function (tab, index) {
-    tab.addEventListener('click', function () { activateTab(tab); });
+  tabGroups.forEach(function (group) {
+    const groupTabs = Array.prototype.slice.call(group.querySelectorAll('.tab[data-filter]'));
 
-    // Navegação por teclado recomendada para o padrão de abas (setas, Home e End)
-    tab.addEventListener('keydown', function (event) {
-      let nextIndex = null;
-      if (event.key === 'ArrowRight') nextIndex = (index + 1) % tabs.length;
-      if (event.key === 'ArrowLeft') nextIndex = (index - 1 + tabs.length) % tabs.length;
-      if (event.key === 'Home') nextIndex = 0;
-      if (event.key === 'End') nextIndex = tabs.length - 1;
+    groupTabs.forEach(function (tab, index) {
+      tab.addEventListener('click', function () { activateTab(tab); });
 
-      if (nextIndex !== null) {
-        event.preventDefault();
-        tabs[nextIndex].focus();
-        activateTab(tabs[nextIndex]);
-      }
+      // Navegação por teclado recomendada para o padrão de abas (setas, Home e End)
+      tab.addEventListener('keydown', function (event) {
+        let nextIndex = null;
+        if (event.key === 'ArrowRight') nextIndex = (index + 1) % groupTabs.length;
+        if (event.key === 'ArrowLeft') nextIndex = (index - 1 + groupTabs.length) % groupTabs.length;
+        if (event.key === 'Home') nextIndex = 0;
+        if (event.key === 'End') nextIndex = groupTabs.length - 1;
+
+        if (nextIndex !== null) {
+          event.preventDefault();
+          groupTabs[nextIndex].focus();
+          activateTab(groupTabs[nextIndex]);
+        }
+      });
     });
   });
 
@@ -209,7 +210,7 @@ document.addEventListener('DOMContentLoaded', function () {
      O texto é montado a partir de data-product. Basta duplicar um card e
      alterar esse atributo que o link já sai com a mensagem correta.
      ------------------------------------------------------------------------ */
-  const WHATSAPP_NUMBER = '5583996158687';
+  const WHATSAPP_NUMBER = '558399240346';
 
   function buildWhatsappLink(productName) {
     const message = 'Olá! Tenho interesse na peça ' + productName + ' da coleção de Natal!';

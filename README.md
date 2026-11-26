@@ -90,7 +90,7 @@ O CSS e os SVGs usam somente: `#FFF6ED`, `#FFEDDC`, `#727272`, `#3B432E`, `#2C33
 
 ### Links e dados da loja
 
-Instagram, WhatsApp geral e textos operacionais (pagamentos, horários e entregas) estão diretamente em `index.html`. O número usado nos links é `5583996158687`; ao trocá-lo, atualize-o também na constante `WHATSAPP_NUMBER` em `js/main.js`.
+Instagram, WhatsApp geral e textos operacionais (pagamentos, horários e entregas) estão diretamente em `index.html`. O número usado nos links é `558399240346` (+55 83 9924-0346); ao trocá-lo, atualize-o também na constante `WHATSAPP_NUMBER` em `js/main.js`.
 
 ## Grid de produtos
 

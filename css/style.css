@@ -532,8 +532,14 @@ body.linktree-open { overflow: hidden; }
 .tab:hover { border-color: var(--gold); color: var(--olive-deep); }
 .tab.is-active { border-color: var(--olive); background: var(--olive); color: var(--cream); }
 
-/* Subfiltro de cores exibido só na aba Brincos (visibilidade via hidden no JS). */
-.tabs--cores { margin-top: .35rem; padding-bottom: 0; }
+/* Subfiltro de cores exibido só na aba Brincos (visibilidade via hidden no JS).
+   Os chips são menores que as abas principais para a hierarquia ficar clara. */
+.tabs--cores { margin-top: .35rem; padding-bottom: 0; gap: .4rem; }
+.tabs--cores .tab {
+  padding: .38rem .8rem;
+  font-size: .68rem;
+  border-color: rgba(114, 114, 114, .2);
+}
 
 
 .products-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }

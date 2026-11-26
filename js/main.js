@@ -91,11 +91,16 @@ document.addEventListener('DOMContentLoaded', function () {
       const sparkleContext = sparkleCanvas.getContext('2d');
 
       if (sparkleContext) {
-        const SPARKLE_COLORS = ['#D8B46A', '#F5DFA6', '#C5A059', '#FFF6ED'];
-        const MAX_PARTICLES = 90;
+        const SPARKLE_COLORS = ['#D8B46A', '#F0D795', '#C5A059'];
+        const MAX_PARTICLES = 48;
+        const SPAWN_DISTANCE = 16;   // px mínimos entre pontos de spawn (trilha espalhada, não contínua)
+        const SPAWN_INTERVAL = 30;   // ms mínimos entre spawns
         let sparkles = [];
         let sparkleFrame = null;
         let sparkleSize = 0;
+        let lastSpawnX = null;
+        let lastSpawnY = null;
+        let lastSpawnAt = 0;
 
         const resizeSparkles = function () {
           const rect = intro.getBoundingClientRect();
@@ -109,19 +114,27 @@ document.addEventListener('DOMContentLoaded', function () {
         };
 
         const spawnSparkles = function (x, y) {
-          for (let i = 0; i < 3 && sparkles.length < MAX_PARTICLES; i += 1) {
+          const moved = lastSpawnX === null ? Infinity : Math.hypot(x - lastSpawnX, y - lastSpawnY);
+          const now = Date.now();
+          if (moved < SPAWN_DISTANCE || now - lastSpawnAt < SPAWN_INTERVAL) return;
+          lastSpawnX = x;
+          lastSpawnY = y;
+          lastSpawnAt = now;
+
+          const count = 1 + (Math.random() < 0.35 ? 1 : 0);
+          for (let i = 0; i < count && sparkles.length < MAX_PARTICLES; i += 1) {
             const angle = Math.random() * Math.PI * 2;
-            const speed = 0.35 + Math.random() * 0.9;
+            const speed = 0.25 + Math.random() * 0.55;
             sparkles.push({
-              x: x + (Math.random() - 0.5) * 8,
-              y: y + (Math.random() - 0.5) * 8,
+              x: x + (Math.random() - 0.5) * 16,
+              y: y + (Math.random() - 0.5) * 16,
               vx: Math.cos(angle) * speed,
-              vy: Math.sin(angle) * speed - 0.35,
-              radius: 0.9 + Math.random() * 1.9,
-              sparkleCross: Math.random() < 0.38,
+              vy: Math.sin(angle) * speed - 0.22,
+              radius: 0.6 + Math.random() * 1.1,
+              sparkleCross: Math.random() < 0.22,
               color: SPARKLE_COLORS[(Math.random() * SPARKLE_COLORS.length) | 0],
               life: 0,
-              maxLife: 42 + ((Math.random() * 22) | 0)
+              maxLife: 52 + ((Math.random() * 26) | 0)
             });
           }
         };
@@ -133,23 +146,30 @@ document.addEventListener('DOMContentLoaded', function () {
             sparkle.life += 1;
             sparkle.x += sparkle.vx;
             sparkle.y += sparkle.vy;
-            sparkle.vy += 0.018;
+            sparkle.vy += 0.012;
             sparkle.vx *= 0.985;
 
             const progress = sparkle.life / sparkle.maxLife;
             if (progress >= 1) return false;
 
             const alpha = Math.sin(Math.PI * Math.min(progress, 1));
-            sparkleContext.globalAlpha = alpha * 0.95;
+            // halo suave atrás do núcleo
+            sparkleContext.globalAlpha = alpha * 0.16;
             sparkleContext.fillStyle = sparkle.color;
+            sparkleContext.beginPath();
+            sparkleContext.arc(sparkle.x, sparkle.y, sparkle.radius * 2.6, 0, Math.PI * 2);
+            sparkleContext.fill();
+            // núcleo discreto
+            sparkleContext.globalAlpha = alpha * 0.55;
             sparkleContext.beginPath();
             sparkleContext.arc(sparkle.x, sparkle.y, sparkle.radius, 0, Math.PI * 2);
             sparkleContext.fill();
 
             if (sparkle.sparkleCross) {
-              const cross = sparkle.radius * (2.6 - progress);
+              const cross = sparkle.radius * (2.3 - progress);
+              sparkleContext.globalAlpha = alpha * 0.4;
               sparkleContext.strokeStyle = sparkle.color;
-              sparkleContext.lineWidth = 0.9;
+              sparkleContext.lineWidth = 0.75;
               sparkleContext.beginPath();
               sparkleContext.moveTo(sparkle.x - cross, sparkle.y);
               sparkleContext.lineTo(sparkle.x + cross, sparkle.y);

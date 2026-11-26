@@ -385,7 +385,41 @@ h1 em, h2 em, h3 em { color: var(--gold-dark); font-style: italic; }
 /* As abas aparecem no topo e no fim da grade, sempre centralizadas. */
 .catalog__toolbar .tabs { justify-content: center; }
 
-.catalog__toolbar--bottom { margin-top: 3rem; margin-bottom: 0; }
+.catalog__toolbar--bottom { margin-top: 1.25rem; margin-bottom: 0; }
+
+/* Paginação do catálogo: acima das abas da parte inferior. */
+.catalog__pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .6rem;
+  margin: 2rem 0 0;
+}
+.catalog__pagination[hidden] { display: none; }
+.catalog__pages { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: .45rem; }
+.page-number,
+.page-arrow {
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(114, 114, 114, .26);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text);
+  font-family: var(--font-body);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color .22s ease, color .22s ease, border-color .22s ease, opacity .22s ease;
+}
+.page-number { width: 2.35rem; height: 2.35rem; padding: 0; font-size: .78rem; }
+.page-arrow { width: 2.35rem; height: 2.35rem; padding: 0; }
+.page-arrow svg { width: 1.1rem; height: 1.1rem; }
+.page-number:hover:not(:disabled),
+.page-arrow:hover:not(:disabled) { border-color: var(--gold); color: var(--olive-deep); }
+.page-number.is-active { border-color: var(--olive); background: var(--olive); color: var(--cream); }
+.page-number:focus-visible,
+.page-arrow:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+.page-arrow:disabled { opacity: .32; cursor: not-allowed; }
+.page-ellipsis { min-width: 1.4rem; color: var(--gold-dark); font-weight: 600; text-align: center; }
 
 .tabs { display: flex; flex-wrap: wrap; gap: .55rem; padding: 0 0 .5rem; }
 .tabs::-webkit-scrollbar { display: none; }

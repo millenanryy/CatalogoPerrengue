@@ -154,10 +154,17 @@ document.addEventListener('DOMContentLoaded', function () {
   /* ------------------------------------------------------------------------
      4. FILTRO E PAGINAÇÃO DO CATÁLOGO EM TEMPO REAL
      Cada card define sua categoria em data-category. Cada categoria mostra
-     seis peças por vez; quando há mais, a navegação de páginas aparece no
-     fim da seção, acima dos botões de categoria.
+     três peças por vez no celular, quatro no tablet e seis no desktop;
+     quando há mais, a navegação de páginas aparece no fim da seção,
+     acima dos botões de categoria.
      ------------------------------------------------------------------------ */
-  var PAGE_SIZE = 6;
+  function getPageSize() {
+    if (window.matchMedia && window.matchMedia('(min-width: 1024px)').matches) return 6;
+    if (window.matchMedia && window.matchMedia('(min-width: 768px)').matches) return 4;
+    return 3;
+  }
+
+  var currentPageSize = getPageSize();
   const tabs = Array.prototype.slice.call(document.querySelectorAll('.tab[data-filter]'));
   const cards = Array.prototype.slice.call(document.querySelectorAll('.product-card'));
   const emptyStates = Array.prototype.slice.call(document.querySelectorAll('.coming-soon[data-category]'));
@@ -250,10 +257,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function renderCatalog(filter, page) {
     const matchingCards = getMatchingCards(filter);
-    const totalPages = Math.max(1, Math.ceil(matchingCards.length / PAGE_SIZE));
+    const pageSize = getPageSize();
+    const totalPages = Math.max(1, Math.ceil(matchingCards.length / pageSize));
     const safePage = Math.min(Math.max(page || 1, 1), totalPages);
-    const start = (safePage - 1) * PAGE_SIZE;
-    const visibleCards = matchingCards.slice(start, start + PAGE_SIZE);
+    const start = (safePage - 1) * pageSize;
+    const visibleCards = matchingCards.slice(start, start + pageSize);
 
     var prefersReducedMotionNow = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     cards.forEach(function (card) { card.hidden = visibleCards.indexOf(card) === -1; });
@@ -274,6 +282,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     currentFilter = filter;
     currentPage = safePage;
+    currentPageSize = pageSize;
     updateTabs(filter);
     renderPagination(totalPages, safePage);
   }
@@ -298,7 +307,7 @@ document.addEventListener('DOMContentLoaded', function () {
   if (nextPageButton) {
     nextPageButton.addEventListener('click', function () {
       var matchingCards = getMatchingCards(currentFilter);
-      var totalPages = Math.ceil(matchingCards.length / PAGE_SIZE);
+      var totalPages = Math.ceil(matchingCards.length / getPageSize());
       if (currentPage < totalPages) goToPage(currentPage + 1);
     });
   }
@@ -328,6 +337,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
   var initialTab = tabs.filter(function (tab) { return tab.classList.contains('is-active'); })[0] || tabs[0];
   if (initialTab) renderCatalog(initialTab.dataset.filter, 1);
+
+  var catalogResizeTimer;
+  window.addEventListener('resize', function () {
+    window.clearTimeout(catalogResizeTimer);
+    catalogResizeTimer = window.setTimeout(function () {
+      if (getPageSize() !== currentPageSize) renderCatalog(currentFilter, currentPage);
+    }, 120);
+  }, { passive: true });
 
   /* ------------------------------------------------------------------------
      5. LINKS DO WHATSAPP

@@ -1,12 +1,80 @@
 /* ==========================================================================
    PERRENGUE CHIC: INTERAÇÕES (JavaScript Vanilla)
-   1. Barra de progresso   2. Carrossel de banners   3. Menu mobile
-   4. Filtro e paginação   5. Links do WhatsApp   6. Animação de entrada
-   7. Navegação ativa   8. Ano no rodapé   9. Hero dinâmico
+   0. Tela inicial          1. Barra de progresso   2. Carrossel de banners
+   3. Menu mobile           4. Filtro e paginação   5. Links do WhatsApp
+   6. Animação de entrada   7. Navegação ativa      8. Ano no rodapé
+   9. Hero dinâmico
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', function () {
   'use strict';
+
+  /* ------------------------------------------------------------------------
+     0. TELA INICIAL ESTILO LINKTREE
+     Retém o foco até a escolha do visitante e some com fade suave.
+     ------------------------------------------------------------------------ */
+  const intro = document.getElementById('linktree-intro');
+
+  if (intro) {
+    document.body.classList.add('linktree-open');
+    const introSiblings = Array.prototype.slice.call(document.body.children).filter(function (element) { return element !== intro; });
+    introSiblings.forEach(function (element) {
+      element.setAttribute('inert', '');
+      element.setAttribute('aria-hidden', 'true');
+    });
+
+    const introLinks = Array.prototype.slice.call(intro.querySelectorAll('a[href]'));
+    const closeIntro = function () {
+      const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      intro.classList.add('is-closing');
+
+      window.setTimeout(function () {
+        intro.classList.add('is-closed');
+        intro.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('linktree-open');
+        introSiblings.forEach(function (element) {
+          element.removeAttribute('inert');
+          element.removeAttribute('aria-hidden');
+        });
+
+        document.dispatchEvent(new CustomEvent('perrengue:intro-close'));
+        if (typeof scrollToGrid === 'function') scrollToGrid();
+        const firstCatalogTab = document.getElementById('tab-todos');
+        if (firstCatalogTab) firstCatalogTab.focus({ preventScroll: true });
+      }, prefersReducedMotion ? 0 : 260);
+    };
+
+    intro.querySelectorAll('[data-linktree-close]').forEach(function (link) {
+      link.addEventListener('click', function (event) {
+        event.preventDefault();
+        closeIntro();
+      });
+    });
+
+    intro.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        closeIntro();
+        return;
+      }
+
+      if (event.key !== 'Tab' || introLinks.length === 0) return;
+
+      const first = introLinks[0];
+      const last = introLinks[introLinks.length - 1];
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    });
+
+    const primaryLink = intro.querySelector('[data-linktree-close]');
+    if (primaryLink) primaryLink.focus({ preventScroll: true });
+  }
 
   /* ------------------------------------------------------------------------
      1. BARRA DE PROGRESSO DA PÁGINA
@@ -502,7 +570,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }
 
       function updateParticleLoop() {
-        var shouldRun = heroInView && !document.hidden;
+        var shouldRun = heroInView && !document.hidden && !document.body.classList.contains('linktree-open');
         if (shouldRun && animationFrame === null) animationFrame = window.requestAnimationFrame(drawParticles);
         if (!shouldRun && animationFrame !== null) {
           window.cancelAnimationFrame(animationFrame);
@@ -518,6 +586,7 @@ document.addEventListener('DOMContentLoaded', function () {
         heroVisibilityObserver.observe(heroSection);
       }
 
+      document.addEventListener('perrengue:intro-close', updateParticleLoop);
       window.addEventListener('resize', resizeParticles, { passive: true });
       document.addEventListener('visibilitychange', updateParticleLoop);
       heroSection.addEventListener('pointermove', function (event) {

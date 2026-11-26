@@ -61,9 +61,13 @@ No momento, o catálogo tem **48 peças**: **Conjuntos** (9 peças), **Pulseiras
 
 Para usar fotos reais, coloque o arquivo em `assets/img/` e troque apenas o `src` da `<img>` (o mesmo valor serve para desktop e mobile).
 
+### Tela inicial estilo Linktree
+
+Quando o JavaScript está disponível, o site abre em uma tela verde de acesso com a logo, atalhos para o catálogo, WhatsApp e Instagram, formas de pagamento (PIX, dinheiro e cartão) e a localização Campina Grande. O botão **Entrar no catálogo** fecha a tela e leva à coleção. Sem JavaScript, a página abre normalmente.
+
 ### Animações
 
-As camadas de movimento usam somente CSS e JavaScript vanilla: o hero tem uma leve aproximação contínua da própria foto, uma poeira de ouro discreta em canvas, cards com varredura de luz no hover, stagger de entrada do catálogo e sombra no cabeçalho ao rolar. Tudo respeita `prefers-reduced-motion`; o canvas é pausado quando a seção sai da tela. Nenhuma copy ou cor da identidade visual foi alterada.
+As camadas de movimento usam somente CSS e JavaScript vanilla: o hero tem uma leve aproximação contínua da própria foto, uma poeira de ouro discreta em canvas, stagger de entrada do catálogo e sombra no cabeçalho ao rolar. Tudo respeita `prefers-reduced-motion`; o canvas é pausado quando a seção sai da tela. Os hovers ficam limitados a profundidade e movimento, sem reflexos sobre os cards e botões. Nenhuma copy ou cor da identidade visual foi alterada.
 
 ### Banner do hero
 

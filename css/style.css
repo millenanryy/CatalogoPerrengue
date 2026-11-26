@@ -149,17 +149,12 @@ h1 em, h2 em, h3 em { color: var(--gold-dark); font-style: italic; }
 }
 
 .btn-gold {
-  background-color: var(--gold-dark);
-  background-image:
-    linear-gradient(115deg, transparent 18%, rgba(255, 255, 255, .5) 38%, transparent 58%),
-    linear-gradient(135deg, var(--gold), var(--gold-dark));
-  background-size: 260% 100%, 100% 100%;
-  background-position: 125% 0, 0 0;
+  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
   color: var(--olive-deep);
   box-shadow: 0 10px 24px rgba(197, 160, 89, .24);
-  transition: transform .25s ease, box-shadow .25s ease, background-color .25s ease, background-position .75s ease;
+  transition: transform .25s ease, box-shadow .25s ease, filter .25s ease;
 }
-.btn-gold:hover, .btn-gold:focus-visible { transform: translateY(-3px); box-shadow: 0 16px 30px rgba(197, 160, 89, .36); background-position: -125% 0, 0 0; }
+.btn-gold:hover, .btn-gold:focus-visible { transform: translateY(-3px); box-shadow: 0 16px 30px rgba(197, 160, 89, .36); filter: brightness(.96); }
 
 .btn-ghost {
   border-color: rgba(255, 246, 237, .5);
@@ -259,6 +254,69 @@ h1 em, h2 em, h3 em { color: var(--gold-dark); font-style: italic; }
   letter-spacing: 0;
   box-shadow: 0 8px 22px rgba(197, 160, 89, .28);
 }
+
+/* --------------------------------------------------------------------------
+   5B. TELA INICIAL ESTILO LINKTREE
+   Uma entrada única para quem chega pela bio ou por um link direto.
+   -------------------------------------------------------------------------- */
+
+.linktree { display: none; }
+.js .linktree {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: clamp(1.4rem, 5vw, 3rem) 1.25rem;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background:
+    radial-gradient(circle at 50% 16%, rgba(197, 160, 89, .2), transparent 35%),
+    radial-gradient(circle at 8% 88%, rgba(255, 246, 237, .065), transparent 28%),
+    linear-gradient(155deg, #3B432E 0%, #2C3322 100%);
+  color: var(--cream);
+  transition: opacity .25s ease, transform .25s ease;
+}
+body.linktree-open { overflow: hidden; }
+.linktree.is-closing { opacity: 0; transform: scale(.985); pointer-events: none; }
+.js .linktree.is-closed { display: none; }
+.linktree__panel { width: min(100%, 460px); display: grid; justify-items: center; gap: clamp(1.1rem, 3vh, 1.65rem); text-align: center; }
+.linktree__logo { width: min(72vw, 295px); height: auto; object-fit: contain; filter: drop-shadow(0 18px 28px rgba(0, 0, 0, .22)); }
+.linktree__links { width: 100%; display: grid; gap: .68rem; }
+.linktree__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .7rem;
+  min-height: 56px;
+  padding: .75rem 1rem;
+  border: 1px solid rgba(255, 246, 237, .28);
+  border-radius: 16px;
+  background: rgba(255, 246, 237, .075);
+  color: var(--cream);
+  font-size: .82rem;
+  font-weight: 600;
+  letter-spacing: .02em;
+  transition: transform .22s ease, background-color .22s ease, border-color .22s ease, box-shadow .22s ease;
+}
+.linktree__button svg { width: 1.3rem; height: 1.3rem; flex: none; }
+.linktree__button:hover { transform: translateY(-2px); background: rgba(255, 246, 237, .13); border-color: rgba(197, 160, 89, .85); }
+.linktree__button:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+.linktree__button--primary { border-color: transparent; background: linear-gradient(135deg, #D0AA60, var(--gold-dark)); color: var(--olive-deep); box-shadow: 0 14px 34px rgba(197, 160, 89, .22); }
+.linktree__button--primary:hover { background: linear-gradient(135deg, #D8B46A, #C29B50); border-color: transparent; box-shadow: 0 18px 38px rgba(197, 160, 89, .3); }
+.linktree__meta { width: 100%; display: grid; gap: .78rem; padding-top: 1.05rem; border-top: 1px solid rgba(255, 246, 237, .2); }
+.linktree__meta-item { display: grid; justify-items: center; gap: .42rem; }
+.linktree__meta-label { color: rgba(255, 246, 237, .62); font-size: .6rem; font-weight: 600; letter-spacing: .17em; text-transform: uppercase; }
+.linktree__chips { display: flex; flex-wrap: wrap; justify-content: center; gap: .4rem; }
+.linktree__chips span { padding: .28rem .68rem; border: 1px solid rgba(197, 160, 89, .45); border-radius: 999px; background: rgba(255, 246, 237, .05); color: var(--cream); font-size: .66rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
+.linktree__meta-value { margin: 0; color: var(--gold); font-size: .88rem; font-weight: 600; letter-spacing: .04em; }
+
+@keyframes linktree-enter { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+.js .linktree__logo { animation: linktree-enter .55s ease both; }
+.js .linktree__links { animation: linktree-enter .55s ease .08s both; }
+.js .linktree__meta { animation: linktree-enter .55s ease .16s both; }
 
 /* --------------------------------------------------------------------------
    6. HERO COM FOTO DE FUNDO DE TODA A SEÇÃO
@@ -500,21 +558,6 @@ h1 em, h2 em, h3 em { color: var(--gold-dark); font-style: italic; }
 /* Fotos de pulseiras e anéis: 1440 x 1444, mantidas sem recorte. */
 .product-card[data-category="pulseiras"] .product-card__image,
 .product-card[data-category="aneis"] .product-card__image { aspect-ratio: 1440 / 1444; }
-.product-card__image::before {
-  content: '';
-  position: absolute;
-  top: -25%;
-  bottom: -25%;
-  left: 0;
-  z-index: 1;
-  width: 46%;
-  background: linear-gradient(105deg, transparent 5%, rgba(255, 255, 255, .48) 45%, transparent 92%);
-  transform: translateX(-210%) skewX(-18deg);
-  transition: transform .85s ease;
-  pointer-events: none;
-}
-.product-card:hover .product-card__image::before,
-.product-card:focus-within .product-card__image::before { transform: translateX(355%) skewX(-18deg); }
 .product-card__image img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
 .product-card:hover .product-card__image img { transform: scale(1.045); }
 

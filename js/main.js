@@ -38,9 +38,10 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         document.dispatchEvent(new CustomEvent('perrengue:intro-close'));
-        if (typeof scrollToGrid === 'function') scrollToGrid();
-        const firstCatalogTab = document.getElementById('tab-todos');
-        if (firstCatalogTab) firstCatalogTab.focus({ preventScroll: true });
+        const scrollBehavior = prefersReducedMotion ? 'auto' : 'smooth';
+        if (typeof window.scrollTo === 'function') window.scrollTo({ top: 0, behavior: scrollBehavior });
+        const brandLink = document.querySelector('.navbar__brand') || document.getElementById('inicio');
+        if (brandLink) brandLink.focus({ preventScroll: true });
       }, prefersReducedMotion ? 0 : 260);
     };
 

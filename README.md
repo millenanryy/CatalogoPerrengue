@@ -63,7 +63,7 @@ Para usar fotos reais, coloque o arquivo em `assets/img/` e troque apenas o `src
 
 ### Tela inicial estilo Linktree
 
-Quando o JavaScript está disponível, o site abre em uma tela verde de acesso com a logo, atalhos para o catálogo, WhatsApp e Instagram, formas de pagamento (PIX, dinheiro e cartão) e a localização Campina Grande. O botão **Entrar no catálogo** fecha a tela e leva à coleção. Sem JavaScript, a página abre normalmente.
+Quando o JavaScript está disponível, o site abre em uma tela verde de acesso com a logo sobre um vidro embaçado (o conteúdo por trás fica desfocado), atalhos para o site, WhatsApp e Instagram, formas de pagamento (PIX, dinheiro e cartão) e a localização Campina Grande em destaque. O botão **Entrar no catálogo** fecha a tela e leva ao topo do site. Sem JavaScript, a página abre normalmente.
 
 ### Animações
 

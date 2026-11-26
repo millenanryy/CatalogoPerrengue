@@ -57,7 +57,7 @@ Os nove conjuntos usam as fotos reais enviadas, em `assets/img/conjunto-*.webp`,
 
 Para duplicar: copie o bloco, troque `data-category` (valores usados nos filtros: `brincos`, `colares`, `pulseiras`, `aneis`, `conjuntos`), `data-product`, o `src` da imagem, o nome, a descrição e o preço. O JavaScript monta automaticamente a URL do WhatsApp com o nome da peça. Se quiser adicionar uma categoria nova, crie um botão `.tab` com `data-filter` correspondente.
 
-No momento, **Conjuntos** (9 peças), **Pulseiras** (8 peças) e **Anéis** (10 peças) têm produtos cadastrados, com fotos reais em `assets/img/conjunto-*.webp`, `assets/img/pulseira-*.webp` e `assets/img/anel-*.webp`. Brincos e Colares exibem o aviso “Novidades em breve” no lugar de produtos ilustrativos: cada aviso é um bloco `.coming-soon` cujo `data-category` combina com a aba correspondente. Ao cadastrar uma peça de verdade, adicione o `.product-card` e remova o `.coming-soon` daquela categoria.
+No momento, o catálogo tem **48 peças**: **Conjuntos** (9 peças), **Pulseiras** (8 peças) e **Anéis** (31 peças), com fotos reais em `assets/img/conjunto-*.webp`, `assets/img/pulseira-*.webp` e `assets/img/anel-*.webp`. Anéis que aparecem em dupla na foto custam R$ 14,90; os demais, R$ 9,90. Brincos e Colares exibem o aviso “Novidades em breve” no lugar de produtos ilustrativos: cada aviso é um bloco `.coming-soon` cujo `data-category` combina com a aba correspondente. Ao cadastrar uma peça de verdade, adicione o `.product-card` e remova o `.coming-soon` daquela categoria.
 
 Para usar fotos reais, coloque o arquivo em `assets/img/` e troque apenas o `src` da `<img>` (o mesmo valor serve para desktop e mobile).
 

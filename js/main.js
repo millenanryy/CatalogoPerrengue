@@ -1,8 +1,8 @@
 /* ==========================================================================
    PERRENGUE CHIC: INTERAÇÕES (JavaScript Vanilla)
    1. Barra de progresso   2. Carrossel de banners   3. Menu mobile
-   4. Filtro do catálogo   5. Links do WhatsApp   6. Animação de entrada
-   7. Navegação ativa   8. Ano no rodapé
+   4. Filtro e paginação   5. Links do WhatsApp   6. Animação de entrada
+   7. Navegação ativa   8. Ano no rodapé   9. Hero dinâmico
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -23,6 +23,17 @@ document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener('scroll', updateProgress, { passive: true });
     window.addEventListener('resize', updateProgress);
     updateProgress();
+  }
+
+  const siteHeader = document.querySelector('.site-header');
+  if (siteHeader) {
+    function updateHeaderShadow() {
+      siteHeader.classList.toggle('is-scrolled', window.scrollY > 24);
+    }
+
+    window.addEventListener('scroll', updateHeaderShadow, { passive: true });
+    window.addEventListener('resize', updateHeaderShadow);
+    updateHeaderShadow();
   }
 
   /* ------------------------------------------------------------------------
@@ -244,7 +255,12 @@ document.addEventListener('DOMContentLoaded', function () {
     const start = (safePage - 1) * PAGE_SIZE;
     const visibleCards = matchingCards.slice(start, start + PAGE_SIZE);
 
+    var prefersReducedMotionNow = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     cards.forEach(function (card) { card.hidden = visibleCards.indexOf(card) === -1; });
+    visibleCards.forEach(function (card, index) {
+      card.style.setProperty('--reveal-delay', String(index * 55) + 'ms');
+      if (!prefersReducedMotionNow) card.classList.remove('is-visible');
+    });
 
     // Categorias ainda sem peças continuam com o aviso dentro da grade.
     emptyStates.forEach(function (state) {
@@ -341,7 +357,6 @@ document.addEventListener('DOMContentLoaded', function () {
       entries.forEach(function (entry) {
         if (!entry.isIntersecting) return;
         entry.target.classList.add('is-visible');
-        observer.unobserve(entry.target);
       });
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
@@ -379,4 +394,129 @@ document.addEventListener('DOMContentLoaded', function () {
      ------------------------------------------------------------------------ */
   const year = document.getElementById('year');
   if (year) year.textContent = String(new Date().getFullYear());
+
+  /* ------------------------------------------------------------------------
+     9. HERO DINÂMICO: POEIRA DE OURO EM CANVAS
+     Movimento discreto, pausado fora da tela e desligado com reduced-motion.
+     ------------------------------------------------------------------------ */
+  var heroSection = document.querySelector('.hero');
+  var heroCanvas = document.getElementById('hero-particles');
+  var reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (heroSection && heroCanvas && !reducedMotion) {
+    var heroContext = null;
+
+    try {
+      heroContext = heroCanvas.getContext && heroCanvas.getContext('2d');
+    } catch (error) {
+      heroContext = null;
+    }
+
+    if (!heroContext) {
+      heroCanvas.remove();
+    } else {
+      var particleWidth = 0;
+      var particleHeight = 0;
+      var heroInView = true;
+      var animationFrame = null;
+      var particles = [];
+      var pointer = { x: 0.5, y: 0.5, targetX: 0.5, targetY: 0.5 };
+
+      function createParticle() {
+        return {
+          x: Math.random() * particleWidth,
+          y: Math.random() * particleHeight,
+          radius: 0.8 + Math.random() * 2.1,
+          velocityX: -0.08 + Math.random() * 0.16,
+          velocityY: -0.035 + Math.random() * 0.11,
+          phase: Math.random() * Math.PI * 2,
+          speed: 0.45 + Math.random() * 0.7,
+          depth: 0.35 + Math.random() * 0.65
+        };
+      }
+
+      function resizeParticles() {
+        var rect = heroSection.getBoundingClientRect();
+        var ratio = Math.min(window.devicePixelRatio || 1, 2);
+        particleWidth = Math.max(1, rect.width);
+        particleHeight = Math.max(1, rect.height);
+        heroCanvas.width = Math.round(particleWidth * ratio);
+        heroCanvas.height = Math.round(particleHeight * ratio);
+        heroCanvas.style.width = particleWidth + 'px';
+        heroCanvas.style.height = particleHeight + 'px';
+        heroContext.setTransform(ratio, 0, 0, ratio, 0, 0);
+
+        var desired = Math.max(22, Math.min(52, Math.round(particleWidth / 30)));
+        particles = Array.from({ length: desired }, createParticle);
+      }
+
+      function drawParticles(time) {
+        animationFrame = null;
+        pointer.x += (pointer.targetX - pointer.x) * 0.045;
+        pointer.y += (pointer.targetY - pointer.y) * 0.045;
+        heroContext.clearRect(0, 0, particleWidth, particleHeight);
+
+        particles.forEach(function (particle) {
+          particle.x += particle.velocityX * (0.5 + particle.depth * 0.7);
+          particle.y += particle.velocityY;
+          particle.phase += 0.012 * particle.speed;
+
+          if (particle.x < -12) particle.x = particleWidth + 12;
+          if (particle.x > particleWidth + 12) particle.x = -12;
+          if (particle.y < -12) particle.y = particleHeight + 12;
+          if (particle.y > particleHeight + 12) particle.y = -12;
+
+          var twinkle = 0.32 + 0.68 * (0.5 + 0.5 * Math.sin(time * 0.0016 * particle.speed + particle.phase));
+          var alpha = (0.12 + 0.32 * twinkle) * particle.depth;
+          var drawX = particle.x + (pointer.x - 0.5) * 18 * particle.depth;
+          var drawY = particle.y + (pointer.y - 0.5) * 12 * particle.depth;
+          var gradient = heroContext.createRadialGradient(drawX, drawY, 0, drawX, drawY, particle.radius * 5);
+
+          gradient.addColorStop(0, 'rgba(255, 238, 190, ' + alpha + ')');
+          gradient.addColorStop(0.35, 'rgba(197, 160, 89, ' + (alpha * 0.72) + ')');
+          gradient.addColorStop(1, 'rgba(197, 160, 89, 0)');
+          heroContext.fillStyle = gradient;
+          heroContext.beginPath();
+          heroContext.arc(drawX, drawY, particle.radius * 5, 0, Math.PI * 2);
+          heroContext.fill();
+        });
+
+        if (heroInView && !document.hidden) animationFrame = window.requestAnimationFrame(drawParticles);
+      }
+
+      function updateParticleLoop() {
+        var shouldRun = heroInView && !document.hidden;
+        if (shouldRun && animationFrame === null) animationFrame = window.requestAnimationFrame(drawParticles);
+        if (!shouldRun && animationFrame !== null) {
+          window.cancelAnimationFrame(animationFrame);
+          animationFrame = null;
+        }
+      }
+
+      if ('IntersectionObserver' in window) {
+        var heroVisibilityObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) { heroInView = entry.isIntersecting; });
+          updateParticleLoop();
+        }, { threshold: 0.01 });
+        heroVisibilityObserver.observe(heroSection);
+      }
+
+      window.addEventListener('resize', resizeParticles, { passive: true });
+      document.addEventListener('visibilitychange', updateParticleLoop);
+      heroSection.addEventListener('pointermove', function (event) {
+        var rect = heroSection.getBoundingClientRect();
+        pointer.targetX = (event.clientX - rect.left) / Math.max(rect.width, 1);
+        pointer.targetY = (event.clientY - rect.top) / Math.max(rect.height, 1);
+      }, { passive: true });
+      heroSection.addEventListener('pointerleave', function () {
+        pointer.targetX = 0.5;
+        pointer.targetY = 0.5;
+      });
+
+      resizeParticles();
+      updateParticleLoop();
+    }
+  } else if (heroCanvas) {
+    heroCanvas.remove();
+  }
 });

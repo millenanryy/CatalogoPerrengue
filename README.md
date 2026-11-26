@@ -61,6 +61,10 @@ No momento, o catálogo tem **48 peças**: **Conjuntos** (9 peças), **Pulseiras
 
 Para usar fotos reais, coloque o arquivo em `assets/img/` e troque apenas o `src` da `<img>` (o mesmo valor serve para desktop e mobile).
 
+### Animações
+
+As camadas de movimento usam somente CSS e JavaScript vanilla: o hero tem uma leve aproximação contínua da própria foto, uma poeira de ouro discreta em canvas, cards com varredura de luz no hover, stagger de entrada do catálogo e sombra no cabeçalho ao rolar. Tudo respeita `prefers-reduced-motion`; o canvas é pausado quando a seção sai da tela. Nenhuma copy ou cor da identidade visual foi alterada.
+
 ### Banner do hero
 
 A foto cobre toda a seção pelo elemento `<img class="hero__bg">` no início do hero. Substitua `assets/img/hero-natal.jpg` mantendo o nome do arquivo, ou troque esse `src`. O recorte é controlado por `object-position` e o overlay verde-oliva pela classe `.hero__overlay` em `css/style.css`.

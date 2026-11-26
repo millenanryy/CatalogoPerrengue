@@ -40,8 +40,12 @@ document.addEventListener('DOMContentLoaded', function () {
         document.dispatchEvent(new CustomEvent('perrengue:intro-close'));
         const scrollBehavior = prefersReducedMotion ? 'auto' : 'smooth';
         if (typeof window.scrollTo === 'function') window.scrollTo({ top: 0, behavior: scrollBehavior });
-        const brandLink = document.querySelector('.navbar__brand') || document.getElementById('inicio');
-        if (brandLink) brandLink.focus({ preventScroll: true });
+        // Sem mover o foco de propósito: ao esconder a tela inicial, o foco volta
+        // para o body e o Tab começa pelo skip-link. (Focar a logo gerava um
+        // retângulo dourado de outline indesejado.)
+        if (document.activeElement && intro.contains(document.activeElement)) {
+          document.activeElement.blur();
+        }
       }, prefersReducedMotion ? 0 : 260);
     };
 
@@ -75,6 +79,118 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const primaryLink = intro.querySelector('[data-linktree-close]');
     if (primaryLink) primaryLink.focus({ preventScroll: true });
+
+    /* ----------------------------------------------------------------------
+       0B. BRILHOS NO CURSOR (canvas fino, só enquanto a tela inicial está aberta)
+       Partículas douradas discretas que nascem onde o mouse/dedo passa.
+       ---------------------------------------------------------------------- */
+    const sparkleCanvas = intro.querySelector('.linktree__sparkles');
+    const reducedMotionSparkles = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (sparkleCanvas && sparkleCanvas.getContext && !reducedMotionSparkles) {
+      const sparkleContext = sparkleCanvas.getContext('2d');
+
+      if (sparkleContext) {
+        const SPARKLE_COLORS = ['#D8B46A', '#F5DFA6', '#C5A059', '#FFF6ED'];
+        const MAX_PARTICLES = 90;
+        let sparkles = [];
+        let sparkleFrame = null;
+        let sparkleSize = 0;
+
+        const resizeSparkles = function () {
+          const rect = intro.getBoundingClientRect();
+          const ratio = Math.min(window.devicePixelRatio || 1, 2);
+          sparkleSize = Math.max(1, rect.width);
+          sparkleCanvas.width = Math.round(sparkleSize * ratio);
+          sparkleCanvas.height = Math.round(Math.max(1, rect.height) * ratio);
+          sparkleCanvas.style.width = sparkleSize + 'px';
+          sparkleCanvas.style.height = Math.max(1, rect.height) + 'px';
+          sparkleContext.setTransform(ratio, 0, 0, ratio, 0, 0);
+        };
+
+        const spawnSparkles = function (x, y) {
+          for (let i = 0; i < 3 && sparkles.length < MAX_PARTICLES; i += 1) {
+            const angle = Math.random() * Math.PI * 2;
+            const speed = 0.35 + Math.random() * 0.9;
+            sparkles.push({
+              x: x + (Math.random() - 0.5) * 8,
+              y: y + (Math.random() - 0.5) * 8,
+              vx: Math.cos(angle) * speed,
+              vy: Math.sin(angle) * speed - 0.35,
+              radius: 0.9 + Math.random() * 1.9,
+              sparkleCross: Math.random() < 0.38,
+              color: SPARKLE_COLORS[(Math.random() * SPARKLE_COLORS.length) | 0],
+              life: 0,
+              maxLife: 42 + ((Math.random() * 22) | 0)
+            });
+          }
+        };
+
+        const drawSparkles = function () {
+          sparkleContext.clearRect(0, 0, sparkleCanvas.width, sparkleCanvas.height);
+
+          sparkles = sparkles.filter(function (sparkle) {
+            sparkle.life += 1;
+            sparkle.x += sparkle.vx;
+            sparkle.y += sparkle.vy;
+            sparkle.vy += 0.018;
+            sparkle.vx *= 0.985;
+
+            const progress = sparkle.life / sparkle.maxLife;
+            if (progress >= 1) return false;
+
+            const alpha = Math.sin(Math.PI * Math.min(progress, 1));
+            sparkleContext.globalAlpha = alpha * 0.95;
+            sparkleContext.fillStyle = sparkle.color;
+            sparkleContext.beginPath();
+            sparkleContext.arc(sparkle.x, sparkle.y, sparkle.radius, 0, Math.PI * 2);
+            sparkleContext.fill();
+
+            if (sparkle.sparkleCross) {
+              const cross = sparkle.radius * (2.6 - progress);
+              sparkleContext.strokeStyle = sparkle.color;
+              sparkleContext.lineWidth = 0.9;
+              sparkleContext.beginPath();
+              sparkleContext.moveTo(sparkle.x - cross, sparkle.y);
+              sparkleContext.lineTo(sparkle.x + cross, sparkle.y);
+              sparkleContext.moveTo(sparkle.x, sparkle.y - cross);
+              sparkleContext.lineTo(sparkle.x, sparkle.y + cross);
+              sparkleContext.stroke();
+            }
+            return true;
+          });
+
+          sparkleContext.globalAlpha = 1;
+        };
+
+        const sparkleTick = function () {
+          drawSparkles();
+          sparkleFrame = sparkles.length > 0 ? window.requestAnimationFrame(sparkleTick) : null;
+        };
+
+        const queueSparkleFrame = function () {
+          if (sparkleFrame === null) sparkleFrame = window.requestAnimationFrame(sparkleTick);
+        };
+
+        resizeSparkles();
+        window.addEventListener('resize', resizeSparkles, { passive: true });
+
+        intro.addEventListener('pointermove', function (event) {
+          const rect = sparkleCanvas.getBoundingClientRect();
+          spawnSparkles(event.clientX - rect.left, event.clientY - rect.top);
+          queueSparkleFrame();
+        }, { passive: true });
+
+        document.addEventListener('perrengue:intro-close', function () {
+          sparkles = [];
+          if (sparkleFrame !== null) {
+            window.cancelAnimationFrame(sparkleFrame);
+            sparkleFrame = null;
+          }
+          sparkleContext.clearRect(0, 0, sparkleCanvas.width, sparkleCanvas.height);
+        });
+      }
+    }
   }
 
   /* ------------------------------------------------------------------------
@@ -335,9 +451,20 @@ document.addEventListener('DOMContentLoaded', function () {
     var prefersReducedMotionNow = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     cards.forEach(function (card) { card.hidden = visibleCards.indexOf(card) === -1; });
     visibleCards.forEach(function (card, index) {
-      card.style.setProperty('--reveal-delay', String(index * 55) + 'ms');
+      card.style.setProperty('--reveal-delay', String(Math.min(index, 5) * 55) + 'ms');
       if (!prefersReducedMotionNow) card.classList.remove('is-visible');
     });
+
+    // Re-adiciona o fade na próxima pintura: o IntersectionObserver só
+    // dispara em mudança de interseção, então sem isto os cards que já
+    // estavam visíveis ficavam presos semi-transparentes.
+    if (!prefersReducedMotionNow) {
+      window.requestAnimationFrame(function () {
+        window.requestAnimationFrame(function () {
+          visibleCards.forEach(function (card) { card.classList.add('is-visible'); });
+        });
+      });
+    }
 
     // Categorias ainda sem peças continuam com o aviso dentro da grade.
     emptyStates.forEach(function (state) {
@@ -436,13 +563,16 @@ document.addEventListener('DOMContentLoaded', function () {
   /* ------------------------------------------------------------------------
      6. ANIMAÇÃO DE ENTRADA AO ROLAR
      ------------------------------------------------------------------------ */
-  const revealItems = document.querySelectorAll('.reveal');
+  // Cards do catálogo são controlados pelo renderCatalog (re-anima a cada
+  // troca de página/filtro); o observer cuida das seções e títulos.
+  const revealItems = document.querySelectorAll('.reveal:not(.product-card)');
 
   if ('IntersectionObserver' in window) {
     const revealObserver = new IntersectionObserver(function (entries, observer) {
       entries.forEach(function (entry) {
         if (!entry.isIntersecting) return;
         entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
       });
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 

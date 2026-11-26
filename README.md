@@ -59,11 +59,11 @@ As categorias aparecem em ordem alfabética (com **Todos** fixo no início) e, d
 
 No momento, o catálogo tem **48 peças**: **Conjuntos** (9 peças), **Pulseiras** (8 peças) e **Anéis** (31 peças), com fotos reais em `assets/img/conjunto-*.webp`, `assets/img/pulseira-*.webp` e `assets/img/anel-*.webp`. Anéis que aparecem em dupla na foto custam R$ 14,90; os demais, R$ 9,90. Brincos e Colares exibem o aviso “Novidades em breve” no lugar de produtos ilustrativos: cada aviso é um bloco `.coming-soon` cujo `data-category` combina com a aba correspondente. Ao cadastrar uma peça de verdade, adicione o `.product-card` e remova o `.coming-soon` daquela categoria.
 
-Para usar fotos reais, coloque o arquivo em `assets/img/` e troque apenas o `src` da `<img>` (o mesmo valor serve para desktop e mobile).
+Para usar fotos reais, coloque o arquivo em `assets/img/` e troque apenas o `src` da `<img>` (o mesmo valor serve para desktop e mobile). As fotos dos anéis passaram por correção de cor (white balance, intensidade 50%) em novembro de 2026; as seções de brincos e colares seguem com os avisos de "Novidades em breve" até que existam fotos.
 
 ### Tela inicial estilo Linktree
 
-Quando o JavaScript está disponível, o site abre em uma tela verde de acesso com a logo sobre um vidro embaçado (o conteúdo por trás fica desfocado), atalhos para o site, WhatsApp e Instagram, formas de pagamento (PIX, dinheiro e cartão) e a localização Campina Grande em destaque. O botão **Entrar no catálogo** fecha a tela e leva ao topo do site. Sem JavaScript, a página abre normalmente.
+Quando o JavaScript está disponível, o site abre em uma tela verde de acesso com a logo sobre um vidro embaçado (o conteúdo por trás fica desfocado), atalhos para o site, WhatsApp e Instagram, formas de pagamento (PIX, dinheiro e cartão) e a localização Campina Grande em destaque. Mover o cursor deixa uma trilha de brilhos dourados (desativada com `prefers-reduced-motion`). O botão **Entrar no catálogo** fecha a tela e leva para `/#inicio` (topo do site). Sem JavaScript, a página abre normalmente.
 
 ### Animações
 

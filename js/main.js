@@ -141,35 +141,110 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   /* ------------------------------------------------------------------------
-     4. FILTRO DO CATÁLOGO EM TEMPO REAL
-     Cada card define sua categoria em data-category. Para criar uma nova
-     categoria, adicione um botão .tab com data-filter igual ao valor usado
-     nos cards (ex.: data-filter="colares").
+     4. FILTRO E PAGINAÇÃO DO CATÁLOGO EM TEMPO REAL
+     Cada card define sua categoria em data-category. Cada categoria mostra
+     seis peças por vez; quando há mais, a navegação de páginas aparece no
+     fim da seção, acima dos botões de categoria.
      ------------------------------------------------------------------------ */
+  var PAGE_SIZE = 6;
   const tabs = Array.prototype.slice.call(document.querySelectorAll('.tab[data-filter]'));
   const cards = Array.prototype.slice.call(document.querySelectorAll('.product-card'));
   const emptyStates = Array.prototype.slice.call(document.querySelectorAll('.coming-soon[data-category]'));
   const grid = document.getElementById('grade-produtos');
+  const pagination = document.getElementById('catalog-pagination');
+  const pagesContainer = document.getElementById('catalog-pages');
+  const prevPageButton = pagination ? pagination.querySelector('[data-page-action="prev"]') : null;
+  const nextPageButton = pagination ? pagination.querySelector('[data-page-action="next"]') : null;
 
   // As abas aparecem duas vezes: no topo do catálogo e no fim da lista.
   // Cada grupo tem a sua própria navegação por setas, e o estado fica igual
   // nos dois, então clicar embaixo reflete em cima e vice-versa.
   const tabGroups = Array.prototype.slice.call(document.querySelectorAll('.tabs'));
+  let currentFilter = 'todos';
+  let currentPage = 1;
 
-  function activateTab(selectedTab) {
-    const filter = selectedTab.dataset.filter;
+  function getMatchingCards(filter) {
+    return cards.filter(function (card) {
+      return filter === 'todos' || card.dataset.category === filter;
+    });
+  }
 
+  function updateTabs(filter) {
     tabs.forEach(function (tab) {
       const isActive = tab.dataset.filter === filter;
       tab.classList.toggle('is-active', isActive);
       tab.setAttribute('aria-selected', String(isActive));
       tab.tabIndex = isActive ? 0 : -1;
     });
+  }
 
-    cards.forEach(function (card) {
-      const matches = filter === 'todos' || card.dataset.category === filter;
-      card.hidden = !matches;
+  function getPageItems(totalPages, page) {
+    if (totalPages <= 7) {
+      return Array.from({ length: totalPages }, function (_, index) { return index + 1; });
+    }
+
+    var items = [1];
+    var start = Math.max(2, page - 1);
+    var end = Math.min(totalPages - 1, page + 1);
+
+    if (page <= 3) { start = 2; end = 4; }
+    if (page >= totalPages - 2) { start = totalPages - 3; end = totalPages - 1; }
+    if (start > 2) items.push('ellipsis');
+    for (var pageNumber = start; pageNumber <= end; pageNumber += 1) items.push(pageNumber);
+    if (end < totalPages - 1) items.push('ellipsis');
+    items.push(totalPages);
+    return items;
+  }
+
+  function scrollToGrid() {
+    if (!grid) return;
+    var rootStyles = window.getComputedStyle(document.documentElement);
+    var headerHeight = parseFloat(rootStyles.getPropertyValue('--header-height')) || 80;
+    var top = grid.getBoundingClientRect().top + window.pageYOffset - headerHeight - 16;
+    var prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({ top: Math.max(top, 0), behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+  }
+
+  function renderPagination(totalPages, page) {
+    if (!pagination || !pagesContainer || !prevPageButton || !nextPageButton) return;
+
+    var shouldShow = totalPages > 1;
+    pagination.hidden = !shouldShow;
+    prevPageButton.disabled = !shouldShow || page === 1;
+    nextPageButton.disabled = !shouldShow || page === totalPages;
+    pagesContainer.innerHTML = '';
+
+    if (!shouldShow) return;
+
+    getPageItems(totalPages, page).forEach(function (item) {
+      if (item === 'ellipsis') {
+        var ellipsis = document.createElement('span');
+        ellipsis.className = 'page-ellipsis';
+        ellipsis.textContent = '…';
+        ellipsis.setAttribute('aria-hidden', 'true');
+        pagesContainer.appendChild(ellipsis);
+        return;
+      }
+
+      var button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'page-number' + (item === page ? ' is-active' : '');
+      button.textContent = String(item);
+      button.setAttribute('aria-label', 'Ver página ' + item);
+      if (item === page) button.setAttribute('aria-current', 'page');
+      button.addEventListener('click', function () { goToPage(item); });
+      pagesContainer.appendChild(button);
     });
+  }
+
+  function renderCatalog(filter, page) {
+    const matchingCards = getMatchingCards(filter);
+    const totalPages = Math.max(1, Math.ceil(matchingCards.length / PAGE_SIZE));
+    const safePage = Math.min(Math.max(page || 1, 1), totalPages);
+    const start = (safePage - 1) * PAGE_SIZE;
+    const visibleCards = matchingCards.slice(start, start + PAGE_SIZE);
+
+    cards.forEach(function (card) { card.hidden = visibleCards.indexOf(card) === -1; });
 
     // Categorias ainda sem peças continuam com o aviso dentro da grade.
     emptyStates.forEach(function (state) {
@@ -180,6 +255,36 @@ document.addEventListener('DOMContentLoaded', function () {
       const tabTop = document.getElementById('tab-' + filter);
       if (tabTop) grid.setAttribute('aria-labelledby', tabTop.id);
     }
+
+    currentFilter = filter;
+    currentPage = safePage;
+    updateTabs(filter);
+    renderPagination(totalPages, safePage);
+  }
+
+  function goToPage(page) {
+    renderCatalog(currentFilter, page);
+    scrollToGrid();
+  }
+
+  function activateTab(selectedTab) {
+    const filter = selectedTab.dataset.filter;
+    const nextPage = filter === currentFilter ? currentPage : 1;
+    renderCatalog(filter, nextPage);
+  }
+
+  if (prevPageButton) {
+    prevPageButton.addEventListener('click', function () {
+      if (currentPage > 1) goToPage(currentPage - 1);
+    });
+  }
+
+  if (nextPageButton) {
+    nextPageButton.addEventListener('click', function () {
+      var matchingCards = getMatchingCards(currentFilter);
+      var totalPages = Math.ceil(matchingCards.length / PAGE_SIZE);
+      if (currentPage < totalPages) goToPage(currentPage + 1);
+    });
   }
 
   tabGroups.forEach(function (group) {
@@ -204,6 +309,9 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     });
   });
+
+  var initialTab = tabs.filter(function (tab) { return tab.classList.contains('is-active'); })[0] || tabs[0];
+  if (initialTab) renderCatalog(initialTab.dataset.filter, 1);
 
   /* ------------------------------------------------------------------------
      5. LINKS DO WHATSAPP
